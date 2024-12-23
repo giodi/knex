@@ -1,0 +1,1580 @@
+- {backend: 86, id: 1229, name: Geburts- und Sterbedatum von Personen, query: "PREFIX\
+    \ rico: <https://www.ica.org/standards/RiC/ontology#>\r\nPREFIX bbb: <https://burgerbib.ch/deskriptoren/>\r\
+    \nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\n\r\nSELECT ?name ?birth_date\
+    \  ?death_date {\r\n  ?person a rico:Person ;\r\n          rico:hasOrHadName ?name\
+    \ ;\r\n          rico:hasBirthDate ?birth_date ;\r\n          rico:hasDeathDate\
+    \ ?death_date .\r\n}  ORDER BY ASC (?birth_date) LIMIT 100", sortKey: '~'}
+- {backend: 31, id: 1228, name: 'Case 16: Chemicals co-mentioned with KDR, PDGFRB,
+    and FGFR1', query: "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX sio: <http://semanticscience.org/resource/>\r\nPREFIX gene: <http://rdf.ncbi.nlm.nih.gov/pubchem/gene/>\r\
+    \nSELECT ?score1 ?score2 ?score3 ?compound\r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/cooccurrence>\r\
+    \nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/gene>\r\nWHERE { {\r\n  ?cooccurrence1\
+    \ rdf:subject ?genesymbol1 .\r\n  ?genesymbol1 rdf:type sio:SIO_001383 ; sio:SIO_000300\
+    \ \"kdr\" .\r\n  ?cooccurrence1 rdf:object ?compound .\r\n  ?cooccurrence1 rdf:type\
+    \ sio:SIO_001257 .\r\n  ?cooccurrence1 sio:SIO_000300 ?score1 . } {\r\n  ?cooccurrence2\
+    \ rdf:subject ?genesymbol2 .\r\n  ?genesymbol2 rdf:type sio:SIO_001383 ; sio:SIO_000300\
+    \ \"pdgfrb\" .\r\n  ?cooccurrence2 rdf:object ?compound .\r\n  ?cooccurrence2\
+    \ rdf:type sio:SIO_001257 .\r\n  ?cooccurrence2 sio:SIO_000300 ?score2 . } {\r\
+    \n  ?cooccurrence3 rdf:subject ?genesymbol3 .\r\n  ?genesymbol3 rdf:type sio:SIO_001383\
+    \ ; sio:SIO_000300 \"fgfr1\" .\r\n  ?cooccurrence3 rdf:object ?compound .\r\n\
+    \  ?cooccurrence3 rdf:type sio:SIO_001257 .\r\n  ?cooccurrence3 sio:SIO_000300\
+    \ ?score3 . }\r\n}\r\nORDER BY DESC(?score1) DESC(?score2) DESC(?score3)", sortKey: C.16}
+- {backend: 31, id: 1227, name: 'Case 15: Chemicals commonly mentioned with the fibroblast
+    growth factor receptor 1 gene', query: "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX sio: <http://semanticscience.org/resource/>\r\nPREFIX gene: <http://rdf.ncbi.nlm.nih.gov/pubchem/gene/>\r\
+    \nSELECT ?compound\r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/cooccurrence>\r\
+    \nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/gene>\r\nWHERE {\r\n  ?cooccurrence\
+    \ rdf:subject ?genesymbol .\r\n  ?genesymbol rdf:type sio:SIO_001383 ; sio:SIO_000300\
+    \ \"fgfr1\" .\r\n  ?cooccurrence rdf:object ?compound .\r\n  ?cooccurrence rdf:type\
+    \ sio:SIO_001257 .\r\n  ?cooccurrence sio:SIO_000300 ?score .\r\n}", sortKey: C.15}
+- {backend: 31, id: 1226, name: 'Case 14: Top ten diseases co-occurring with the gene
+    most commonly mentioned with maribavir', query: "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX sio: <http://semanticscience.org/resource/>\r\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\r\
+    \nPREFIX compound: <http://rdf.ncbi.nlm.nih.gov/pubchem/compound/>\r\nSELECT ?gene\
+    \ ?disease ?disease_prefLabel\r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/cooccurrence>\r\
+    \nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/disease>\r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/cooccurrence>\r\
+    \nWHERE { \r\n  {\r\n    SELECT ?gene\r\n    WHERE { \r\n      ?cooccurrence1\
+    \ rdf:subject compound:CID471161 .\r\n      ?cooccurrence1 rdf:object ?gene .\
+    \ \r\n      ?cooccurrence1 rdf:type sio:SIO_001257 .\r\n      ?cooccurrence1 sio:SIO_000300\
+    \ ?score1 . \r\n    } \r\n    ORDER BY DESC(?score1) \r\n    LIMIT 1\r\n  }\r\n\
+    \  ?cooccurrence2 rdf:subject ?gene .\r\n  ?cooccurrence2 rdf:object ?disease\
+    \ . \r\n  ?cooccurrence2 rdf:type sio:SIO_000983 .\r\n  ?cooccurrence2 sio:SIO_000300\
+    \ ?score2 . \r\n  ?disease skos:prefLabel ?disease_prefLabel .\r\n} \r\nORDER\
+    \ BY DESC(?score2)\r\nLIMIT 10", sortKey: C.14}
+- {backend: 31, id: 1225, name: 'Case 13: Top 20 genes co-mentioned with indomethacin',
+  query: "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX sio:\
+    \ <http://semanticscience.org/resource/>\r\nPREFIX compound: <http://rdf.ncbi.nlm.nih.gov/pubchem/compound/>\r\
+    \nSELECT ?gene ?geneid ?prefLabel\r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/cooccurrence>\r\
+    \nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/gene>\r\nWHERE {\r\n  ?cooccurrence\
+    \ rdf:subject compound:CID3715 .\r\n  ?cooccurrence rdf:object ?gene .\r\n  ?cooccurrence\
+    \ rdf:type sio:SIO_001257 .\r\n  ?cooccurrence sio:SIO_000300 ?score .\r\n  ?geneid\
+    \ <http://www.bioassayontology.org/bao#BAO_0002870> ?gene.\r\n  ?geneid <http://purl.uniprot.org/core/organism>\
+    \ <http://rdf.ncbi.nlm.nih.gov/pubchem/taxonomy/TAXID9606>.\r\n  ?geneid <http://www.w3.org/2004/02/skos/core#prefLabel>\
+    \ ?prefLabel.\r\n}\r\nORDER BY DESC(?score)\r\nLIMIT 20", sortKey: C.13}
+- {backend: 31, id: 1224, name: 'Case 12: Three most recent references that mention
+    indomethacin and inflammation', query: "PREFIX prism: <http://prismstandard.org/namespaces/basic/3.0/>\r\
+    \nPREFIX dcterms: <http://purl.org/dc/terms/>\r\nPREFIX pcvocab: <http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#>\r\
+    \nPREFIX disease: <http://rdf.ncbi.nlm.nih.gov/pubchem/disease/>\r\nPREFIX compound:\
+    \ <http://rdf.ncbi.nlm.nih.gov/pubchem/compound/>\r\nSELECT ?ref ?date ?journal\
+    \ ?title\r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/reference> \r\nWHERE {\r\
+    \n  ?ref pcvocab:discussesAsDerivedByTextMining compound:CID3715 .\r\n  ?ref pcvocab:discussesAsDerivedByTextMining\
+    \ disease:DZID8173 .\r\n  ?ref dcterms:date ?date .\r\n  ?ref dcterms:title ?title\
+    \ .\r\n  ?ref prism:publicationName ?journal .\r\n} \r\nORDER BY DESC(?date)\r\
+    \nLIMIT 3", sortKey: C.12}
+- {backend: 39, id: 1223, name: All graphs with their number of triples, query: "SELECT\
+    \ ?g (COUNT(?g) AS ?count) WHERE {\r\n  GRAPH ?g { ?s ?p ?o }\r\n}\r\nGROUP BY\
+    \ ?g\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 8, id: 1204, name: 'Datatypes of wdt:P625 coordinates', query: "PREFIX\
+    \ geo: <http://www.opengis.net/ont/geosparql#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nSELECT ?datatype (COUNT(?location) as ?num_locations) WHERE {\r\n  ?subject\
+    \ wdt:P625 ?location .\r\n  BIND (DATATYPE(?location) AS ?datatype)\r\n}\r\nGROUP\
+    \ BY ?datatype \r\nORDER BY DESC(?num_locations)", sortKey: '~'}
+- {backend: 17, id: 1146, name: All buildings under a power line, query: "PREFIX ogc:\
+    \ <http://www.opengis.net/rdf#>\r\nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\
+    \nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\nSELECT ?building ?powerline\
+    \ ?building_geometry WHERE {\r\n  ?building osmkey:building [] .\r\n  ?powerline\
+    \ osmkey:power \"line\" .\r\n  ?building ogc:sfIntersects ?powerline .\r\n  ?building\
+    \ geo:hasGeometry/geo:asWKT ?building_geometry .\r\n}", sortKey: '~'}
+- {backend: 8, id: 1105, name: English monarchs, query: "PREFIX pq: <http://www.wikidata.org/prop/qualifier/>\r\
+    \nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT ?monarch (SAMPLE(?image_)\
+    \ AS ?image) (MIN(?start_time_) as ?start_time) (MAX(?end_time_) AS ?end_time)\
+    \ WHERE {\r\n  ?monarch p:P39 ?monarch_position_held .\r\n  ?monarch_position_held\
+    \ ps:P39 ?position_held .\r\n  ?position_held wdt:P361 wd:Q645968 .\r\n  ?monarch_position_held\
+    \ pq:P580 ?start_time_ .\r\n  OPTIONAL { ?monarch_position_held pq:P582 ?end_time_\
+    \ }\r\n  ?monarch wdt:P18 ?image_ .\r\n  ?monarch rdfs:label ?monarch_label .\r\
+    \n  FILTER (LANG(?monarch_label) = \"en\") .\r\n}\r\nGROUP BY ?monarch\r\nORDER\
+    \ BY DESC(?start_time)", sortKey: '~'}
+- {backend: 8, id: 1099, name: 'Version date (wikibase:Dump schema:dateModified ?date)',
+  query: "PREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX schema: <http://schema.org/>\r\
+    \nSELECT ?date WHERE {\r\n  wikibase:Dump schema:dateModified ?date\r\n}\r\nORDER\
+    \ BY DESC(?date)\r\nLIMIT 1", sortKey: '~'}
+- {backend: 17, id: 1040, name: Turn points into polygons (for spatialjoin), query: "PREFIX\
+    \ osm: <https://www.openstreetmap.org/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\
+    \nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\r\nSELECT (REPLACE(STR(?osm_id),\
+    \ \"^.*/([0-9]+)\", \"osmnode:\\\\1\") AS ?id)\r\n       (CONCAT(\"POINT(\", ?lng,\
+    \ \" \", ?lat, \")\") AS ?point)\r\n       (CONCAT(\"POLYGON((\", ?lng - ?radius,\
+    \ \" \", ?lat - ?radius,\r\n\t                   \",\", ?lng + ?radius, \" \"\
+    , ?lat - ?radius,\r\n\t\t\t\t\t   \",\", ?lng + ?radius, \" \", ?lat + ?radius,\r\
+    \n\t\t\t\t\t   \",\", ?lng - ?radius, \" \", ?lat + ?radius,\r\n\t\t\t\t\t   \"\
+    ,\", ?lng - ?radius, \" \", ?lat - ?radius, \"))\") AS ?square)\r\nWHERE {\r\n\
+    \  ?osm_id osmkey:amenity \"restaurant\" .\r\n  ?osm_id rdf:type osm:node .\r\n\
+    \  ?osm_id geo:hasGeometry/geo:asWKT ?point_wkt .\r\n  BIND(geof:longitude(?point_wkt)\
+    \ AS ?lng)\r\n  BIND(geof:latitude(?point_wkt) AS ?lat)\r\n  BIND(0.005 AS ?radius)\r\
+    \n}", sortKey: '~'}
+- {backend: 17, id: 1039, name: Neighboring region of region X, query: "PREFIX osmkey:\
+    \ <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX osmrel: <https://www.openstreetmap.org/relation/>\r\
+    \nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX osm: <https://www.openstreetmap.org/>\r\
+    \nPREFIX ogc: <http://www.opengis.net/rdf#>\r\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nSELECT ?region ?admin_level ?name ?shape  WHERE { {\r\n  osmrel:17657 geo:hasGeometry\
+    \ ?query_shape .\r\n  ?query_region geo:hasGeometry ?query_shape .\r\n  ?query_region\
+    \ osmkey:admin_level ?admin_level .\r\n  ?query_region ogc:sfIntersects ?region\
+    \ .\r\n  ?region osmkey:boundary \"administrative\" .\r\n  ?region osmkey:admin_level\
+    \ ?admin_level .\r\n  ?region rdf:type osm:relation .\r\n  ?region osmkey:name\
+    \ ?name .\r\n  ?region geo:hasGeometry/geo:asWKT ?shape }\r\n  FILTER (?region\
+    \ != ?query_region)\r\n}", sortKey: '~'}
+- {backend: 17, id: 1023, name: MENA countries and their religion, query: "PREFIX\
+    \ osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\nPREFIX osm2rdfkey: <https://osm2rdf.cs.uni-freiburg.de/rdf/key#>\r\
+    \nSELECT ?country_osm ?country_wd ?country_name ?religion ?shape WHERE {\r\n \
+    \ ?country_osm osm2rdfkey:wikidata ?country_wd .\r\n  ?country_osm osmkey:admin_level\
+    \ 2 .\r\n  ?country_osm geo:hasGeometry/geo:asWKT ?shape .\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata>\
+    \ {\r\n    wd:Q984212 wdt:P17 ?country_wd .\r\n    { ?country_wd wdt:P463 wd:Q7172\
+    \ . BIND(\"Islam\"@en AS ?religion) }\r\n    UNION\r\n    { BIND (wd:Q801 AS ?country_wd)\
+    \ . BIND(\"Judaism\"@en AS ?religion) }\r\n    ?country_wd rdfs:label ?country_name\
+    \ FILTER (LANG(?country_name) = \"en\") .\r\n  }\r\n}", sortKey: '~'}
+- {backend: 17, id: 1022, name: Countries with most neighbors, query: "PREFIX ogc:\
+    \ <http://www.opengis.net/rdf#>\r\nPREFIX osmrel: <https://www.openstreetmap.org/relation/>\r\
+    \nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\nPREFIX osm: <https://www.openstreetmap.org/>\r\
+    \nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX osmkey:\
+    \ <https://www.openstreetmap.org/wiki/Key:>\r\nSELECT ?country ?name ?num_neighbors\
+    \ WHERE {\r\n  { SELECT ?country (COUNT(?neighbor) as ?num_neighbors)  WHERE {\r\
+    \n    ?country ogc:sfIntersects ?neighbor .\r\n    ?country osmkey:boundary \"\
+    administrative\" .\r\n    ?country rdf:type osm:relation .\r\n    ?country osmkey:admin_level\
+    \ 2 .\r\n    ?neighbor osmkey:boundary \"administrative\" .\r\n    ?neighbor osmkey:admin_level\
+    \ 2 .\r\n    ?neighbor rdf:type osm:relation .\r\n\tFILTER (?neighbor != ?country)\r\
+    \n    } GROUP BY ?country }\r\n  ?country osmkey:name:en ?name .\r\n  ?country\
+    \ geo:hasGeometry/geo:asWKT ?shape .\r\n}\r\nORDER BY DESC(?num_neighbors)", sortKey: '~'}
+- {backend: 15, id: 982, name: All papers with their title (large result), query: "PREFIX\
+    \ dblp: <https://dblp.org/rdf/schema#>\r\nSELECT ?paper ?title WHERE {\r\n  ?paper\
+    \ dblp:title ?title .\r\n}", sortKey: '~'}
+- {backend: 8, id: 981, name: Oscar-winning movies with their IMDb score, query: "PREFIX\
+    \ pq: <http://www.wikidata.org/prop/qualifier/>\r\nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\
+    \nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX schema: <http://schema.org/>\r\
+    \nPREFIX imdb: <https://www.imdb.com/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nSELECT ?movie ?imdb_id ?title (MIN(YEAR(?date)) AS ?year) ?imdb_votes ?imdb_rating\
+    \ (GROUP_CONCAT(?award_name) AS ?awards) WHERE {\r\n  ?movie wdt:P31 wd:Q11424\
+    \ .\r\n  ?movie wdt:P345 ?imdb_id .\r\n  ?movie wdt:P577 ?date .\r\n  ?movie rdfs:label\
+    \ ?title FILTER (LANG(?title) = \"en\") .\r\n  ?person p:P166 ?person_award .\r\
+    \n  ?person_award ps:P166 ?award .\r\n  ?person_award pq:P1686 ?movie .\r\n  ?award\
+    \ rdfs:label ?award_name FILTER (LANG(?award_name) = \"en\") .\r\n  ?award wdt:P31\
+    \ wd:Q19020 .\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/imdb> {\r\n\t\
+    ?movie_imdb imdb:id ?imdb_id .\r\n\t?movie_imdb imdb:type \"movie\" .\r\n    ?movie_imdb\
+    \ imdb:numVotes ?imdb_votes .\r\n    ?movie_imdb imdb:averageRating ?imdb_rating\
+    \ .\r\n  }\r\n}\r\nGROUP BY ?movie ?title ?imdb_id ?imdb_votes ?imdb_rating\r\n\
+    ORDER BY DESC(?imdb_votes)", sortKey: '~'}
+- {backend: 8, id: 960, name: Frequent groups of professions, query: "PREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nSELECT ?professions (COUNT(?professions) AS ?count_professions) WHERE {\r\n\
+    \  SELECT ?person_id ?person (COUNT(?profession_id) AS ?count) (GROUP_CONCAT(DISTINCT\
+    \ ?profession; separator=\", \") AS ?professions) WHERE {\r\n    SELECT * WHERE\
+    \ {\r\n      ?person_id wdt:P31 wd:Q5 .\r\n      ?person_id wdt:P106 ?profession_id\
+    \ .\r\n      ?profession_id rdfs:label ?profession .\r\n      ?person_id rdfs:label\
+    \ ?person .\r\n      FILTER (LANG(?person) = \"en\") .\r\n      FILTER (LANG(?profession)\
+    \ = \"en\")\r\n    } INTERNAL SORT BY ?person ?person_id ?profession\r\n  } GROUP\
+    \ BY ?person_id ?person HAVING (?count >= 5)\r\n} GROUP BY ?professions ORDER\
+    \ BY DESC(?count_professions)", sortKey: '~'}
+- {backend: 17, id: 898, name: All streets in Africa, query: "PREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\
+    \nPREFIX osm2rdfkey: <https://osm2rdf.cs.uni-freiburg.de/rdf/key#>\r\nPREFIX rdf:\
+    \ <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX ogc: <http://www.opengis.net/rdf#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\nPREFIX osm: <https://www.openstreetmap.org/>\r\
+    \nSELECT ?osm_id ?shape WHERE {\r\n  ?country osm2rdfkey:wikidata ?country_wikidata\
+    \ .\r\n  ?country ogc:sfContains ?osm_id .\r\n  ?osm_id osmkey:highway ?highway\
+    \ .\r\n  ?osm_id rdf:type osm:way .\r\n  ?osm_id geo:hasGeometry/geo:asWKT ?shape\r\
+    \n  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata> {\r\n    ?country_wikidata\
+    \ wdt:P30/@en@rdfs:label \"Africa\"@en\r\n  }\r\n}", sortKey: '~'}
+- {backend: 68, id: 894, name: Countries at a certain date, query: "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osm: <https://www.openstreetmap.org/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\
+    \nSELECT ?country ?name ?start_date ?end_date ?date ?geometry WHERE {\r\n  ?country\
+    \ osmkey:admin_level \"2\"^^xsd:int .\r\n  ?country rdf:type osm:relation .\r\n\
+    \  ?country osmkey:name ?name .\r\n  ?country geo:hasGeometry/geo:asWKT ?geometry\
+    \ .\r\n  ?country osmkey:start_date ?start_date .\r\n  ?country osmkey:end_date\
+    \ ?end_date .\r\n  VALUES ?date { \"1900-01-01\"^^xsd:date }\r\n  FILTER (?date\
+    \ >= ?start_date && ?date <= ?end_date)\r\n}", sortKey: '~'}
+- {backend: 68, id: 893, name: All streets, query: "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osm2rdfgeom: <https://osm2rdf.cs.uni-freiburg.de/rdf/geom#>\r\nPREFIX\
+    \ osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\nSELECT ?ohm_id ?geometry\
+    \ WHERE {\r\n  ?ohm_id osmkey:highway ?highway .\r\n  ?ohm_id geo:hasGeometry/geo:asWKT\
+    \ ?geometry .\r\n}", sortKey: '~'}
+- {backend: 68, id: 892, name: All predicates with their absolute and relative size,
+  query: "SELECT ?p ?count ?percent WHERE {\r\n  { SELECT ?p (COUNT(?p) AS ?count)\
+    \ WHERE { ?s ?p ?o } GROUP BY ?p }\r\n  BIND(100 * ?count / SUM(?count) AS ?percent)\r\
+    \n}\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 17, id: 856, name: Geometry types in region X, query: "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX ogc: <http://www.opengis.net/rdf#>\r\nPREFIX osmrel: <https://www.openstreetmap.org/relation/>\r\
+    \nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX osm: <https://www.openstreetmap.org/>\r\
+    \nSELECT ?geometry_prefix (COUNT(?geometry_prefix) as ?count_geometry_prefix)\
+    \ WHERE {\r\n  osmrel:192307 ogc:sfContains ?osm_id .\r\n  ?osm_id rdf:type osm:way\
+    \ .\r\n  ?osm_id geo:hasGeometry ?geometry .\r\n  BIND (STRBEFORE(STR(?geometry),\
+    \ \"(\") AS ?geometry_prefix)\r\n}\r\nGROUP BY ?geometry_prefix", sortKey: '~'}
+- {backend: 17, id: 854, name: NATO members, query: "PREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\
+    \nPREFIX osm: <https://www.openstreetmap.org/>\r\nPREFIX ogc: <http://www.opengis.net/rdf#>\r\
+    \nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\
+    \nPREFIX pq: <http://www.wikidata.org/prop/qualifier/>\r\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nSELECT ?country_osm ?country_wd ?border WHERE {\r\n  ?country_osm osm:wikidata\
+    \ ?country_wd .\r\n  ?country_osm geo:hasGeometry/geo:asWKT ?border .\r\n  SERVICE\
+    \ <https://qlever.cs.uni-freiburg.de/api/wikidata> {\r\n    SELECT ?country_wd\
+    \ WHERE {\r\n\t  ?country_wd wdt:P463 wd:Q7184 .\r\n      MINUS { ?country_wd\
+    \ p:P463 ?m . ?m ps:P463 wd:Q7184 . ?m pq:P582 ?end_time }\r\n\t}\r\n  }\r\n}",
+  sortKey: '~'}
+- {backend: 8, id: 853, name: Famous people where we don't know the birth date, query: "PREFIX\
+    \ wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX schema: <http://schema.org/>\r\
+    \nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nSELECT ?subject ?subject_label ?date_of_birth ?sitelinks WHERE {\r\n  ?subject\
+    \ wdt:P569 ?date_of_birth .\r\n  ?subject ^schema:about/wikibase:sitelinks ?sitelinks\
+    \ .\r\n  ?subject rdfs:label ?subject_label .\r\n  FILTER (LANG(?subject_label)\
+    \ = \"en\") .\r\n  FILTER ISBLANK(?date_of_birth)\r\n}\r\nORDER BY DESC(?sitelinks)",
+  sortKey: '~'}
+- {backend: 8, id: 852, name: 'Test for isIRI, isBlank, isLiteral', query: "PREFIX\
+    \ xsd: <http://www.w3.org/2001/XMLSchema#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nSELECT ?x (isIRI(?x) AS\
+    \ ?isiri) (isBlank(?x) AS ?isblank) (isLiteral(?x) AS ?isliteral) WHERE {\r\n\
+    \  { VALUES ?x { wd:Q5 \"Hannah\"@en \"local___vocab\" \"2023-10-02\"^^xsd:date\
+    \ 3.14 42 UNDEF } } UNION { wd:Q1001122 wdt:P569 ?x }\r\n}", sortKey: '~'}
+- {backend: 17, id: 849, name: The power network of the EU, query: "PREFIX osmkey:\
+    \ <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX osm: <https://www.openstreetmap.org/>\r\
+    \nPREFIX ogc: <http://www.opengis.net/rdf#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\
+    \nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\nPREFIX pq: <http://www.wikidata.org/prop/qualifier/>\r\
+    \nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\nPREFIX osm2rdf: <https://osm2rdf.cs.uni-freiburg.de/rdf#>\r\
+    \nPREFIX osm2rdfkey: <https://osm2rdf.cs.uni-freiburg.de/rdf/key#>\r\nSELECT ?powerline\
+    \ ?country_osm ?country_wd ?geometry WHERE {\r\n  ?country_osm osm2rdfkey:wikidata\
+    \ ?country_wd .\r\n  ?country_osm ogc:sfContains ?powerline .\r\n  ?powerline\
+    \ osmkey:power \"line\" .\r\n  ?powerline geo:hasGeometry/geo:asWKT ?geometry\
+    \ .\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata> {\r\n    SELECT\
+    \ ?country_wd WHERE {\r\n\t  ?country_wd wdt:P463 wd:Q458 .\r\n      MINUS { ?country_wd\
+    \ p:P463 ?m . ?m ps:P463 wd:Q458 . ?m pq:P582 ?end_time }\r\n\t}\r\n  }\r\n}",
+  sortKey: '~'}
+- {backend: 17, id: 794, name: 'Which countries contain which river, with LINK per
+    part', query: "PREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX\
+    \ osmrel: <https://www.openstreetmap.org/relation/>\r\nPREFIX osm: <https://www.openstreetmap.org/>\r\
+    \nPREFIX ogc: <http://www.opengis.net/rdf#>\r\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osm2rdf: <https://osm2rdf.cs.uni-freiburg.de/rdf#>\r\nPREFIX osm2rdfmember:\
+    \ <https://osm2rdf.cs.uni-freiburg.de/rdf/member#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nSELECT ?country ?country_name \r\n       (111.32 * ?length_in_country AS ?length_in_km)\r\
+    \n       (100 * ?length_in_country / ?total_length AS ?percent)\r\n       (?river_piece_query\
+    \ AS ?river_piece_mapview) WHERE {\r\n  { SELECT ?country (SUM(?length) AS ?length_in_country)\
+    \ (SAMPLE(?river) AS ?river_) WHERE {\r\n    osmrel:123924 geo:hasGeometry ?geometry\
+    \ .\r\n    ?river geo:hasGeometry ?geometry .\r\n    ?country osmkey:admin_level\
+    \ 2 .\r\n    ?river osmrel:member ?river_member .\r\n    ?river_member osm2rdfmember:id\
+    \ ?river_piece .\r\n    ?river_piece osm2rdf:length ?length .\r\n    ?country\
+    \ osmkey:boundary \"administrative\" .\r\n    ?country rdf:type osm:relation .\r\
+    \n    ?country ogc:sfIntersects ?river_piece .\r\n  } GROUP BY ?country } \r\n\
+    \  OPTIONAL { ?country osmkey:name:en ?country_name }\r\n  OPTIONAL { ?country\
+    \ osmkey:name ?country_name }\r\n  BIND(SUM(?length_in_country) AS ?total_length)\
+    \ \r\n  BIND(CONCAT(\r\n    \"PREFIX osmrel: <https://www.openstreetmap.org/relation/>\\\
+    n\",\r\n    \"PREFIX osm: <https://www.openstreetmap.org/>\\n\",\r\n    \"PREFIX\
+    \ ogc: <http://www.opengis.net/rdf#>\\n\",\r\n    \"PREFIX geo: <http://www.opengis.net/ont/geosparql#>\\\
+    n\",\r\n    \"PREFIX osm2rdf: <https://osm2rdf.cs.uni-freiburg.de/rdf#>\\n\",\r\
+    \n\t\"PREFIX osm2rdfmember: <https://osm2rdf.cs.uni-freiburg.de/rdf/member#>\\\
+    n\",\r\n    \"SELECT ?river_piece ?length ?geometry WHERE {\\n\",\r\n    \" <\"\
+    , ?country, \"> ogc:sfIntersects ?river_piece .\\n\",\r\n    \" <\", ?river_,\
+    \ \"> osmrel:member ?river_member .\\n\",\r\n    \" ?river_member osm2rdfmember:id\
+    \ ?river_piece .\\n\",\r\n    \" ?river_piece geo:hasGeometry/geo:asWKT ?geometry\
+    \ .\\n\",\r\n    \" ?river_piece osm2rdf:length ?length .\\n\",\r\n    \"} ORDER\
+    \ BY DESC(?length)\") AS ?river_piece_query)\r\n}\r\nORDER BY DESC(?percent)",
+  sortKey: '~'}
+- {backend: 8, id: 793, name: Rivers ordered by length, query: "PREFIX wikibase: <http://wikiba.se/ontology#>\r\
+    \nPREFIX psv: <http://www.wikidata.org/prop/statement/value/>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nSELECT ?river_wd ?river_name\
+    \ (ROUND(MAX(?length_m)/1000) AS ?length_km) WHERE {\r\n  ?river_wd wdt:P31/wdt:P279*\
+    \ wd:Q4022 .\r\n  ?river_wd p:P2043/psv:P2043/wikibase:quantityNormalized/wikibase:quantityAmount\
+    \ ?length_m .\r\n  OPTIONAL { ?river_wd rdfs:label ?river_name . FILTER (LANG(?river_name)\
+    \ = \"de\") }\r\n  OPTIONAL { ?river_wd rdfs:label ?river_name . FILTER (LANG(?river_name)\
+    \ = \"en\") }\r\n}\r\nGROUP BY ?river_wd ?river_name \r\nORDER BY DESC(?length_km)",
+  sortKey: '~'}
+- {backend: 17, id: 792, name: Which countries contain river X how much, query: "PREFIX\
+    \ osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX osmrel: <https://www.openstreetmap.org/relation/>\r\
+    \nPREFIX osm: <https://www.openstreetmap.org/>\r\nPREFIX ogc: <http://www.opengis.net/rdf#>\r\
+    \nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\nPREFIX osm2rdf: <https://osm2rdf.cs.uni-freiburg.de/rdf#>\r\
+    \nSELECT ?country ?country_name (SUM(?length) AS ?length_in_country) (100 * SUM(?length)\
+    \ / SAMPLE(?total_length) AS ?percent) WHERE {\r\n  # The following subject is\
+    \ the ID of the river, you can use the autocompletion.\r\n  osmrel:123924 osmrel:member\
+    \ ?river_member .\r\n  ?river_member osm:id ?river_piece .\r\n  ?river_piece geo:hasGeometry/geo:asWKT\
+    \ ?geometry .\r\n  ?river_piece osm2rdf:length ?length .\r\n  ?country osmkey:boundary\
+    \ \"administrative\" .\r\n  ?country osmkey:admin_level 4 .\r\n  ?country ogc:sfIntersects\
+    \ ?river_piece .\r\n  BIND (SUM(?length) AS ?total_length)\r\n  OPTIONAL { ?country\
+    \ osmkey:name:de ?country_name }\r\n  OPTIONAL { ?country osmkey:name:en ?country_name\
+    \ }\r\n  OPTIONAL { ?country osmkey:name ?country_name }\r\n}\r\nGROUP BY ?country\
+    \ ?country_name\r\nORDER BY DESC(?percent)", sortKey: '~'}
+- {backend: 17, id: 791, name: 'Neighboring countries of Germany, ordered by length
+    of common border', query: "PREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\
+    \nPREFIX osmrel: <https://www.openstreetmap.org/relation/>\r\nPREFIX osm: <https://www.openstreetmap.org/>\r\
+    \nPREFIX ogc: <http://www.opengis.net/rdf#>\r\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osm2rdf: <https://osm2rdf.cs.uni-freiburg.de/rdf#>\r\nSELECT ?country\
+    \ ?country_name (SUM(?length) AS ?length_in_country) (100 * SUM(?length) / SAMPLE(?total_length)\
+    \ AS ?percent) WHERE {\r\n  ?country osmkey:boundary \"administrative\" .\r\n\
+    \  ?country osmkey:admin_level 2 .\r\n  ?country ogc:sfIntersects ?river_piece\
+    \ .\r\n  ?river osmkey:name \"Rhein\" .\r\n  ?river osmrel:member ?river_member\
+    \ .\r\n  ?river_member osm:id ?river_piece .\r\n  ?river_piece geo:hasGeometry\
+    \ ?geometry .\r\n  ?river_piece osm2rdf:length ?length .\r\n  BIND (SUM(?length)\
+    \ AS ?total_length)\r\n  OPTIONAL { ?country osmkey:name:de ?country_name }\r\n\
+    \  OPTIONAL { ?country osmkey:name:en ?country_name }\r\n  OPTIONAL { ?country\
+    \ osmkey:name ?country_name }\r\n}\r\nGROUP BY ?country ?country_name\r\nORDER\
+    \ BY DESC(?percent)", sortKey: '~'}
+- {backend: 8, id: 790, name: 'For each country, the city with the largest number
+    of museums', query: "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt:\
+    \ <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nSELECT ?country_label ?city_label ?max_num_museums ?coordinates WHERE {\r\n\
+    \  # For each country, the largest number of museums in a city.\r\n  { SELECT\
+    \ ?country (MAX(?num_museums) AS ?max_num_museums) WHERE {\r\n    { SELECT ?city\
+    \ (COUNT(DISTINCT ?museum) AS ?num_museums) WHERE {\r\n        ?museum wdt:P131+\
+    \ ?city .\r\n        ?city wdt:P31/wdt:P279* wd:Q515 .\r\n        ?museum wdt:P31/wdt:P279*\
+    \ wd:Q33506 .\r\n    } GROUP BY ?city }\r\n    ?city wdt:P17 ?country .\r\n  }\
+    \ GROUP BY ?country }\r\n  # Join the corresponding city.\r\n  { SELECT ?city\
+    \ (COUNT(DISTINCT ?museum) AS ?num_museums) WHERE {\r\n      ?museum wdt:P131+\
+    \ ?city .\r\n      ?city wdt:P31/wdt:P279* wd:Q515 .\r\n      ?museum wdt:P31/wdt:P279*\
+    \ wd:Q33506 .\r\n  } GROUP BY ?city }\r\n  ?city wdt:P17 ?country .\r\n  FILTER\
+    \ (?num_museums = ?max_num_museums)\r\n  # The name for each city and country\
+    \ and the coordinate of the city.\r\n  ?city wdt:P625 ?coordinates .\r\n  ?city\
+    \ rdfs:label ?city_label FILTER (LANG(?city_label) = \"en\") .\r\n  ?country rdfs:label\
+    \ ?country_label FILTER (LANG(?country_label) = \"en\") .\r\n} ORDER BY DESC(?max_num_museums)",
+  sortKey: '~'}
+- {backend: 31, id: 788, name: 'Case 11: Top five diseases commonly mentioned with
+    indomethacin', query: "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX sio: <http://semanticscience.org/resource/>\r\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\r\
+    \nPREFIX compound: <http://rdf.ncbi.nlm.nih.gov/pubchem/compound/>\r\nSELECT ?disease\
+    \ ?score ?disease_prefLabel\r\n    FROM <http://rdf.ncbi.nlm.nih.gov/pubchem/cooccurrence>\
+    \ \r\n    FROM <http://rdf.ncbi.nlm.nih.gov/pubchem/disease>  \r\nWHERE { \r\n\
+    \    ?cooccurrence rdf:subject compound:CID3715 .\r\n    ?cooccurrence rdf:object\
+    \ ?disease . \r\n    ?cooccurrence rdf:type sio:SIO_000993 .\r\n    ?cooccurrence\
+    \ sio:SIO_000300 ?score . \r\n    ?disease skos:prefLabel ?disease_prefLabel .\r\
+    \n} \r\nORDER BY DESC(?score) \r\nLIMIT 5", sortKey: C.11}
+- {backend: 32, id: 787, name: 'All taxa, ordered by the number of organisms', query: "PREFIX\
+    \ up: <http://purl.uniprot.org/core/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX taxon: <http://purl.uniprot.org/taxonomy/>\r\nSELECT ?taxon ?name (COUNT(?taxon)\
+    \ as ?count_taxon) WHERE {\r\n  ?taxon a up:Taxon .\r\n  ?taxon up:scientificName\
+    \ ?name .\r\n  ?organism rdfs:subClassOf ?taxon .\r\n}\r\nGROUP BY ?taxon ?name\r\
+    \nORDER BY DESC(?count_taxon)", sortKey: '~'}
+- {backend: 8, id: 786, name: Add non-existing French city with wrong sort order (local
+    vocab), query: "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd:\
+    \ <http://www.wikidata.org/entity/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nSELECT ?city ?city_label (SAMPLE(?population) AS ?population_) WHERE {\r\n \
+    \ { ?city wdt:P31/wdt:P279* wd:Q515 .\r\n    ?city wdt:P17 wd:Q142 .\r\n\t?city\
+    \ wdt:P1082 ?population FILTER (?population > 200000) .\r\n    ?city rdfs:label\
+    \ ?city_label .\r\n    FILTER (LANG(?city_label) = \"en\") }\r\n  UNION {\r\n\
+    \    VALUES (?city ?city_label ?population) { (<http://www.wikidata.org/entity/Qxxx>\
+    \ \"Nexistepas\" 0) }\r\n  }\r\n}\r\nGROUP BY ?city ?city_label\r\nORDER BY ASC(?city_label)",
+  sortKey: '~'}
+- {backend: 26, id: 785, name: Predicates of Angela Merkel, query: "PREFIX yago: <http://yago-knowledge.org/resource/>\r\
+    \nSELECT ?p (COUNT(?o) as ?count_o) WHERE {\r\n  yago:Angela_Merkel ?p ?o\r\n\
+    \  FILTER (!REGEX(STR(?p), \"@\"))\r\n}\r\nGROUP BY ?p\r\nORDER BY DESC(?count_o)",
+  sortKey: '~'}
+- {backend: 17, id: 783, name: Largest cities by area, query: "PREFIX osmmeta: <https://www.openstreetmap.org/meta/>\r\
+    \nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX osm: <https://www.openstreetmap.org/>\r\
+    \nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nSELECT ?city ?name ?city_wikidata ?population ?area ?geometry WHERE {\r\n  ?city\
+    \ osm:wikidata ?city_wikidata .\r\n  ?city osmmeta:area ?area .\r\n  ?city osmkey:name:en\
+    \ ?name .\r\n  ?city geo:hasGeometry ?geometry .\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata>\
+    \ {\r\n    { SELECT DISTINCT * WHERE { ?city_wikidata wdt:P31/wdt:P279* wd:Q515\
+    \ } }\r\n    ?city_wikidata wdt:P1082 ?population\r\n    MINUS { ?city_wikidata\
+    \ wdt:P17 wd:Q148 }\r\n  }\r\n}\r\nORDER BY DESC(?population)\r\nLIMIT 100", sortKey: '~'}
+- {backend: 8, id: 782, name: Professions ordered by average age, query: "PREFIX wdt:\
+    \ <http://www.wikidata.org/prop/direct/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT ?occupation ?occupation_label\
+    \ (AVG(?age) AS ?avg_age) (COUNT(?age) AS ?count_age) WHERE {\r\n  ?person wdt:P31\
+    \ wd:Q5 .\r\n  ?person wdt:P106 ?occupation .\r\n  ?person wdt:P569 ?date_of_birth\
+    \ .\r\n  ?person wdt:P570 ?date_of_death .\r\n  ?occupation rdfs:label ?occupation_label\
+    \ .\r\n  FILTER (LANG(?occupation_label) = \"en\") . \r\n  BIND (YEAR(?date_of_death)\
+    \ - YEAR(?date_of_birth) AS ?age)\r\n  FILTER (?age = ?age) # filter out invalid\
+    \ dates\r\n  # FILTER (YEAR(?date_of_birth) >= 1900)\r\n}\r\nGROUP BY ?occupation\
+    \ ?occupation_label\r\nHAVING (?count_age > 100)\r\nORDER BY DESC(?avg_age)",
+  sortKey: '~'}
+- {backend: 8, id: 728, name: Astronauts who walked on the moon, query: "PREFIX rdfs:\
+    \ <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nSELECT ?astronaut ?astronaut_label\
+    \ (SAMPLE(?text) AS ?text_) (COUNT(?text) AS ?count) WHERE {\r\n  ?astronaut wdt:P106\
+    \ wd:Q11631 .\r\n  ?astronaut rdfs:label ?astronaut_label .\r\n  FILTER (LANG(?astronaut_label)\
+    \ = \"en\") .\r\n  ?text ql:contains-entity ?astronaut .\r\n  ?text ql:contains-word\
+    \ \"walk* moon\"\r\n}\r\nGROUP BY ?astronaut ?astronaut_label\r\nORDER BY DESC(?count)\r\
+    \nTEXTLIMIT 9999", sortKey: '~'}
+- {backend: 8, id: 727, name: 'Movies by the Coen brothers, with IMDb ratings and
+    scores', query: "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX schema: <http://schema.org/>\r\nPREFIX imdb: <https://www.imdb.com/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\
+    \nSELECT ?movie ?title ?year ?imdb_id ?imdb_votes ?imdb_rating WHERE {\r\n  {\
+    \ SELECT ?movie (YEAR(MIN(?date)) AS ?year) WHERE { ?movie wdt:P31 wd:Q11424;\
+    \ wdt:P577 ?date } GROUP BY ?movie }\r\n  ?movie wdt:P345 ?imdb_id .\r\n  ?movie\
+    \ wdt:P57 wd:Q13595531 .\r\n  ?movie rdfs:label ?title FILTER (LANG(?title) =\
+    \ \"en\") .\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/imdb> {\r\n\t\
+    ?movie_imdb imdb:id ?imdb_id .\r\n\t?movie_imdb imdb:type \"movie\" .\r\n    ?movie_imdb\
+    \ imdb:numVotes ?imdb_votes .\r\n    ?movie_imdb imdb:averageRating ?imdb_rating\
+    \ .\r\n  }\r\n}\r\nORDER BY DESC(?imdb_votes)", sortKey: '~'}
+- {backend: 25, id: 726, name: All predicates and their absolute and relative frequency,
+  query: "SELECT ?p ?count ?percent WHERE {\r\n  { SELECT ?p (COUNT(?p) AS ?count)\
+    \ WHERE { ?s ?p ?o } GROUP BY ?p }\r\n  BIND(100 * ?count / SUM(?count) AS ?percent)\r\
+    \n}\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 8, id: 724, name: Languages ranked by number of countries, query: "PREFIX\
+    \ wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT ?official_language_label\
+    \ (COUNT(?country) AS ?num_countries) WHERE {\r\n  { SELECT DISTINCT ?country\
+    \ WHERE { ?country wdt:P31/wdt:P279* wd:Q3624078 } }\r\n  ?country wdt:P37 ?official_language\
+    \ .\r\n  ?official_language rdfs:label ?official_language_label .\r\n  FILTER\
+    \ (LANG(?official_language_label) = \"en\") .\r\n} \r\nGROUP BY ?official_language_label\r\
+    \nORDER BY DESC(?num_countries)", sortKey: '~'}
+- {backend: 17, id: 676, name: 'All countries and their population (via osmrel:member)',
+  query: "PREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX osm:\
+    \ <https://www.openstreetmap.org/>\r\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osmrel: <https://www.openstreetmap.org/relation/>\r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\
+    \nSELECT ?country ?name ?population ?geometry WHERE {\r\n  ?country osmkey:type\
+    \ \"boundary\" .\r\n  ?country osmkey:admin_level 2 .\r\n  ?country osmrel:member\
+    \ ?member .\r\n  ?country geo:hasGeometry ?geometry .\r\n  ?country osmkey:name\
+    \ ?name .\r\n  ?member osm:role \"label\" .\r\n  ?member osm:id/osmkey:population\
+    \ ?population\r\n}\r\nORDER BY DESC(?population)", sortKey: '~'}
+- {backend: 8, id: 675, name: Periods in earth's history, query: "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nSELECT ?period_label ?era_label ?eon_label (YEAR(?start_time) AS ?start_year)\
+    \ WHERE {\r\n  ?period wdt:P31 wd:Q392928 .\r\n  ?period wdt:P580 ?start_time\
+    \ .\r\n  ?period wdt:P582 ?end_time .\r\n  ?period wdt:P361 ?era . \r\n  ?era\
+    \ wdt:P361 ?eon . \r\n  ?era wdt:P31 wd:Q630830 .\r\n  ?eon wdt:P31 wd:Q108256\
+    \ .\r\n  ?period rdfs:label ?period_label .\r\n  ?era rdfs:label ?era_label .\r\
+    \n  ?eon rdfs:label ?eon_label .\r\n  FILTER (LANG(?period_label) = \"de\") .\r\
+    \n  FILTER (LANG(?era_label) = \"de\") .\r\n  FILTER (LANG(?eon_label) = \"de\"\
+    ) .\r\n}\r\nORDER BY ASC(?start_time)", sortKey: '~'}
+- {backend: 8, id: 628, name: People who were born and died on the same day of the
+    year, query: "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX schema:\
+    \ <http://schema.org/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX\
+    \ rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\
+    \nPREFIX wd: <http://www.wikidata.org/entity/>\r\nSELECT ?person ?person_name\
+    \ ?date_of_birth ?date_of_death ?sitelinks WHERE {\r\n  { SELECT ?person ?date_of_birth\
+    \ ?date_of_death WHERE {\r\n    ?person wdt:P569 ?date_of_birth .\r\n    ?person\
+    \ wdt:P570 ?date_of_death .\r\n\tBIND (DAY(?date_of_birth) AS ?dob)\r\n    BIND\
+    \ (MONTH(?date_of_birth) AS ?mob)\r\n    BIND (DAY(?date_of_death) AS ?dod)\r\n\
+    \    BIND (MONTH(?date_of_death) AS ?mod)\r\n\tFILTER (?dob = ?dod && ?mob = ?mod\
+    \ && !(?dob = 1 && ?mob = 1)) } }\r\n  ?person ^schema:about/wikibase:sitelinks\
+    \ ?sitelinks . \r\n  ?person rdfs:label ?person_name .\r\n  FILTER (LANG(?person_name)\
+    \ = \"en\") .\r\n}\r\nORDER BY DESC(?sitelinks)", sortKey: '~'}
+- {backend: 8, id: 593, name: All universities of DBLP authors with their location,
+  query: "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT ?employer ?employer_label\
+    \ (COUNT(DISTINCT ?person) as ?count_person) (SAMPLE(?coordinates) AS ?coordinates_)\
+    \ WHERE {\r\n  ?person wdt:P2456 ?dblp_author_id .\r\n  ?person wdt:P108 ?employer\
+    \ .\r\n  ?employer @en@rdfs:label ?employer_label .\r\n  ?employer (wdt:P159|wdt:P625)/wdt:P625\
+    \ ?coordinates\r\n}\r\nGROUP BY ?employer ?employer_label\r\nORDER BY DESC(?count_person)",
+  sortKey: '~'}
+- {backend: 26, id: 592, name: All predicates with their absolute and relative size,
+  query: "SELECT ?p ?count ?percent WHERE {\r\n  { SELECT ?p (COUNT(?p) AS ?count)\
+    \ WHERE { ?s ?p ?o } GROUP BY ?p }\r\n  BIND(100 * ?count / SUM(?count) AS ?percent)\r\
+    \n}\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 15, id: 591, name: Affiliations by conference (using SERVICE), query: "PREFIX\
+    \ dblp: <https://dblp.org/rdf/schema#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nSELECT ?affiliation (COUNT(?venue) AS ?count) (GROUP_CONCAT(DISTINCT ?person_name)\
+    \ AS ?people) ?coordinates WHERE {\r\n  ?person_dblp rdf:type dblp:Person .\r\n\
+    \  ?person_dblp dblp:wikidata ?person_wikidata_id .\r\n  ?person_dblp ^dblp:authoredBy/dblp:publishedIn\
+    \ ?venue .\r\n  ?person_dblp rdfs:label ?person_name .\r\n  FILTER REGEX(?venue,\
+    \ \"SIGIR|CIKM|ECIR\")\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata>\
+    \ {\r\n    SELECT ?person_wikidata_id ?affiliation ?coordinates {\r\n      ?person_wikidata_id\
+    \ wdt:P2456 ?person_dblp_id .\r\n      ?person_wikidata_id wdt:P108 ?affiliation_id\
+    \ .\r\n      ?affiliation_id @en@rdfs:label ?affiliation .\r\n      ?affiliation_id\
+    \ wdt:P625 ?coordinates\r\n    }\r\n  }\r\n}\r\nGROUP BY ?affiliation ?coordinates\r\
+    \nHAVING (?count > 10)\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 15, id: 590, name: Birth places for particular venues (using SERVICE),
+  query: "PREFIX dblp: <https://dblp.org/rdf/schema#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nSELECT ?person_name ?person_wikidata_id ?place_of_birth (COUNT(DISTINCT ?paper)\
+    \ AS ?count) ?coordinates WHERE {\r\n  ?person_dblp rdf:type dblp:Person .\r\n\
+    \  ?person_dblp dblp:wikidata ?person_wikidata_id .\r\n  ?person_dblp ^dblp:authoredBy\
+    \ ?paper .\r\n  ?paper dblp:publishedIn ?venue .\r\n  ?person_dblp rdfs:label\
+    \ ?person_name .\r\n  FILTER REGEX(?venue, \"SIGIR|CIKM|ECIR\")\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata>\
+    \ {\r\n    SELECT ?person_wikidata_id ?place_of_birth ?coordinates {\r\n     \
+    \ ?person_wikidata_id wdt:P2456 ?person_dblp_id .\r\n      ?person_wikidata_id\
+    \ wdt:P19 ?place_of_birth_id .\r\n      ?place_of_birth_id @en@rdfs:label ?place_of_birth\
+    \ .\r\n      ?place_of_birth_id wdt:P625 ?coordinates\r\n    }\r\n  }\r\n}\r\n\
+    GROUP BY ?person_name ?person_wikidata_id ?place_of_birth ?coordinates\r\nHAVING\
+    \ (?count > 10)\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 15, id: 589, name: Birth place of all persons with a Wikidata link (using
+    SERVICE), query: "PREFIX dblp: <https://dblp.org/rdf/schema#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nSELECT ?person_name ?person_wikidata_id ?place_of_birth (COUNT(DISTINCT ?paper_title)\
+    \ AS ?count) ?coordinates WHERE {\r\n  ?person_dblp rdf:type dblp:Person .\r\n\
+    \  ?person_dblp dblp:wikidata ?person_wikidata_id .\r\n  ?person_dblp ^dblp:authoredBy/dblp:title\
+    \ ?paper_title .\r\n  ?person_dblp rdfs:label ?person_name .\r\n  ?text ql:contains-entity\
+    \ ?paper_title .\r\n  ?text ql:contains-word \"graph algo*\" .\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata>\
+    \ {\r\n    SELECT ?person_wikidata_id ?place_of_birth ?coordinates {\r\n\t  ?person_wikidata_id\
+    \ wdt:P2456 ?person_dblp_id .\r\n\t  ?person_wikidata_id wdt:P19 ?place_of_birth_id\
+    \ .\r\n\t  ?place_of_birth_id @en@rdfs:label ?place_of_birth .\r\n      ?place_of_birth_id\
+    \ wdt:P625 ?coordinates\r\n\t}\r\n  }\r\n}\r\nGROUP BY ?person_name ?person_wikidata_id\
+    \ ?place_of_birth ?coordinates\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 31, id: 588, name: All predicates with their absolute and relative size,
+  query: "SELECT ?p ?count ?percent WHERE {\r\n  { SELECT ?p (COUNT(?p) AS ?count)\
+    \ WHERE { ?s ?p ?o } GROUP BY ?p }\r\n  BIND(100 * ?count / SUM(?count) AS ?percent)\r\
+    \n}\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 39, id: 587, name: All German cities (SERVICE test query), query: "PREFIX\
+    \ wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT DISTINCT ?name\
+    \ ?population WHERE {\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata>\
+    \ {\r\n    ?city wdt:P31/wdt:P279* wd:Q515 .\r\n    ?city wdt:P17 wd:Q183 .\r\n\
+    \    ?city wdt:P1082 ?population .\r\n    ?city rdfs:label ?name .\r\n    FILTER\
+    \ (LANG(?name) = \"de\")\r\n  }\r\n}\r\nORDER BY DESC(?population)", sortKey: '~'}
+- {backend: 17, id: 586, name: All level-4 regions in the EU (using SERVICE), query: "PREFIX\
+    \ osmrel: <https://www.openstreetmap.org/relation/>\r\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osm: <https://www.openstreetmap.org/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\
+    \nPREFIX osm2rdf: <https://osm2rdf.cs.uni-freiburg.de/rdf#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX ogc: <http://www.opengis.net/rdf#>\r\nSELECT ?region ?name ?geometry\
+    \ WHERE {\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/osm-planet> {\r\n\
+    \    ?country osm2rdf:contains_area ?region .\r\n    ?country osm:wikidata ?country_wikidata\
+    \ .\r\n    ?region osmkey:boundary \"administrative\" .\r\n    ?region osmkey:admin_level\
+    \ \"4\"^^xsd:int .\r\n    ?region rdf:type osm:relation .\r\n    ?region osmkey:name\
+    \ ?name .\r\n    ?region geo:hasGeometry ?geometry .\r\n  }\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata>\
+    \ {\r\n    SELECT DISTINCT ?country_wikidata WHERE {\r\n      ?country_wikidata\
+    \ wdt:P361 wd:Q458 .\r\n      ?country_wikidata wdt:P31/wdt:P279* wd:Q3624078\
+    \ .\r\n    }\r\n  }\r\n}", sortKey: '~'}
+- {backend: 10, id: 585, name: All predicates and their absolute and relative size,
+  query: "SELECT ?p ?count ?percent WHERE {\r\n  { SELECT ?p (COUNT(?p) AS ?count)\
+    \ WHERE { ?s ?p ?o } GROUP BY ?p }\r\n  BIND(100 * ?count / SUM(?count) AS ?percent)\r\
+    \n}\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 17, id: 584, name: All predicates with their absolut and relative size,
+  query: "SELECT ?p ?count ?percent WHERE {\r\n  { SELECT ?p (COUNT(?p) AS ?count)\
+    \ WHERE { ?s ?p ?o } GROUP BY ?p }\r\n  BIND(100 * ?count / SUM(?count) AS ?percent)\r\
+    \n}\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 32, id: 583, name: Breakdown of number of triples by category, query: "PREFIX\
+    \ rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX up: <http://purl.uniprot.org/core/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\r\
+    \nPREFIX faldo: <http://biohackathon.org/resource/faldo#>\r\nSELECT ?category\
+    \ (SUM(?count) as ?sum_count) (SUM(?count) / SAMPLE(?total_count) * 100.0 AS ?_perc\
+    \ ) WHERE {\r\n  { SELECT ?p (COUNT(?p) AS ?count) WHERE { ?s ?p ?o } GROUP BY\
+    \ ?p }\r\n  BIND (?p = rdf:predicate || ?p = rdf:object || ?p = rdf:subject as\
+    \ ?prop)\r\n  BIND (?p = up:organism || ?p = up:sequenceFor || ?p = up:encodedBy\
+    \ || ?p = up:proteome || ?p = faldo:position as ?truthy)\r\n  BIND (?p = up:structuredName\
+    \ || ?p = skos:prefLabel || ?p = rdfs:label || ?p = up:structuredNameType AS ?label)\r\
+    \n  BIND (?p = rdf:comment AS ?description)\r\n  BIND (?p = rdf:type AS ?type)\r\
+    \n  BIND (?p = up:attribution || ?p = up:modified || ?p = up:version || ?p = up:created\
+    \ || ?p = up:reportedVersion || ?p = up:obsolete || ?p = faldo:reference || ?p\
+    \ = up:evidence AS ?meta)\r\n  BIND (SUM(?count) AS ?total_count)\r\n  VALUES\
+    \ (?prop ?truthy ?label ?description ?type ?meta ?category) {\r\n    (0 0 0 0\
+    \ 0 0 \"other\") (1 0 0 0 0 0 \"reified\") (0 1 0 0 0 0 \"normal\") (0 0 1 0 0\
+    \ 0 \"label\")\r\n\t(0 0 0 1 0 0 \"description\") (0 0 0 0 1 0 \"type\") (0 0\
+    \ 0 0 0 1 \"meta\")\r\n  }\r\n}\r\nGROUP BY ?category", sortKey: '~'}
+- {backend: 31, id: 582, name: 'Breakdown of #triples by category', query: "PREFIX\
+    \ rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX sio: <http://semanticscience.org/resource/>\r\
+    \nPREFIX cito: <http://purl.org/spar/cito/>\r\nPREFIX dcterms: <http://purl.org/dc/terms/>\r\
+    \nPREFIX fabio: <http://purl.org/spar/fabio/>\r\nPREFIX vocab: <http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#>\r\
+    \nPREFIX obo: <http://purl.obolibrary.org/obo/>\r\nSELECT ?category (SUM(?count)\
+    \ as ?numTriples) (100 * SUM(?count) / SAMPLE(?total_count) as ?percent) WHERE\
+    \ {\r\n  { SELECT ?p (COUNT(?p) AS ?count) WHERE { ?s ?p ?o } GROUP BY ?p }\r\n\
+    \  BIND (?p = sio:has-attribute || ?p = sio:has-value || ?p = sio:has-unit ||\
+    \ ?p = sio:is-attribute-of ||\r\n        ?p = fabio:hasSubjectTerm || ?p = fabio:hasPrimarySubjectTerm\
+    \ as ?prop) \r\n  BIND (?p = cito:isDiscussedBy || ?p = dcterms:source || ?p =\
+    \ dcterms:modified ||\r\n        ?p = dcterms:available || ?p = cito:isCitedBy\
+    \ as ?meta)\r\n  BIND (?p = rdf:type AS ?type)\r\n  BIND (REGEX(?p, \"<http://semanticscience.org/resource/CHEMINF\"\
+    ) || ?p = vocab:PubChemAssayOutcome ||\r\n        ?p = obo:RO_0000056 || ?p =\
+    \ obo:IAO_0000136 || ?p = obo:OBI_0000299 as ?truthy)\r\n  BIND (SUM(?count) as\
+    \ ?total_count)\r\n  VALUES (?prop ?meta ?type ?truthy ?category) { (0 0 0 0 \"\
+    other\") (1 0 0 0 \"reified\") (0 1 0 0 \"type\") (0 0 1 0 \"normal\") }\r\n}\
+    \ GROUP BY ?category", sortKey: '~'}
+- {backend: 15, id: 571, name: All predicates and their absolute and relative size,
+  query: "SELECT ?p ?count ?percent WHERE {\r\n  { SELECT ?p (COUNT(?p) AS ?count)\
+    \ WHERE { ?s ?p ?o } GROUP BY ?p }\r\n  BIND(100 * ?count / SUM(?count) AS ?percent)\r\
+    \n}\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 32, id: 570, name: Breakdown of number of triples by type, query: "PREFIX\
+    \ wikibase: <http://wikiba.se/ontology#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\
+    \nPREFIX pq: <http://www.wikidata.org/prop/qualifier/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX schema: <http://schema.org/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX prov: <http://www.w3.org/ns/prov#>\r\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\r\
+    \nPREFIX dcterms: <http://purl.org/dc/terms/>\r\nSELECT ?type ?label ?description\
+    \ ?prop ?meta ?truthy (SUM(?count) as ?sum_count) (SUM(?count) / SAMPLE(?total_count)\
+    \ * 100.0 AS ?percent) WHERE {\r\n#SELECT * WHERE {\r\n  {\r\n  SELECT ?p (COUNT(?p)\
+    \ AS ?count) WHERE {\r\n    ?s ?p ?o\r\n  } GROUP BY ?p \r\n  }\r\n  BIND (<QLever-internal-function/langtag>\
+    \ AS ?langtagPred)\r\n  BIND (REGEX(?p, \"<http://www.wikidata.org/prop/\") &&\
+    \ !REGEX(?p, \"<http://www.wikidata.org/prop/direct\") as ?prop)\r\n  BIND (REGEX(?p,\
+    \ \"<http://www.wikidata.org/prop/direct\") && ?p != wdt:P31 && ?p != wdt:P279\
+    \ as ?truthy)\r\n  BIND (?p = rdfs:label || ?p = skos:prefLabel AS ?label)\r\n\
+    \  BIND (?p = rdfs:comment AS ?description)\r\n  BIND (?p = rdf:type AS ?type)\r\
+    \n  BIND (?p = dcterms:creator && !?label && !?description AS ?meta)\r\n  BIND(?p\
+    \ = ?langtagPred AS ?langtag)\r\n  BIND(SUM(?count) - SUM(?count * ?langtag) AS\
+    \ ?total_count)\r\n  BIND(SUM(?count) AS ?very_total_count)\r\n  #FILTER (!?prop\
+    \ && !?text && !?truthy && !?type && !?meta && !?type && !?langtag )\r\n}\r\n\
+    GROUP BY ?prop ?label ?description ?truthy ?type ?meta\r\nORDER BY DESC(?type)\
+    \ DESC(?label) DESC(?description) DESC (?prop) DESC(?meta) DESC(?truthy)", sortKey: '~'}
+- {backend: 32, id: 569, name: All predicates and their relative and absolute size,
+  query: "SELECT ?p ?count ?percent WHERE {\r\n  { SELECT ?p (COUNT(?p) AS ?count)\
+    \ WHERE { ?s ?p ?o } GROUP BY ?p }\r\n  BIND(100 * ?count / SUM(?count) AS ?percent)\r\
+    \n}\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 8, id: 524, name: All predicates with their name and frequency, query: "PREFIX\
+    \ rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT ?p (MIN(?p_name_int)\
+    \ AS ?p_name) (SAMPLE(?count_int) AS ?count) ?percent WHERE {\r\n  { { SELECT\
+    \ ?p (COUNT(?p) AS ?count_int) WHERE { ?s ?p ?o } GROUP BY ?p }\r\n    ?m ?tmp\
+    \ ?p . ?m rdfs:label ?p_name_int FILTER(LANG(?p_name_int) = \"en\") }\r\n  UNION\r\
+    \n  { { SELECT ?p (COUNT(?p) AS ?count_int) WHERE { ?s ?p ?o } GROUP BY ?p }\r\
+    \n    BIND(?p AS ?p_name_int) }\r\n  { { SELECT ?p (COUNT(?p) AS ?count_int) WHERE\
+    \ { ?s ?p ?o } GROUP BY ?p }\r\n\tBIND (100 * ?count_int / SUM(?count_int) AS\
+    \ ?percent) }\r\n}\r\nGROUP BY ?p ?percent\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 17, id: 523, name: All people born in region X, query: "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX ogc: <http://www.opengis.net/rdf#>\r\nPREFIX osmrel: <https://www.openstreetmap.org/relation/>\r\
+    \nPREFIX osm: <https://www.openstreetmap.org/>\r\nPREFIX osm2rdf: <https://osm2rdf.cs.uni-freiburg.de/rdf#>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\
+    \nSELECT ?person ?person_name ?place_of_birth ?place_of_birth_name ?place_of_birth_location\
+    \ WHERE {\r\n  osmrel:3255371 osm2rdf:contains_area+ ?place_of_birth .\r\n  ?place_of_birth\
+    \ osm:wikidata ?place_of_birth_wikidata .\r\n  ?place_of_birth osmkey:name ?place_of_birth_name\
+    \ .\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata> {\r\n    ?person\
+    \ wdt:P19 ?place_of_birth_wikidata .\r\n    ?place_of_birth_wikidata wdt:P625\
+    \ ?place_of_birth_location .\r\n    ?place_of_birth_wikidata wdt:P17 wd:Q183 .\r\
+    \n    ?person @en@rdfs:label ?person_name .\r\n  }\r\n}", sortKey: '~'}
+- {backend: 17, id: 522, name: Leve-4 division of all countries with official language
+    X, query: "PREFIX osm2rdf: <https://osm2rdf.cs.uni-freiburg.de/rdf#>\r\nPREFIX\
+    \ ogc: <http://www.opengis.net/rdf#>\r\nPREFIX osmrel: <https://www.openstreetmap.org/relation/>\r\
+    \nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\nPREFIX osm: <https://www.openstreetmap.org/>\r\
+    \nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX osmkey:\
+    \ <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\
+    \nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\nSELECT DISTINCT ?region\
+    \ ?name ?geometry WHERE {\r\n  ?country osm:wikidata ?country_wd .\r\n  ?country\
+    \ osm2rdf:contains_area+ ?region .\r\n  ?region osmkey:boundary \"administrative\"\
+    \ .\r\n  ?region osmkey:name ?name .\r\n  ?region geo:hasGeometry ?geometry .\r\
+    \n  ?region rdf:type osm:relation .\r\n  ?region osmkey:admin_level \"4\" .\r\n\
+    \  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata> {\r\n\t?country_wd\
+    \ p:P37/ps:P37/@en@rdfs:label \"English\"@en\r\n  }\r\n}", sortKey: '~'}
+- {backend: 55, id: 520, name: SERVICE query (for testing purposes), query: "PREFIX\
+    \ imdb: <https://www.imdb.com/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nSELECT ?movie ?imdb_id\
+    \ ?title ?votes ?rating WHERE {\r\n  ?movie imdb:id ?imdb_id .\r\n  ?movie imdb:title\
+    \ ?title .\r\n  ?movie imdb:numVotes ?votes .\r\n  ?movie imdb:averageRating ?rating\
+    \ .\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata> {\r\n\tSELECT\
+    \ ?imdb_id WHERE { ?film wdt:P31 wd:Q11424 . ?film wdt:P57 wd:Q3772 . ?film wdt:P345\
+    \ ?imdb_id }\r\n  }\r\n}\r\nORDER BY DESC(?votes)", sortKey: '~'}
+- {backend: 8, id: 519, name: Movies matching keywords + IMDb rating, query: "PREFIX\
+    \ rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX schema: <http://schema.org/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX imdb: <https://www.imdb.com/>\r\
+    \nSELECT ?movie ?movie_imdb ?movie_title ?movie_abstract ?imdb_rating ?imdb_votes\
+    \ WHERE {\r\n  ?movie wdt:P345 ?imdb_id .\r\n  ?movie rdfs:label ?movie_title\
+    \ .\r\n  ?wikipedia schema:about ?movie .\r\n  ?wikipedia schema:description ?movie_abstract\
+    \ .\r\n  FILTER (LANG(?movie_title) = \"en\") .\r\n  FILTER (LANG(?movie_abstract)\
+    \ = \"en\") .\r\n  FILTER CONTAINS(?movie_abstract, \"dream\")\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/imdb>\
+    \ {\r\n\t?movie_imdb imdb:id ?imdb_id .\r\n\t?movie_imdb imdb:type \"movie\" .\r\
+    \n    ?movie_imdb imdb:numVotes ?imdb_votes .\r\n    ?movie_imdb imdb:averageRating\
+    \ ?imdb_rating .\r\n  }\r\n}\r\nORDER BY DESC(?imdb_votes)", sortKey: '~'}
+- {backend: 55, id: 518, name: Films directed by Quentin Tarantino (using SERVICE),
+  query: "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX imdb: <https://www.imdb.com/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nSELECT ?movie ?title ?rating ?votes WHERE {\r\n  ?movie imdb:title ?title .\r\
+    \n  ?movie imdb:id ?imdb_id .\r\n  ?movie imdb:numVotes ?votes .\r\n  ?movie imdb:averageRating\
+    \ ?rating .\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata> {\r\n\
+    \    ?imdb_id ^wdt:P345/wdt:P57/@en@rdfs:label \"Quentin Tarantino\"@en .\r\n\
+    \  }\r\n}\r\nORDER BY DESC(?votes)", sortKey: '~'}
+- {backend: 8, id: 517, name: 'Movies with IMDB rating (via SERVICE to qlever:imdb)',
+  query: "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX schema: <http://schema.org/>\r\nPREFIX imdb: <https://www.imdb.com/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT ?movie ?imdb_id\
+    \ ?title (MIN(YEAR(?date)) AS ?year) ?imdb_votes ?imdb_rating WHERE {\r\n  ?movie\
+    \ wdt:P31 wd:Q11424 .\r\n  ?movie wdt:P345 ?imdb_id .\r\n  ?movie wdt:P577 ?date\
+    \ .\r\n  ?movie rdfs:label ?title FILTER (LANG(?title) = \"en\") .\r\n  SERVICE\
+    \ <https://qlever.cs.uni-freiburg.de/api/imdb> {\r\n\t?movie_imdb imdb:id ?imdb_id\
+    \ .\r\n\t?movie_imdb imdb:type \"movie\" .\r\n    ?movie_imdb imdb:numVotes ?imdb_votes\
+    \ .\r\n    ?movie_imdb imdb:averageRating ?imdb_rating .\r\n  }\r\n}\r\nGROUP\
+    \ BY ?movie ?title ?imdb_id ?imdb_votes ?imdb_rating\r\nORDER BY DESC(?imdb_votes)",
+  sortKey: '~'}
+- {backend: 55, id: 516, name: All movies where title matches keywords, query: "PREFIX\
+    \ imdb: <https://www.imdb.com/>\r\nSELECT ?movie ?title ?rating ?votes WHERE {\r\
+    \n  ?movie imdb:title ?title .\r\n  ?movie imdb:numVotes ?votes .\r\n  ?movie\
+    \ imdb:averageRating ?rating .\r\n  FILTER CONTAINS(?title, \"matrix\")\r\n}\r\
+    \nORDER BY DESC(?votes)", sortKey: '~'}
+- {backend: 8, id: 514, name: All movies with their Wikipedia abstracts, query: "PREFIX\
+    \ wikibase: <http://wikiba.se/ontology#>\r\nPREFIX schema: <http://schema.org/>\r\
+    \nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nSELECT DISTINCT ?wikidata_id ?wikipedia_id ?movie_title ?movie_abstract ?sitelinks\
+    \ WHERE {\r\n  ?wikidata_id wdt:P31/wdt:P279* wd:Q11424 .\r\n  ?wikidata_id schema:name\
+    \ ?movie_title .\r\n  ?wikipedia_id schema:about ?wikidata_id.\r\n  ?wikipedia_id\
+    \ schema:inLanguage \"en\" .\r\n  ?wikipedia_id schema:description ?movie_abstract\
+    \ .\r\n  ?wikidata_id ^schema:about/wikibase:sitelinks ?sitelinks .\r\n  FILTER\
+    \ (LANG(?movie_title) = \"en\")\r\n  FILTER (LANG(?movie_abstract) = \"en\")\r\
+    \n}\r\nORDER BY DESC(?sitelinks)", sortKey: '~'}
+- {backend: 8, id: 513, name: Universities in Germany, query: "PREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX schema: <http://schema.org/>\r\nSELECT ?university ?name\r\n       (MAX(?students_count_)\
+    \ AS ?students_count)\r\n\t   (SAMPLE(?coordinates_) AS ?coordinates) WHERE {\r\
+    \n  ?university wdt:P31/wdt:P279* wd:Q3918 .\r\n  ?university wdt:P17 wd:Q183\
+    \ .\r\n  ?university wdt:P2196 ?students_count_ .\r\n  ?university @de@rdfs:label\
+    \ ?name .\r\n  ?university @de@schema:description ?description .\r\n  OPTIONAL\
+    \ { ?university wdt:P625 ?coordinates_ }\r\n  FILTER (REGEX(?name, \"universität\"\
+    , \"i\") || REGEX(?description, \"universität\", \"i\"))\r\n  FILTER (!(REGEX(?name,\
+    \ \"musik\", \"i\")) && !(REGEX(?description, \"musik\", \"i\")))\r\n}\r\nGROUP\
+    \ BY ?university ?name ?description\r\nORDER BY DESC(?students_count)", sortKey: '~'}
+- {backend: 17, id: 512, name: Rivers in X with their length (using SERVICE), query: "PREFIX\
+    \ geo: <http://www.opengis.net/ont/geosparql#>\r\nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\
+    \nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX osm: <https://www.openstreetmap.org/>\r\
+    \nSELECT ?river_osm ?river_wd ?river_name ?length ?geometry WHERE {\r\n  ?river_osm\
+    \ osmkey:waterway ?waterway .\r\n  ?river_osm geo:hasGeometry ?geometry .\r\n\
+    \  ?river_osm osmkey:name ?river_name .\r\n  ?river_osm osm:wikidata ?river_wd\
+    \ .\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata> {\r\n    ?river_wd\
+    \ wdt:P31/wdt:P279* wd:Q4022 .\r\n    ?river_wd wdt:P17 wd:Q38 .\r\n    ?river_wd\
+    \ wdt:P2043 ?length FILTER (?length > 100)\r\n  }\r\n}", sortKey: '~'}
+- {backend: 8, id: 511, name: German-speaking regions outside of DACH, query: "PREFIX\
+    \ wikibase: <http://wikiba.se/ontology#>\r\nPREFIX schema: <http://schema.org/>\r\
+    \nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT DISTINCT ?region_wd\
+    \ ?region_name ?sitelinks WHERE {\r\n  ?region_wd wdt:P31/wdt:P279* wd:Q1048835\
+    \ .\r\n  ?region_wd ^schema:about/wikibase:sitelinks ?sitelinks .\r\n  ?region_wd\
+    \ wdt:P37 wd:Q188 .\r\n  ?region_wd @en@rdfs:label ?region_name .\r\n  MINUS {\
+    \ VALUES ?dach { wd:Q183 wd:Q39 wd:Q40 } ?region_wd wdt:P17 ?dach }\r\n}", sortKey: '~'}
+- {backend: 17, id: 510, name: All regions where German is an official language (using
+    SERVICE), query: "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\nPREFIX\
+    \ osm: <https://www.openstreetmap.org/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX osmrel: <https://www.openstreetmap.org/relation/>\r\nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\
+    \nPREFIX schema: <http://schema.org/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nSELECT DISTINCT ?region_osm\
+    \ ?region_wd ?region_name ?sitelinks ?geometry WHERE {\r\n  ?region_osm osm:wikidata\
+    \ ?region_wd .\r\n  ?region_osm geo:hasGeometry ?geometry .\r\n  ?region_osm osmkey:name\
+    \ ?region_name .\r\n  ?region_osm rdf:type osm:relation .\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata>\
+    \ {\r\n    ?region_wd wdt:P31/wdt:P279* wd:Q1048835 .\r\n    ?region_wd ^schema:about/wikibase:sitelinks\
+    \ ?sitelinks .\r\n    ?region_wd wdt:P37 wd:Q188 .\r\n  }\r\n} ORDER BY DESC(?sitelinks)",
+  sortKey: '~'}
+- {backend: 17, id: 508, name: All restaurants near a bus stop in region X, query: "PREFIX\
+    \ ogc: <http://www.opengis.net/rdf#>\r\nPREFIX osmrel: <https://www.openstreetmap.org/relation/>\r\
+    \nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\
+    \nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\r\nSELECT DISTINCT\
+    \ ?restaurant ?restaurant_name ?stop ?stop_name ?loc_rest WHERE {\r\n  { SELECT\
+    \ ?restaurant ?restaurant_name ?loc_rest ?tmp WHERE { \r\n    ?restaurant osmkey:amenity\
+    \ \"restaurant\" .\r\n    ?restaurant geo:hasGeometry ?loc_rest .\r\n    ?restaurant\
+    \ osmkey:name ?restaurant_name .\r\n    osmrel:2062154 ogc:contains ?restaurant\
+    \ .\r\n    BIND(1 AS ?tmp) } }\r\n  { SELECT ?stop ?stop_name ?loc_stop ?tmp WHERE\
+    \ { \r\n    osmrel:2062154 ogc:contains ?stop .\r\n\t?stop osmkey:public_transport\
+    \ \"platform\" .\r\n    ?stop geo:hasGeometry ?loc_stop .\r\n    ?stop osmkey:name\
+    \ ?stop_name .\r\n\tBIND(1 AS ?tmp) } }\r\n  BIND(geof:distance(?loc_rest, ?loc_stop)\
+    \ * 1000 AS ?dist_meters)\r\n  FILTER (?dist_meters <= 100)\r\n}", sortKey: '~'}
+- {backend: 17, id: 507, name: All countries with official language Spanish (using
+    SERVICE), query: "PREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\n\
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX osm: <https://www.openstreetmap.org/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osm2rdfkey: <https://osm2rdf.cs.uni-freiburg.de/rdf/key#>\r\nSELECT DISTINCT\
+    \ ?country_name ?country_osm ?country_wd ?population ?geometry WHERE {\r\n  ?country_osm\
+    \ osm2rdfkey:wikidata ?country_wd .\r\n  ?country_osm geo:hasGeometry/geo:asWKT\
+    \ ?geometry .\r\n  ?country_osm osmkey:name ?country_name .\r\n  ?country_osm\
+    \ rdf:type osm:relation .\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata>\
+    \ {\r\n    ?country_wd wdt:P31/wdt:P279* wd:Q6256 .\r\n    ?country_wd wdt:P37/rdfs:label\
+    \ \"Spanish\"@en .\r\n\t?country_wd wdt:P1082 ?population .\r\n  }\r\n} ORDER\
+    \ BY DESC(?population)", sortKey: '~'}
+- {backend: 15, id: 505, name: All papers in DBLP until 1940, query: "PREFIX rdfs:\
+    \ <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dblp: <https://dblp.org/rdf/schema#>\r\
+    \nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\nSELECT ?title ?author ?author_label\
+    \ ?year WHERE {\r\n  ?paper dblp:title ?title .\r\n  ?paper dblp:authoredBy ?author\
+    \ .\r\n  ?paper dblp:yearOfPublication ?year .\r\n  ?author rdfs:label ?author_label\
+    \ .\r\n  FILTER (?year <= \"1940\"^^xsd:gYear)\r\n}\r\nORDER BY ASC(?year) ASC(?title)",
+  sortKey: '~'}
+- {backend: 15, id: 492, name: Average number of authors by year, query: "PREFIX dblp:\
+    \ <https://dblp.org/rdf/schema#>\r\nSELECT ?year (COUNT(?author)/COUNT(DISTINCT\
+    \ ?paper) AS ?authors_per_paper) WHERE {\r\n  ?paper dblp:authoredBy ?author .\r\
+    \n  ?paper dblp:yearOfPublication ?year .\r\n  # FILTER (?year != \"2023\")\r\n\
+    }\r\nGROUP BY ?year\r\nORDER BY DESC(?year)", sortKey: '~'}
+- {backend: 39, id: 476, name: SERVICE query (for testing purposes only), query: "PREFIX\
+    \ rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX olympics: <http://wallscope.co.uk/ontology/olympics/>\r\
+    \nPREFIX medal: <http://wallscope.co.uk/resource/olympics/medal/>\r\nPREFIX wd:\
+    \ <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nSELECT ?athlete\
+    \ ?athlete_label (COUNT(?medal) as ?count) WHERE {\r\n  ?medal olympics:medal\
+    \ medal:Gold .\r\n  ?medal olympics:athlete ?athlete .\r\n  ?athlete rdfs:label\
+    \ ?athlete_label .\r\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata>\
+    \ {\r\n    ?athlete_wikidata wdt:P106/wdt:P279* wd:Q2066131 .\r\n    ?athlete_wikidata\
+    \ wdt:P19/@en@rdfs:label \"Berlin\"@en .\r\n\t?athlete_wikidata @en@rdfs:label\
+    \ ?athlete_label\r\n  }\r\n}\r\nGROUP BY ?athlete ?athlete_label \r\nORDER BY\
+    \ DESC(?count)", sortKey: '~'}
+- {backend: 8, id: 475, name: All persons and their date of birth, query: "PREFIX\
+    \ rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nSELECT ?person ?date_of_birth ?str ?year ?month ?day WHERE {\r\n  ?person wdt:P569\
+    \ ?date_of_birth .\r\n  ?person rdfs:label ?person_label FILTER(LANG(?person_label)\
+    \ = \"en\")\r\n  BIND (STR(?date_of_birth) AS ?str)\r\n  BIND (YEAR(?date_of_birth)\
+    \ AS ?year)\r\n  BIND (MONTH(?date_of_birth) AS ?month)\r\n  BIND (DAY(?date_of_birth)\
+    \ AS ?day)\r\n}", sortKey: '~'}
+- {backend: 8, id: 207, name: Things that happened on day X, query: "PREFIX rdfs:\
+    \ <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\
+    \nPREFIX schema: <http://schema.org/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nSELECT ?subject_name ?predicate_name ?date WHERE {\r\n  VALUES ?p { wdt:P569\
+    \ wdt:P570 wdt:P571 wdt:P585 wdt:P580 wdt:P582 wdt:P576 wdt:P3138 wdt:P1619 wdt:P575\
+    \ wdt:P710 wdt:P2754 wdt:P1191 wdt:P3602 wdt:P729 wdt:P1249 wdt:P3999 wdt:P991\
+    \ wdt:P3538 wdt:P730 wdt:P619 wdt:P6465 wdt:P713 wdt:P712 wdt:P2424 wdt:P711 wdt:P726\
+    \ wdt:P3407 wdt:P1636 wdt:P3893 wdt:P837 wdt:P2669 wdt:P4602 wdt:P1839 wdt:P746\
+    \ wdt:P1326 wdt:P620 wdt:P7589 wdt:P7588 wdt:P2960 wdt:P621 wdt:P6949 wdt:P4424\
+    \ wdt:P5204 wdt:P1319 wdt:P2913 wdt:P3148 wdt:P4387 wdt:P574 wdt:P813 wdt:P622\
+    \ wdt:P7295 wdt:P5017 wdt:P3390 wdt:P2285 wdt:P7495 wdt:P7162 wdt:P4243 wdt:P2311\
+    \ }\r\n  ?p_entity wikibase:directClaim ?p . ?p_entity rdfs:label ?predicate_name\
+    \ FILTER (LANG(?predicate_name) = \"en\")\r\n  ?subject ?p ?date .\r\n  ?subject\
+    \ rdfs:label ?subject_name FILTER (LANG(?subject_name) = \"en\")\r\n  ?about schema:about\
+    \ ?subject . ?about wikibase:sitelinks ?sitelinks . \r\n  FILTER (MONTH(?date)\
+    \ = 5 && DAY(?date) = 22)\r\n}\r\nORDER BY DESC(?sitelinks)", sortKey: '~'}
+- {backend: 31, id: 206, name: 'Synonyms of compound X, grouped by synonym type',
+  query: "PREFIX compound: <http://rdf.ncbi.nlm.nih.gov/pubchem/compound/>\r\nPREFIX\
+    \ rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX sio: <http://semanticscience.org/resource/>\r\nSELECT ?type ?type_label\
+    \ ?value (SAMPLE(?synonym) AS ?sample_synonym) (COUNT(?substance) AS ?count) WHERE\
+    \ {\r\n  compound:CID3033 ^sio:SIO_000011 ?synonym .\r\n  ?substance sio:SIO_000008\
+    \ ?synonym .\r\n  ?synonym rdf:type ?type .\r\n  ?type rdfs:label ?type_label\
+    \ .\r\n  ?synonym sio:SIO_000300 ?value .\r\n}\r\nGROUP BY ?type ?type_label ?value\
+    \ \r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 31, id: 205, name: 'All synonym types, ordered by frequency', query: "PREFIX\
+    \ rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX sio: <http://semanticscience.org/resource/>\r\nSELECT ?type ?type_label\
+    \ ?sample_compound ?sample_value ?count_synonyms WHERE { \r\n  { SELECT ?type\
+    \ (SAMPLE(?compound) AS ?sample_compound) (SAMPLE(?value) AS ?sample_value) (COUNT(?synonym)\
+    \ as ?count_synonyms)\r\n    WHERE { ?synonym sio:SIO_000011 ?compound . ?synonym\
+    \ rdf:type ?type . ?synonym sio:SIO_000300 ?value }\r\n    GROUP BY ?type }\r\n\
+    \  OPTIONAL { ?type rdfs:label ?type_label }\r\n}\r\nORDER BY DESC(?count_synonyms)",
+  sortKey: '~'}
+- {backend: 17, id: 204, name: All streets in X, query: "PREFIX ogc: <http://www.opengis.net/rdf#>\r\
+    \nPREFIX osmrel: <https://www.openstreetmap.org/relation/>\r\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osm: <https://www.openstreetmap.org/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\nSELECT ?osm_id ?shape\
+    \ WHERE {\r\n  osmrel:62768 ogc:sfContains ?osm_id .\r\n  ?osm_id osmkey:highway\
+    \ ?highway .\r\n  ?osm_id rdf:type osm:way .\r\n  ?osm_id geo:hasGeometry/geo:asWKT\
+    \ ?shape\r\n}", sortKey: '~'}
+- {backend: 17, id: 203, name: All buildings in X, query: "PREFIX ogc: <http://www.opengis.net/rdf#>\r\
+    \nPREFIX osmrel: <https://www.openstreetmap.org/relation/>\r\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osm: <https://www.openstreetmap.org/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\nSELECT ?osm_id ?shape\
+    \ WHERE {\r\n  osmrel:62768 ogc:sfContains ?osm_id .\r\n  ?osm_id osmkey:building\
+    \ ?building .\r\n  ?osm_id rdf:type osm:way .\r\n  ?osm_id geo:hasGeometry/geo:asWKT\
+    \ ?shape\r\n}", sortKey: '~'}
+- {backend: 31, id: 200, name: 'All predicates, ordered by number of subjects', query: "PREFIX\
+    \ rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT ?predicate ?predicate_label\
+    \ ?count WHERE {\r\n  { SELECT ?predicate (COUNT(?subject) AS ?count)\r\n    WHERE\
+    \ { ?subject ?predicate [] }\r\n    GROUP BY ?predicate }\r\n  OPTIONAL { ?predicate\
+    \ rdfs:label ?predicate_label }\r\n}\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 31, id: 199, name: 'All types, ordered by number of subjects', query: "PREFIX\
+    \ rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nSELECT ?type ?type_label ?count WHERE {\r\n  { SELECT ?type (COUNT(?subject)\
+    \ as ?count)\r\n    WHERE { ?subject rdf:type ?type }\r\n\tGROUP BY ?type }\r\n\
+    \  OPTIONAL { ?type rdfs:label ?type_label }\r\n}\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 31, id: 198, name: 'Case 10: For each protein, the number of substances
+    tested', query: "PREFIX bao: <http://www.bioassayontology.org/bao#>\r\nPREFIX\
+    \ obo: <http://purl.obolibrary.org/obo/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX sio: <http://semanticscience.org/resource/>\r\nSELECT (COUNT(?sub) AS\
+    \ ?subcnt) ?protein WHERE { \r\n  ?sub obo:RO_0000056 ?mg . \r\n  ?mg obo:RO_0000057\
+    \ ?protein . \r\n  ?protein rdf:type sio:SIO_010043 . \r\n  ?mg obo:OBI_0000299\
+    \ ?ep . \r\n  ?ep rdf:type bao:BAO_0000190 .\r\n  ?ep obo:IAO_0000136 ?sub .\r\
+    \n  ?ep sio:SIO_000300 ?value . \r\n} \r\nGROUP BY ?protein \r\nORDER BY DESC(?subcnt)",
+  sortKey: C.10}
+- {backend: 31, id: 197, name: 'Case 9: Pharmacological roles for substances inhibiting
+    ACCQ1280 with IC50 <= 10 µM', query: "PREFIX bao: <http://www.bioassayontology.org/bao#>\r\
+    \nPREFIX obo: <http://purl.obolibrary.org/obo/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\
+    \nPREFIX protein: <http://rdf.ncbi.nlm.nih.gov/pubchem/protein/>\r\nPREFIX rdf:\
+    \ <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX sio: <http://semanticscience.org/resource/>\r\nSELECT DISTINCT ?rolelabel\
+    \ WHERE { { \r\n  ?sub obo:RO_0000056 ?mg . \r\n  ?mg obo:RO_0000057 protein:ACCQ12809\
+    \ ; obo:OBI_0000299 ?ep . } {\r\n  ?sub rdf:type ?chebi .\r\n  ?chebi rdfs:subClassOf\
+    \ ?m . \r\n  ?m a owl:Restriction ; \r\n    owl:onProperty <http://purl.obolibrary.org/obo/RO_0000087>\
+    \ ;\r\n    owl:someValuesFrom ?role . \r\n  ?role rdfs:label ?rolelabel . \r\n\
+    \  ?ep obo:IAO_0000136 ?sub ; rdf:type bao:BAO_0000190 ; sio:SIO_000300 ?value\
+    \ . } \r\n  FILTER (?value < 10 ) \r\n}", sortKey: C.09}
+- {backend: 31, id: 196, name: 'Case 8: Substances inhibiting proteins involved in
+    prostaglandin biosynthesis with IC50 <= 10µM', query: "PREFIX bao: <http://www.bioassayontology.org/bao#>\r\
+    \nPREFIX obo: <http://purl.obolibrary.org/obo/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX sio: <http://semanticscience.org/resource/>\r\nPREFIX up: <http://purl.uniprot.org/core/>\r\
+    \nSELECT DISTINCT ?substance ?protein WHERE { { \r\n  ?substance obo:RO_0000056\
+    \ ?measuregroup . \r\n  ?measuregroup obo:RO_0000057 ?protein . \r\n  ?protein\
+    \ rdf:type sio:SIO_010043 . \r\n  ?protein up:encodedBy ?gene . \r\n  ?gene rdf:type\
+    \ sio:SIO_010035 . \r\n  ?gene obo:RO_0000056 obo:GO_0001516 . } {\r\n  ?measuregroup\
+    \ obo:OBI_0000299 ?endpoint . \r\n  ?endpoint obo:IAO_0000136 ?substance . \r\n\
+    \  ?endpoint rdf:type bao:BAO_0000190 . \r\n  ?endpoint sio:SIO_000300 ?value\
+    \ . }\r\n  FILTER (?value < 10) \r\n}", sortKey: C.08}
+- {backend: 31, id: 195, name: 'Case 7: Protein targets inhibited by donepezil hydrochloride
+    with IC50 <= 10 µM', query: "PREFIX bao: <http://www.bioassayontology.org/bao#>\r\
+    \nPREFIX compound: <http://rdf.ncbi.nlm.nih.gov/pubchem/compound/>\r\nPREFIX obo:\
+    \ <http://purl.obolibrary.org/obo/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX sio: <http://semanticscience.org/resource/>\r\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\r\
+    \nSELECT DISTINCT ?sub ?protein ?title WHERE { { \r\n  ?sub sio:CHEMINF_000477\
+    \ compound:CID3152 ; obo:RO_0000056 ?mg . } { \r\n  ?mg obo:RO_0000057 ?protein\
+    \ ; obo:OBI_0000299 ?ep . \r\n  ?protein rdf:type sio:SIO_010043 ; skos:prefLabel\
+    \ ?title . \r\n  ?ep rdf:type bao:BAO_0000190 ; obo:IAO_0000136 ?sub ; sio:SIO_000300\
+    \ ?value . } \r\n  FILTER (?value < 10 ) \r\n}", sortKey: C.07}
+- {backend: 31, id: 194, name: 'Case 6: Substances inhibiting targets like ACCP05979
+    with function domain PSSMID188648 *', query: "PREFIX protein: <http://rdf.ncbi.nlm.nih.gov/pubchem/protein/>\r\
+    \nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\nPREFIX sio: <http://semanticscience.org/resource/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX obo: <http://purl.obolibrary.org/obo/>\r\nPREFIX bao: <http://www.bioassayontology.org/bao#>\r\
+    \nSELECT DISTINCT ?rolelabel WHERE { {\r\n  ?chebi rdfs:subClassOf ?class .\r\n\
+    \  ?class rdf:type owl:Restriction .\r\n  ?class owl:onProperty obo:RO_0000087\
+    \ .\r\n  ?class owl:someValuesFrom ?role .\r\n  ?role rdfs:label ?rolelabel .\
+    \ } {\r\n  ?compound rdf:type ?chebi .\r\n  ?compound obo:RO_0000056 ?measuregroup\
+    \ .\r\n  ?measuregroup obo:RO_0000057 protein:ACCQ12809 .\r\n  ?measuregroup obo:OBI_0000299\
+    \ ?endpoint .\r\n  ?endpoint obo:IAO_0000136 ?compound .\r\n  ?endpoint rdf:type\
+    \ bao:BAO_0000190 .\r\n  ?endpoint sio:SIO_000300 ?value }\r\n  FILTER (?value\
+    \ < 10)\r\n}", sortKey: C.06}
+- {backend: 31, id: 193, name: 'Case 5: Protein targets inhibited by cholinesterase
+    inhibitors with IC50 <= 10 µM *', query: "PREFIX bao: <http://www.bioassayontology.org/bao#>\r\
+    \nPREFIX obo: <http://purl.obolibrary.org/obo/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\
+    \nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX sio: <http://semanticscience.org/resource/>\r\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\r\
+    \nSELECT DISTINCT ?title  \r\nFROM <http://purl.obolibrary.org/obo>  \r\nFROM\
+    \ <http://rdf.ncbi.nlm.nih.gov/pubchem/substance>  \r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/measuregroup>\
+    \  \r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/endpoint>  \r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/protein>\
+    \  \r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/ontologies>  \r\nWHERE { {\r\n\
+    \  ?chebi rdfs:subClassOf [ a owl:Restriction ; owl:onProperty obo:RO_0000087\
+    \ ; owl:someValuesFrom obo:CHEBI_37733 ] . } {\r\n  ?sub rdf:type ?chebi ; obo:RO_0000056\
+    \ ?mg .\r\n  ?mg obo:RO_0000057 ?protein ; obo:OBI_0000299 ?ep .\r\n  ?protein\
+    \ rdf:type sio:SIO_010043 ; skos:prefLabel ?title .\r\n  ?ep rdf:type bao:BAO_0000190\
+    \ ; obo:IAO_0000136 ?sub ; sio:SIO_000300 ?value . }\r\n  FILTER (?value < 10\
+    \ )  \r\n}", sortKey: C.05}
+- {backend: 31, id: 192, name: 'Case 4: NSAID substances according to CHEBI', query: "PREFIX\
+    \ concept: <http://rdf.ncbi.nlm.nih.gov/pubchem/concept/>\r\nPREFIX dcterms: <http://purl.org/dc/terms/>\r\
+    \nPREFIX obo: <http://purl.obolibrary.org/obo/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\
+    \nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nSELECT DISTINCT ?substance ?source  \r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/substance>\
+    \  \r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/source>  \r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/ontologies>\
+    \  \r\nWHERE {  \r\n  ?substance dcterms:source ?source .  \r\n  ?source dcterms:subject\
+    \ concept:Chemical_Vendors .  \r\n  ?substance rdf:type ?chebi .  \r\n  ?chebi\
+    \ rdfs:subClassOf [ a owl:Restriction ;  \r\n  owl:onProperty obo:RO_0000087 ;\
+    \  \r\n  owl:someValuesFrom obo:CHEBI_35475 ] .  \r\n}", sortKey: C.04}
+- {backend: 31, id: 191, name: 'Case 3: NSAID compounds with molecular weight < 200
+    g/mol', query: "PREFIX obo: <http://purl.obolibrary.org/obo/>\r\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\r\
+    \nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX sio: <http://semanticscience.org/resource/>\r\nSELECT DISTINCT ?compound\
+    \  \r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/compound>  \r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/descriptor>\
+    \  \r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/ontologies>  \r\nWHERE { {\r\n\
+    \  ?compound rdf:type ?chebi .  \r\n  ?chebi rdfs:subClassOf [ a owl:Restriction\
+    \ ;  \r\n  owl:onProperty obo:RO_0000087 ;  \r\n  owl:someValuesFrom obo:CHEBI_35475\
+    \ ] .  \r\n  ?compound sio:SIO_000008 ?MW .  \r\n  ?MW rdf:type sio:CHEMINF_000334\
+    \ .  \r\n  ?MW sio:SIO_000300 ?MWValue . }\r\n  FILTER (?MWValue < 200 )  \r\n\
+    }", sortKey: C.03}
+- {backend: 31, id: 190, name: 'Case 2: Pharmacological roles of SID46505803 defined
+    by CHEBI', query: "PREFIX obov: <http://purl.obolibrary.org/obo/>\r\nPREFIX owl:\
+    \ <http://www.w3.org/2002/07/owl#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX sio: <http://semanticscience.org/resource/>\r\
+    \nPREFIX substance: <http://rdf.ncbi.nlm.nih.gov/pubchem/substance/>\r\nSELECT\
+    \ DISTINCT ?rolelabel  \r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/substance>\
+    \  \r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/compound>  \r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/ontologies>\
+    \  \r\nWHERE {  \r\n  substance:SID46505803 sio:CHEMINF_000477 ?comp .  \r\n \
+    \ ?comp rdf:type ?chebi .  \r\n  ?chebi rdfs:subClassOf [ a owl:Restriction ;\
+    \  \r\n  owl:onProperty obov:RO_0000087 ;  \r\n  owl:someValuesFrom ?role ] .\
+    \  \r\n  ?role rdfs:label ?rolelabel .  \r\n}", sortKey: C.02}
+- {backend: 31, id: 189, name: 'Case 1: Protein targets inhibited by donepezil with
+    IC50 <= 10 µM', query: "PREFIX bao: <http://www.bioassayontology.org/bao#>\r\n\
+    PREFIX obo: <http://purl.obolibrary.org/obo/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX sio: <http://semanticscience.org/resource/>\r\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\r\
+    \nSELECT DISTINCT ?protein ?title\r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/protein>\
+    \  \r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/measuregroup>  \r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/endpoint>\
+    \  \r\nFROM <http://rdf.ncbi.nlm.nih.gov/pubchem/substance>  \r\nWHERE { {\r\n\
+    \  ?sub rdf:type obo:CHEBI_53289 ; obo:RO_0000056 ?mg .  \r\n  ?mg obo:RO_0000057\
+    \ ?protein ; obo:OBI_0000299 ?ep .  \r\n  ?protein rdf:type sio:SIO_010043 ; skos:prefLabel\
+    \ ?title .  \r\n  ?ep rdf:type bao:BAO_0000190 ; obo:IAO_0000136 ?sub ; sio:SIO_000300\
+    \ ?value . }\r\n  FILTER (?value < 10 )  \r\n}", sortKey: C.01}
+- {backend: 39, id: 186, name: All athletes whose name contains the given keywords,
+  query: "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\r\
+    \nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX olympics:\
+    \ <http://wallscope.co.uk/ontology/olympics/>\r\nSELECT ?athlete_label WHERE {\r\
+    \n  ?athlete rdf:type foaf:Person .\r\n  ?athlete rdfs:label ?athlete_label .\r\
+    \n  FILTER CONTAINS(?athlete_label, \"Patr\")\r\n}", sortKey: '~'}
+- {backend: 17, id: 183, name: Number of objects by type, query: "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nSELECT ?type (COUNT(?type) as ?count) WHERE {\r\n  ?osm_id rdf:type ?type .\r\
+    \n}\r\nGROUP BY ?type\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 8, id: 182, name: Highest peak per mountain range in country X, query: "PREFIX\
+    \ wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX psn: <http://www.wikidata.org/prop/statement/value-normalized/>\r\
+    \nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nSELECT ?mountain_range ?highest_peak ?elevation (SAMPLE(?image) AS ?image_)\
+    \ (SAMPLE(?coordinates) AS ?coordinates_) WHERE {\r\n   { SELECT ?range (MAX(?elevation_tmp)\
+    \ AS ?elevation) (COUNT(?mountain) AS ?count) WHERE {\r\n     ?mountain wdt:P31\
+    \ wd:Q8502 .\r\n     ?mountain p:P2044/psn:P2044/wikibase:quantityAmount ?elevation_tmp\
+    \ .\r\n     ?mountain wdt:P4552 ?range .\r\n   } GROUP BY ?range }\r\n   { SELECT\
+    \ ?mountain ?range ?elevation WHERE {\r\n     ?mountain wdt:P31 wd:Q8502 .\r\n\
+    \     ?mountain p:P2044/psn:P2044/wikibase:quantityAmount ?elevation .\r\n   \
+    \  ?mountain wdt:P4552 ?range .\r\n   } }\r\n   ?mountain wdt:P625 ?coordinates\
+    \ .\r\n   ?mountain wdt:P17 wd:Q183 .\r\n   ?range rdfs:label ?mountain_range\
+    \ .\r\n   ?mountain rdfs:label ?highest_peak .\r\n   ?mountain wdt:P18 ?image\r\
+    \n   FILTER (LANG(?mountain_range) = \"de\") .\r\n   FILTER (LANG(?highest_peak)\
+    \ = \"de\")\r\n   FILTER (?count > 10)\r\n}\r\nGROUP BY ?mountain_range ?highest_peak\
+    \ ?elevation \r\nORDER BY DESC(?elevation)", sortKey: '~'}
+- {backend: 15, id: 171, name: 'All types, sorted by their frequency', query: "SELECT\
+    \ ?type (COUNT(?subject) as ?count) WHERE {\r\n  ?subject a ?type\r\n}\r\nGROUP\
+    \ BY ?type \r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 17, id: 170, name: All buildings, query: "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osm: <https://www.openstreetmap.org/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\nSELECT ?osm_id ?shape\
+    \ WHERE {\r\n  ?osm_id osmkey:building ?building .\r\n  ?osm_id rdf:type osm:way\
+    \ .\r\n  ?osm_id geo:hasGeometry ?shape\r\n}", sortKey: '~'}
+- {backend: 17, id: 168, name: All streets, query: "PREFIX osm: <https://www.openstreetmap.org/>\r\
+    \nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\nSELECT ?osm_id ?geometry\
+    \ WHERE {\r\n  ?osm_id osmkey:highway ?highway .\r\n  ?osm_id rdf:type osm:way\
+    \ .\r\n  ?osm_id geo:hasGeometry ?geometry .\r\n}", sortKey: '~'}
+- {backend: 17, id: 167, name: All trees, query: "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\nSELECT ?osm_id ?geometry\
+    \ WHERE {\r\n  ?osm_id osmkey:natural \"tree\" .\r\n  ?osm_id geo:hasGeometry\
+    \ ?geometry .\r\n}", sortKey: '~'}
+- {backend: 15, id: 166, name: 'Name search, ranked', query: "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX dblp: <https://dblp.org/rdf/schema#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nSELECT ?author_name (COUNT(?paper) as ?count_paper) WHERE {\r\n  ?author rdf:type\
+    \ dblp:Person .\r\n  ?author rdfs:label ?author_name .\r\n  ?paper dblp:authoredBy\
+    \ ?author .\r\n  FILTER CONTAINS(?author_name, \"mich\")\r\n}\r\nGROUP BY ?author_name\
+    \ \r\nORDER BY DESC(?count_paper)", sortKey: '~'}
+- {backend: 15, id: 162, name: Number of papers by venue, query: "PREFIX dblp: <https://dblp.org/rdf/schema#>\r\
+    \nSELECT ?venue (COUNT(?paper) as ?count) WHERE {\r\n  ?paper dblp:publishedIn\
+    \ ?venue .\r\n}\r\nGROUP BY ?venue\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 15, id: 161, name: All papers published in SIGIR, query: "PREFIX dblp:\
+    \ <https://dblp.org/rdf/schema#>\r\nSELECT ?paper ?title ?year WHERE {\r\n  ?paper\
+    \ dblp:title ?title .\r\n  ?paper dblp:publishedIn \"SIGIR\" .\r\n  ?paper dblp:yearOfPublication\
+    \ ?year\r\n}\r\nORDER BY DESC(?year)", sortKey: '~'}
+- {backend: 17, id: 160, name: All post boxes, query: "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\nSELECT ?osm_id ?geometry\
+    \ WHERE {\r\n  ?osm_id osmkey:amenity \"post_box\" .\r\n  ?osm_id geo:hasGeometry\
+    \ ?geometry\r\n}", sortKey: '~'}
+- {backend: 8, id: 157, name: All places in a stripe around the 48°N latitude, query: "PREFIX\
+    \ rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\r\
+    \nSELECT ?anything ?name ?latitude ?longitude ?location WHERE {\r\n  ?anything\
+    \ wdt:P625 ?location .\r\n  ?anything rdfs:label ?name .\r\n  FILTER (LANG(?name)\
+    \ = \"en\") .\r\n  BIND (geof:latitude(?location) AS ?latitude)\r\n  BIND (geof:longitude(?location)\
+    \ AS ?longitude)\r\n  FILTER (?latitude >= 47.99) FILTER (?latitude <= 48.01)\r\
+    \n}\r\nORDER BY ASC(?longitude)", sortKey: '~'}
+- {backend: 8, id: 156, name: All objects with an location in a 100km ring around
+    Freiburg, query: "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX\
+    \ wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\r\nSELECT ?anything\
+    \ ?name ?dist ?location WHERE {\r\n  ?anything wdt:P625 ?location .\r\n  ?anything\
+    \ rdfs:label ?name .\r\n  FILTER (LANG(?name) = \"en\") .\r\n  BIND (\"POINT(7.85\
+    \ 48.00)\"^^geo:wktLiteral AS ?point)\r\n  BIND (geof:distance(?location, ?point)\
+    \ AS ?dist)\r\n  FILTER (?dist >= 97 && ?dist <= 103)\r\n}\r\nORDER BY ASC(?dist)",
+  sortKey: '~'}
+- {backend: 8, id: 153, name: Airports around Berlin (using DIST), query: "PREFIX\
+    \ rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\r\nSELECT ?airport\
+    \ ?airport_label ?dist ?location WHERE {\r\n  ?airport wdt:P31/wdt:P279* wd:Q1248784\
+    \ .\r\n  ?airport wdt:P625 ?location .\r\n  ?airport rdfs:label ?airport_label\
+    \ .\r\n  FILTER (LANG(?airport_label) = \"en\") .\r\n  BIND (\"POINT(13.38 52.52)\"\
+    ^^geo:wktLiteral AS ?point)\r\n  BIND (geof:distance(?location, ?point) AS ?dist)\r\
+    \n  FILTER (?dist <= 100)\r\n}\r\nORDER BY ASC(?dist)", sortKey: '~'}
+- {backend: 26, id: 152, name: Female astronauts ordered by age, query: "PREFIX yago:\
+    \ <http://yago-knowledge.org/resource/>\r\nPREFIX schema: <http://schema.org/>\r\
+    \nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nSELECT ?person\
+    \ ?nationality ?birthdate WHERE {\r\n  ?person rdf:type schema:Person .\r\n  ?person\
+    \ schema:hasOccupation yago:Astronaut .\r\n  ?person schema:gender yago:female_Q6581072\
+    \ .\r\n  ?person schema:birthDate ?birthdate .\r\n  ?person schema:nationality\
+    \ ?nationality .\r\n}\r\nORDER BY DESC(?birthdate)", sortKey: '~'}
+- {backend: 15, id: 151, name: 'All predicates, ordered by number of subjects', query: "SELECT\
+    \ ?predicate (COUNT(?subject) as ?count) WHERE {\r\n  ?subject ?predicate ?object\r\
+    \n}\r\nGROUP BY ?predicate \r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 39, id: 150, name: All predicates with their absolute and relative size,
+  query: "SELECT ?p ?count ?percent WHERE {\r\n  { SELECT ?p (COUNT(?p) AS ?count)\
+    \ WHERE { ?s ?p ?o } GROUP BY ?p }\r\n  BIND(100 * ?count / SUM(?count) AS ?percent)\r\
+    \n}\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 17, id: 148, name: 'Alls states of Germany without ogc:contains', query: "PREFIX\
+    \ osm: <https://www.openstreetmap.org/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\
+    \nSELECT ?region ?name ?iso31662 ?shape WHERE {\r\n  ?region rdf:type osm:relation\
+    \ .\r\n  ?region osmkey:ISO3166-2 ?iso31662 .\r\n  ?region osmkey:name ?name .\r\
+    \n  ?region geo:hasGeometry ?shape .\r\n  FILTER REGEX(?iso31662, \"^\\\"DE-\"\
+    )\r\n}", sortKey: '~'}
+- {backend: 39, id: 146, name: Athletes ranked by number of gold medals, query: "PREFIX\
+    \ rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX olympics: <http://wallscope.co.uk/ontology/olympics/>\r\
+    \nPREFIX medal: <http://wallscope.co.uk/resource/olympics/medal/>\r\nSELECT ?athlete\
+    \ ?athlete_label (COUNT(?medal) as ?count) WHERE {\r\n  ?medal olympics:medal\
+    \ medal:Gold .\r\n  ?medal olympics:athlete ?athlete .\r\n  ?athlete rdfs:label\
+    \ ?athlete_label .\r\n}\r\nGROUP BY ?athlete ?athlete_label \r\nORDER BY DESC(?count)",
+  sortKey: '~'}
+- {backend: 15, id: 144, name: Author names matching REGEX, query: "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX dblp: <https://dblp.org/rdf/schema#>\r\nSELECT ?author ?author_label\
+    \ ?count WHERE {\r\n  { SELECT ?author ?author_label (COUNT(?paper) as ?count)\
+    \ WHERE {\r\n    ?paper dblp:authoredBy ?author .\r\n    ?paper dblp:publishedIn\
+    \ \"SIGIR\" .\r\n    ?author rdfs:label ?author_label .\r\n  } GROUP BY ?author\
+    \ ?author_label }\r\n  FILTER REGEX(STR(?author_label), \"M.*D.*\", \"i\")\r\n\
+    }\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 17, id: 129, name: All castles in Switzerland, query: "PREFIX ogc: <http://www.opengis.net/rdf#>\r\
+    \nPREFIX osmrel: <https://www.openstreetmap.org/relation/>\r\nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\
+    \nSELECT ?castle ?name ?class ?ruins WHERE {\r\n  osmrel:51701 ogc:contains ?castle\
+    \ .\r\n  { { ?castle osmkey:historic \"castle\" } UNION\r\n  { ?castle osmkey:historic\
+    \ \"tower\" . ?castle osmkey:castle_type \"defensive\" } } UNION\r\n  { ?castle\
+    \ osmkey:historic \"archaeological_site\" . ?castle osmkey:site_type \"fortification\"\
+    \ }\r\n  ?castle osmkey:name ?name .\r\n  ?castle osmkey:ruins ?ruins .\r\n  OPTIONAL\
+    \ { ?castle osmkey:historic ?class }\r\n  OPTIONAL { ?castle osmkey:archaeological_site\
+    \ ?class }\r\n}", sortKey: '~'}
+- {backend: 8, id: 127, name: People that co-occur with "beatles", query: "PREFIX\
+    \ rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX wd: <http://www.wikidata.org/entity/>\r\nSELECT ?person_id ?person_name\
+    \ (SAMPLE(?text) AS ?sample_text) (COUNT(?text) AS ?count_text) WHERE {\r\n  ?person_id\
+    \ wdt:P31 wd:Q5 .\r\n  ?person_id rdfs:label ?person_name .\r\n  FILTER (LANG(?person_name)\
+    \ = \"en\") .\r\n  ?text ql:contains-entity ?person_id .\r\n  ?text ql:contains-word\
+    \ \"beatles\"\r\n}\r\nGROUP BY ?person_id ?person_name\r\nORDER BY DESC(?count_text)",
+  sortKey: '~'}
+- {backend: 32, id: 123, name: '#11: All proteins with annotated transmembrane regions',
+  query: "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX faldo:\
+    \ <http://biohackathon.org/resource/faldo#>\r\nPREFIX up: <http://purl.uniprot.org/core/>\r\
+    \nSELECT ?protein ?begin ?end WHERE {\r\n  ?protein rdf:type up:Protein .\r\n\
+    \  ?protein up:annotation ?annotation .\r\n  ?annotation rdf:type up:Transmembrane_Annotation\
+    \ .\r\n  ?annotation up:range ?range .\r\n  ?range faldo:begin ?m1 . ?m1 faldo:position\
+    \ ?begin .\r\n  ?range faldo:end ?m2 . ?m2 faldo:position ?end\r\n}", sortKey: '~'}
+- {backend: 8, id: 119, name: Politicians and their most recent party, query: "PREFIX\
+    \ pq: <http://www.wikidata.org/prop/qualifier/>\r\nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\
+    \nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX schema: <http://schema.org/>\r\
+    \nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nSELECT ?person_name ?party_name\
+    \ ?join_date ?sitelinks WHERE {\r\n  { SELECT ?person (MAX(?join_date_tmp) AS\
+    \ ?join_date) WHERE {\r\n      ?person p:P102/pq:P580 ?join_date_tmp .\r\n  }\
+    \ GROUP BY ?person }\r\n  ?person p:P102 ?p102 .\r\n  ?p102 ps:P102 ?party .\r\
+    \n  ?p102 pq:P580 ?join_date .\r\n  ?person schema:name ?person_name . FILTER\
+    \ (LANG(?person_name) = \"en\") .\r\n  ?party schema:name ?party_name . FILTER\
+    \ (LANG(?party_name) = \"en\") .\r\n  ?about schema:about ?person .\r\n  ?about\
+    \ wikibase:sitelinks ?sitelinks .\r\n}\r\nORDER BY DESC(?sitelinks)", sortKey: '~'}
+- {backend: 32, id: 118, name: '#10: Human proteins with sequence variant that lead
+    to substitutions', query: "PREFIX up: <http://purl.uniprot.org/core/>\r\nPREFIX\
+    \ taxon: <http://purl.uniprot.org/taxonomy/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX faldo: <http://biohackathon.org/resource/faldo#>\r\
+    \nSELECT ?protein ?annotation ?begin ?text WHERE {\r\n  ?protein a up:Protein\
+    \ ;\r\n    up:organism taxon:9606 ; \r\n    up:annotation ?annotation .\r\n  ?annotation\
+    \ a up:Natural_Variant_Annotation ;\r\n    rdfs:comment ?text ;\r\n    up:substitution\
+    \ ?substitution ;\r\n    up:range ?m1 .\r\n\t?m1 faldo:begin ?m2 .\r\n  ?m2 faldo:position\
+    \ ?begin .\r\n  ?m2 faldo:reference ?sequence .\r\n  ?sequence rdf:value ?value\
+    \ .\r\n}", sortKey: '~'}
+- {backend: 32, id: 117, name: '#9: All human proteins with a sequence variant that
+    leads to a ''loss of function''', query: "PREFIX up: <http://purl.uniprot.org/core/>\r\
+    \nPREFIX taxon: <http://purl.uniprot.org/taxonomy/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nSELECT ?protein ?text WHERE { \r\n  ?protein a up:Protein .\r\n  ?protein up:organism\
+    \ taxon:9606 . \r\n  ?protein up:annotation ?annotation .\r\n  ?annotation a up:Natural_Variant_Annotation\
+    \ . \r\n  ?annotation rdfs:comment ?text .\r\n  FILTER REGEX(?text, 'loss of function')\r\
+    \n}", sortKey: '~'}
+- {backend: 32, id: 116, name: '#8: Gene name and annotations of all human proteins
+    for a certain disease', query: "PREFIX up: <http://purl.uniprot.org/core/>\r\n\
+    PREFIX taxon: <http://purl.uniprot.org/taxonomy/>\r\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT ?name ?text WHERE\
+    \ {\r\n  ?protein a up:Protein . \r\n  ?protein up:organism taxon:9606 .\r\n \
+    \ ?protein up:encodedBy ?gene . \r\n  ?gene skos:prefLabel ?name .\r\n  ?protein\
+    \ up:annotation ?annotation .\r\n  ?annotation a up:Disease_Annotation .\r\n \
+    \ ?annotation rdfs:comment ?text\r\n}", sortKey: '~'}
+- {backend: 32, id: 115, name: '#7: Reviewed proteins with a preferred gene name containing
+    ''DNA''', query: "PREFIX up: <http://purl.uniprot.org/core/>\r\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\r\
+    \nSELECT ?protein ?name WHERE {\r\n  ?protein a up:Protein .\r\n  ?protein up:reviewed\
+    \ true .\r\n  ?protein up:recommendedName ?recommended .\r\n  ?recommended up:fullName\
+    \ ?name .\r\n  ?protein up:encodedBy ?gene .\r\n  ?gene skos:prefLabel ?text .\r\
+    \n  FILTER REGEX(?text, 'DNA')\r\n}", sortKey: '~'}
+- {backend: 32, id: 114, name: '#6: All cross-references to external databases with
+    certain keyword and category', query: "PREFIX up: <http://purl.uniprot.org/core/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX keywords: <http://purl.uniprot.org/keywords/>\r\
+    \nSELECT DISTINCT ?link WHERE {\r\n  ?protein a up:Protein . \r\n  ?protein up:classifiedWith\
+    \ keywords:5 .\r\n  ?protein rdfs:seeAlso ?link .\r\n  ?link up:database ?db .\r\
+    \n  ?db up:category '3D structure databases'\r\n}", sortKey: '~'}
+- {backend: 32, id: 113, name: '#5: Mapping of UniProt to PDB entries using the UniProt
+    cross-references', query: "PREFIX up: <http://purl.uniprot.org/core/>\r\nPREFIX\
+    \ rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX keywords: <http://purl.uniprot.org/keywords/>\r\
+    \nSELECT ?protein ?db WHERE {\r\n  ?protein a up:Protein ;\r\n    up:classifiedWith\
+    \ keywords:5 ;\r\n    rdfs:seeAlso ?db .\r\n  ?db up:database <http://purl.uniprot.org/database/PDB>\r\
+    \n}", sortKey: '~'}
+- {backend: 32, id: 112, name: '#4: The protein with the mnemonic A4_HUMAN', query: "PREFIX\
+    \ up: <http://purl.uniprot.org/core/>\r\nSELECT ?protein WHERE {\r\n  ?protein\
+    \ a up:Protein .\r\n  ?protein up:mnemonic 'A4_HUMAN'\r\n}", sortKey: '~'}
+- {backend: 32, id: 111, name: '#3: All proteins with their organism and amino acid
+    sequences', query: "PREFIX up: <http://purl.uniprot.org/core/>\r\nPREFIX taxon:\
+    \ <http://purl.uniprot.org/taxonomy/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nSELECT ?protein\
+    \ ?organism ?isoform ?aa_sequence WHERE {\r\n  ?protein a up:Protein .\r\n  ?protein\
+    \ up:organism ?organism .\r\n  ?organism rdfs:subClassOf taxon:83333 .\r\n  ?protein\
+    \ up:sequence ?isoform .\r\n  ?isoform rdf:value ?aa_sequence .\r\n}", sortKey: '~'}
+- {backend: 32, id: 110, name: '#2: All bacterial taxa and their scientific name',
+  query: "PREFIX up: <http://purl.uniprot.org/core/>\r\nPREFIX taxon: <http://purl.uniprot.org/taxonomy/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT ?taxon ?name\
+    \ WHERE {\r\n  ?taxon a up:Taxon .\r\n  ?taxon up:scientificName ?name .\r\n \
+    \ ?taxon rdfs:subClassOf taxon:2 .\r\n}", sortKey: '~'}
+- {backend: 32, id: 109, name: '#1: All taxa', query: "PREFIX up: <http://purl.uniprot.org/core/>\r\
+    \nSELECT ?taxon WHERE {\r\n  ?taxon a up:Taxon .\r\n}", sortKey: '~'}
+- {backend: 15, id: 103, name: Most prolific conferences on autonomous driving, query: "PREFIX\
+    \ dblp: <https://dblp.org/rdf/schema#>\r\nSELECT ?venue (COUNT(?paper) as ?count)\
+    \ WHERE {\r\n  ?paper dblp:title ?title .\r\n  ?paper dblp:publishedIn ?venue\
+    \ .\r\n  [ ql:contains-entity ?title; ql:contains-word \"auto* driving\" ]\r\n\
+    }\r\nGROUP BY ?venue\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 15, id: 102, name: Most prolific authors about autonomous driving, query: "PREFIX\
+    \ dblp: <https://dblp.org/rdf/schema#>\r\nSELECT ?name (COUNT(?paper) as ?count)\
+    \  WHERE {\r\n  ?paper dblp:title ?title .\r\n  ?paper dblp:authoredBy ?author\
+    \ .\r\n  ?author dblp:primaryCreatorName ?name .\r\n  [ ql:contains-entity ?title;\
+    \ ql:contains-word \"auto* driving\" ]\r\n}\r\nGROUP BY ?author ?name\r\nORDER\
+    \ BY DESC(?count)", sortKey: '~'}
+- {backend: 8, id: 100, name: Meryl Streep Oscars and corresponding movies, query: "PREFIX\
+    \ rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX pq: <http://www.wikidata.org/prop/qualifier/>\r\nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\
+    \nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nSELECT ?film_id ?film ?award WHERE {\r\n  wd:Q873 p:P166 ?p166 .\r\n  ?p166\
+    \ ps:P166 ?award_id .\r\n  ?p166 pq:P1686 ?film_id .\r\n  ?award_id wdt:P31 wd:Q19020\
+    \ .\r\n  ?award_id rdfs:label ?award . FILTER (LANG(?award) = \"en\")\r\n  ?film_id\
+    \ rdfs:label ?film . FILTER (LANG(?film) = \"en\")\r\n}", sortKey: '~'}
+- {backend: 1, id: 99, name: Element with VdW radius < 200 and their series, query: "SELECT\
+    \ ?element ?series ?van_der_waals_radius WHERE {\r\n  ?element <Chemical_series>\
+    \ ?series .\r\n  ?element <Van_der_Waals_radius> ?van_der_waals_radius .\r\n \
+    \ FILTER (?van_der_waals_radius <= 199)\r\n} ORDER BY ASC(?van_der_waals_radius)",
+  sortKey: '~'}
+- {backend: 17, id: 96, name: 'All "highway" nodes, with coordinates and optional
+    name', query: "PREFIX osm: <https://www.openstreetmap.org/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX osmt: <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osmway: <https://www.openstreetmap.org/way/>\r\nSELECT DISTINCT ?node\
+    \ ?coordinates ?name WHERE {\r\n  ?way osmt:highway ?highway .\r\n  ?way rdf:type\
+    \ osm:way .\r\n  ?way osmway:node/osmway:node ?node .\r\n  ?node geo:hasGeometry\
+    \ ?coordinates .\r\n  OPTIONAL { ?node osmt:name ?name }\r\n}", sortKey: '~'}
+- {backend: 17, id: 95, name: 'All "highway" segments, with distance and max speed',
+  query: "PREFIX osm: <https://www.openstreetmap.org/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX osmt: <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osmway: <https://www.openstreetmap.org/way/>\r\nSELECT DISTINCT ?node_1\
+    \ ?node_2 ?dist ?highway ?maxspeed WHERE {\r\n  ?way osmt:highway ?highway .\r\
+    \n  ?way rdf:type osm:way .\r\n  ?way osmway:node ?m .\r\n  ?m osmway:node ?node_1\
+    \ .\r\n  ?m osmway:next_node ?node_2 .\r\n  ?m osmway:next_node_distance ?dist\
+    \ .\r\n  OPTIONAL { ?way osmt:maxspeed ?maxspeed }\r\n}", sortKey: '~'}
+- {backend: 17, id: 94, name: All university buildings in box around Germany, query: "PREFIX\
+    \ osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osm: <https://www.openstreetmap.org/>\r\nPREFIX osmrel: <https://www.openstreetmap.org/relation/>\r\
+    \nSELECT ?name WHERE {\r\n  ?osm_id osm:envelope ?envelope .\r\n  ?osm_id osmkey:building\
+    \ \"university\" .\r\n  ?osm_id osmkey:name ?name .\r\n  FILTER contained(?envelope,\
+    \ \"LINESTRING(5 47, 16 56)\")\r\n}", sortKey: '~'}
+- {backend: 17, id: 93, name: 'All Wikidata entities contained in region X, with names',
+  query: "PREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX osmrel:\
+    \ <https://www.openstreetmap.org/relation/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX osm: <https://www.openstreetmap.org/>\r\nPREFIX ogc: <http://www.opengis.net/rdf#>\r\
+    \nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\nSELECT ?osm_id ?wikidata_id\
+    \ ?hasgeometry WHERE {\r\n  osmrel:62768 ogc:sfContains ?osm_id .\r\n  ?osm_id\
+    \ osm:wikidata ?wikidata_id .\r\n  ?osm_id geo:hasGeometry ?hasgeometry .\r\n\
+    \  ?osm_id osmkey:name ?osm_name .\r\n  ?wikidata_id @en@rdfs:label ?wikidata_name\
+    \ \r\n}", sortKey: '~'}
+- {backend: 17, id: 91, name: Level-6 division of Germany, query: "PREFIX osmrel:\
+    \ <https://www.openstreetmap.org/relation/>\r\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osm: <https://www.openstreetmap.org/>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\
+    \nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\
+    \nSELECT ?region ?name ?geometry WHERE {\r\n  { ?region osmkey:boundary \"administrative\"\
+    \ . ?region osmkey:admin_level \"6\"^^xsd:int . ?region rdf:type osm:relation\
+    \ }\r\n  UNION\r\n  { VALUES ?region { osmrel:62782 osmrel:62422 } }\r\n  ?region\
+    \ osmkey:name ?name .\r\n  ?region geo:hasGeometry ?geometry .\r\n}", sortKey: '~'}
+- {backend: 17, id: 90, name: Lichtentaler Allee (example for banana-shaped geoemtry),
+  query: "PREFIX osmrel: <https://www.openstreetmap.org/relation/>\r\nPREFIX geo:\
+    \ <http://www.opengis.net/ont/geosparql#>\r\nPREFIX osm: <https://www.openstreetmap.org/>\r\
+    \nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX osmkey:\
+    \ <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\
+    \nSELECT ?region ?geometry WHERE {\r\n  ?region osmkey:leisure \"park\" .\r\n\
+    \  ?region rdf:type osm:relation .\r\n  ?region osmkey:name \"Lichtentaler Allee\"\
+    \ .\r\n  ?region geo:hasGeometry/geo:asWKT ?geometry .\r\n}", sortKey: '~'}
+- {backend: 17, id: 89, name: All level-4 regions in France, query: "PREFIX osmkey:\
+    \ <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX osmrel: <https://www.openstreetmap.org/relation/>\r\
+    \nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX osm: <https://www.openstreetmap.org/>\r\
+    \nPREFIX ogc: <http://www.opengis.net/rdf#>\r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\
+    \nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\nSELECT ?region ?name\
+    \ ?geometry WHERE {\r\n  osmrel:2202162 ogc:sfContains ?region .\r\n  ?region\
+    \ osmkey:boundary \"administrative\" .\r\n  ?region osmkey:admin_level \"4\"^^xsd:int\
+    \ .\r\n  ?region rdf:type osm:relation .\r\n  ?region osmkey:name ?name .\r\n\
+    \  ?region geo:hasGeometry/geo:asWKT ?geometry .\r\n}", sortKey: '~'}
+- {backend: 17, id: 86, name: Administrative regions with level 6, query: "PREFIX\
+    \ geo: <http://www.opengis.net/ont/geosparql#>\r\nPREFIX osm: <https://www.openstreetmap.org/>\r\
+    \nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX osmkey:\
+    \ <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\
+    \nSELECT ?region ?name ?geometry WHERE {\r\n  ?region osmkey:boundary \"administrative\"\
+    \ .\r\n  ?region osmkey:admin_level \"6\"^^xsd:int .\r\n  ?region rdf:type osm:relation\
+    \ .\r\n  ?region osmkey:name ?name .\r\n  ?region geo:hasGeometry/geo:asWKT ?geometry\
+    \ .\r\n}", sortKey: '~'}
+- {backend: 17, id: 80, name: All triples with subject contained in Englischer Garten,
+  query: "PREFIX osmway: <https://www.openstreetmap.org/way/>\r\nPREFIX ogc: <http://www.opengis.net/rdf#>\r\
+    \nSELECT ?s ?p ?o WHERE {\r\n  osmway:159075298 ogc:sfContains ?s .\r\n  ?s ?p\
+    \ ?o\r\n}", sortKey: '~'}
+- {backend: 17, id: 79, name: All buildings in Stühlinger, query: "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\r\
+    \nPREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\r\nPREFIX ogc: <http://www.opengis.net/rdf#>\r\
+    \nPREFIX osmrel: <https://www.openstreetmap.org/relation/>\r\nSELECT ?osm_id ?hasgeometry\
+    \ WHERE {\r\n  osmrel:1960198 ogc:sfContains ?osm_id .\r\n  ?osm_id geo:hasGeometry/geo:asWKT\
+    \ ?hasgeometry .\r\n  ?osm_id osmkey:building ?building .\r\n}", sortKey: '~'}
+- {backend: 8, id: 76, name: 'Literals of Germany, except names', query: "PREFIX wd:\
+    \ <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT ?p ?p_label ?o\
+    \ WHERE {\r\n  wd:Q183 ?p ?o .\r\n  FILTER (! REGEX(STR(?o), \"http:\"))\r\n \
+    \ ?p ^wikibase:directClaim ?m . ?m rdfs:label ?p_label .\r\n  FILTER (LANG(?p_label)\
+    \ = \"en\")\r\n}", sortKey: '~'}
+- {backend: 8, id: 75, name: All movies and their narrative location, query: "PREFIX\
+    \ wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX psn: <http://www.wikidata.org/prop/statement/value-normalized/>\r\
+    \nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX schema: <http://schema.org/>\r\nSELECT ?movie ?movieLabel ?narrative_location\
+    \ ?narrative_locationLabel ?sitelinks ?coordinates WHERE {\r\n  ?movie wdt:P840\
+    \ ?narrative_location ;\r\n  wdt:P31 wd:Q11424 .\r\n  ?narrative_location wdt:P625\
+    \ ?coordinates .\r\n  ?movie ^schema:about/wikibase:sitelinks ?sitelinks .\r\n\
+    \  ?movie rdfs:label ?movieLabel .\r\n  ?narrative_location rdfs:label ?narrative_locationLabel\
+    \ .\r\n  FILTER (LANG(?movieLabel) = \"en\") .\r\n  FILTER (LANG(?narrative_locationLabel)\
+    \ = \"en\") .\r\n}\r\nORDER BY DESC(?sitelinks)", sortKey: '~'}
+- {backend: 8, id: 74, name: Birthplaces of people named Patrick, query: "PREFIX wd:\
+    \ <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX psn: <http://www.wikidata.org/prop/statement/value-normalized/>\r\
+    \nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nSELECT ?person ?person_label ?place_label ?coord WHERE {\r\n  ?person wdt:P31\
+    \ wd:Q5 .\r\n  ?person wdt:P735/rdfs:label \"Patrick\"@en . \r\n  ?person wdt:P19\
+    \ ?place .\r\n  ?place wdt:P625 ?coord .\r\n  ?person rdfs:label ?person_label\
+    \ .\r\n  ?place rdfs:label ?place_label .\r\n  FILTER (LANG(?person_label) = \"\
+    en\") .\r\n  FILTER (LANG(?place_label) = \"en\") .\r\n}", sortKey: '~'}
+- {backend: 8, id: 68, name: 'All triples of wdt:P30 (continent), with proper names',
+  query: "PREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX schema: <http://schema.org/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nSELECT ?s_name ?p_name\
+    \ ?o_name ?statements ?sitelinks WHERE {\r\n  VALUES ?p { wdt:P30 } .\r\n  ?s\
+    \ ?p ?o .\r\n  ?s_name schema:about ?s .\r\n  ?s_name schema:isPartOf <https://en.wikipedia.org/>\
+    \ .\r\n  ?o_name schema:about ?o .\r\n  ?o_name schema:isPartOf <https://en.wikipedia.org/>\
+    \ .\r\n  ?mp wikibase:directClaim ?p .\r\n  ?mp schema:name ?p_name .\r\n  ?ms\
+    \ schema:about ?s .\r\n  ?ms wikibase:statements ?statements .\r\n  ?ms wikibase:sitelinks\
+    \ ?sitelinks .\r\n  FILTER (LANG(?p_name) = \"en\")\r\n}\r\nORDER BY DESC(?sitelinks)",
+  sortKey: '~'}
+- {backend: 8, id: 67, name: All countries and their German name (test for unicode
+    order), query: "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT ?name WHERE {\r\
+    \n  ?country wdt:P31 wd:Q6256 .\r\n  ?country rdfs:label ?name .\r\n  FILTER (lang(?name)\
+    \ = \"de\")\r\n}\r\nORDER BY ASC(?name)", sortKey: '~'}
+- {backend: 8, id: 66, name: 'Films, Title, Countries, Genre, Description', query: "PREFIX\
+    \ wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX schema: <http://schema.org/>\r\
+    \nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nSELECT ?film\r\n       ?title\r\
+    \n\t   (GROUP_CONCAT(DISTINCT ?country; SEPARATOR = \"|\") AS ?countries) \r\n\
+    \t   (GROUP_CONCAT(DISTINCT ?genre; SEPARATOR = \"|\") AS ?genres) \r\n      \
+    \     (SAMPLE(?description_) AS ?description)\r\n           (SAMPLE(?sitelinks_)\
+    \ AS ?sitelinks)\r\nWHERE {\r\n  ?film wdt:P31 wd:Q11424 .\r\n  ?film rdfs:label\
+    \ ?title .\r\n  FILTER (LANG(?title) = \"en\") .\r\n  ?film wdt:P495 ?country_id\
+    \ .\r\n  ?country_id rdfs:label ?country .\r\n  FILTER (LANG(?country) = \"en\"\
+    ) .\r\n  ?film wdt:P136 ?genre_id .\r\n  ?genre_id rdfs:label ?genre .\r\n  FILTER\
+    \ (LANG(?genre) = \"en\") .\r\n  ?film schema:description ?description_ .\r\n\
+    \  FILTER (LANG(?description_) = \"en\") .\r\n  ?about schema:about ?film .\r\n\
+    \  ?about wikibase:sitelinks ?sitelinks_\r\n}\r\nGROUP BY ?film ?title \r\nORDER\
+    \ BY DESC(?sitelinks)", sortKey: '~'}
+- {backend: 8, id: 63, name: Scientists who's name starts with Albert, query: "PREFIX\
+    \ wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT ?scientist ?name\
+    \ WHERE {\r\n  ?scientist wdt:P106 wd:Q901 .\r\n  ?scientist rdfs:label ?name\
+    \ .\r\n  FILTER (LANG(?name) = \"en\") .\r\n  FILTER REGEX(STR(?name), \"^Albert\"\
+    ) .\r\n}", sortKey: '~'}
+- {backend: 8, id: 61, name: German politicians and their most recent party, query: "PREFIX\
+    \ pq: <http://www.wikidata.org/prop/qualifier/>\r\nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\
+    \nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX schema: <http://schema.org/>\r\
+    \nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nSELECT ?person_name\
+    \ ?party_name ?max_join_date ?sitelinks WHERE {\r\n  { SELECT ?person (MAX(?join_date)\
+    \ AS ?max_join_date) WHERE {\r\n      ?person wdt:P27 wd:Q183 .\r\n      ?person\
+    \ p:P102/pq:P580 ?join_date .\r\n  } GROUP BY ?person }\r\n  ?person wdt:P27 wd:Q183\
+    \ .\r\n  ?person p:P102 ?p102 .\r\n  ?p102 ps:P102 ?party .\r\n  ?p102 pq:P580\
+    \ ?max_join_date .\r\n  ?person rdfs:label ?person_name . FILTER (LANG(?person_name)\
+    \ = \"de\") .\r\n  ?party rdfs:label ?party_name . FILTER (LANG(?party_name) =\
+    \ \"de\") .\r\n  ?about schema:about ?person .\r\n  ?about wikibase:sitelinks\
+    \ ?sitelinks .\r\n}\r\nORDER BY DESC(?sitelinks)", sortKey: '~'}
+- {backend: 8, id: 60, name: People with pictures, query: "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\
+    \nPREFIX schema: <http://schema.org/>\r\nSELECT ?name ?pic ?sitelinks WHERE {\r\
+    \n  ?person wdt:P31 wd:Q5 .\r\n  ?person ^schema:about/wikibase:sitelinks ?sitelinks\
+    \ .\r\n  ?person wdt:P18 ?pic .\r\n  ?person schema:name ?name .\r\n  FILTER (lang(?name)\
+    \ = \"en\") .\r\n}\r\nORDER BY DESC(?sitelinks)", sortKey: '~'}
+- {backend: 8, id: 59, name: Horses and information about them, query: "PREFIX wd:\
+    \ <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT DISTINCT ?horse\
+    \ ?horseLabel ?pic ?mother ?father ?genderLabel WHERE {\r\n  ?horse wdt:P31/wdt:P279*\
+    \ wd:Q726 .\r\n  OPTIONAL { ?horse wdt:P25 ?mother }\r\n  OPTIONAL { ?horse wdt:P22\
+    \ ?father }\r\n  OPTIONAL { ?horse wdt:P18 ?pic }\r\n  OPTIONAL { ?horse wdt:P21\
+    \ ?gender . ?gender rdfs:label ?genderLabel FILTER (LANG(?genderLabel) = \"en\"\
+    ) }\r\n  ?horse rdfs:label ?horseLabel .\r\n  FILTER (LANG(?horseLabel) = \"en\"\
+    )\r\n}\r\nORDER BY ?horse", sortKey: '~'}
+- {backend: 8, id: 58, name: Movies in 2017 ordered by date, query: "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\
+    \nPREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT DISTINCT ?item\
+    \ ?itemLabel ?pubdate WHERE {\r\n  ?item wdt:P31 wd:Q11424 .\r\n  ?item wdt:P577\
+    \ ?pubdate .\r\n  FILTER (?pubdate >= \"2017-01-01T00:00:00Z\"^^xsd:dateTime)\r\
+    \n  FILTER (?pubdate <= \"2017-12-31T00:00:00Z\"^^xsd:dateTime)\r\n  ?item rdfs:label\
+    \ ?itemLabel .\r\n  FILTER (lang(?itemLabel) = \"en\")\r\n}\r\nORDER BY ASC(?pubdate)",
+  sortKey: '~'}
+- {backend: 1, id: 51, name: articles and their authors, query: "SELECT ?article (GROUP_CONCAT(?author)\
+    \ as ?authors) WHERE {\r\n  ?article <is-a> <Journal_article> .\r\n  OPTIONAL\
+    \ {\r\n    ?article <Author> ?author .\r\n }\r\n}\r\nGROUP BY ?article", sortKey: '~'}
+- {backend: 1, id: 50, name: Astronauts time in space, query: "SELECT ?astronaut ?time_in_space\
+    \ WHERE {\r\n  ?astronaut <is-a> <Astronaut> .\r\n  ?astronaut <Space_Time> ?time_in_space\
+    \ .\r\n}\r\nORDER BY DESC(?time_in_space)", sortKey: '~'}
+- {backend: 1, id: 49, name: Mountains higher than 8000 meters, query: "SELECT ?mountain\
+    \ ?elevation WHERE {\r\n  ?mountain <is-a> <Mountain> .\r\n  ?mountain <Elevation>\
+    \ ?elevation .\r\n  FILTER (?elevation > 8000.0)\r\n}\r\nORDER BY DESC(?elevation)",
+  sortKey: '~'}
+- {backend: 1, id: 48, name: Professions by number of entries, query: "SELECT ?profession\
+    \ (COUNT(?person) as ?count) WHERE {\r\n  ?person <is-a> <Person> .\r\n  ?person\
+    \ <Profession> ?profession\r\n}\r\nGROUP BY ?profession\r\nORDER BY DESC(?count)",
+  sortKey: '~'}
+- {backend: 1, id: 47, name: 'Region, Mountains, Min, Max and Count', query: "SELECT\
+    \ ?region (SAMPLE(?mountain) as ?mntn) (COUNT(?mountain) as ?count) (MIN(?elevation)\
+    \ as ?min_el) (MAX(?elevation) as ?max_el) WHERE {\r\n  ?region <is-a> <Region>\
+    \ .\r\n  ?mountain <is-a> <Mountain> .\r\n  ?mountain <Contained_by> ?region .\r\
+    \n  ?mountain <Elevation> ?elevation .\r\n}\r\nGROUP BY ?region\r\nORDER BY ASC(?region)",
+  sortKey: '~'}
+- {backend: 1, id: 46, name: German cities by population, query: "SELECT ?city ?population\
+    \ WHERE {\r\n  ?city <is-a> <City/Town/Village> .\r\n  ?city <Contained_by> <Germany>\
+    \ .\r\n  ?city <Population> ?population .\r\n}\r\nORDER BY DESC(?population)",
+  sortKey: '~'}
+- {backend: 1, id: 45, name: Alan Turing's research areas, query: "SELECT ?research_area\
+    \ WHERE {\r\n  <Alan_Turing> <Research_area> ?research_area .\r\n}", sortKey: '~'}
+- {backend: 8, id: 43, name: Astronauts and their predicates, query: "PREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nSELECT ?pred ?predLabel ?count\
+    \ WHERE {\r\n  {\r\n    SELECT ?pred (COUNT(?pred) AS ?count) WHERE {\r\n    \
+    \  ?astronaut wdt:P106 wd:Q11631 .\r\n      ?astronaut ql:has-predicate ?pred\
+    \ .\r\n    }\r\n    GROUP BY ?pred\r\n    ORDER BY DESC(?count)\r\n  }\r\n  OPTIONAL\
+    \ {\r\n    {\r\n      ?pred rdfs:label ?predLabel .\r\n      FILTER (lang(?predLabel)\
+    \ = \"en\")\r\n    } UNION {\r\n      { ?claim wikibase:directClaim ?pred } UNION\
+    \ { ?claim wikibase:claim ?pred }\r\n      ?claim rdfs:label ?predLabel .\r\n\
+    \      FILTER (lang(?predLabel) = \"en\")\r\n    }\r\n  }\r\n}", sortKey: '~'}
+- {backend: 8, id: 41, name: Astronauts who walked on the moon and when, query: "PREFIX\
+    \ s: <http://www.wikidata.org/entity/statement/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX ps: <http://www.wikidata.org/prop/statement/>\r\nPREFIX pq: <http://www.wikidata.org/prop/qualifier/>\r\
+    \nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nSELECT ?astronaut ?name\
+    \ ?start_time ?end_time WHERE {\r\n  ?astronaut wdt:P106 wd:Q11631 .\r\n  ?astronaut\
+    \ p:P793 ?m .\r\n  ?m ps:P793 wd:Q42882411 .\r\n  ?m pq:P580 ?start_time .\r\n\
+    \  ?m pq:P582 ?end_time .\r\n  ?astronaut rdfs:label ?name .\r\n  FILTER (LANG(?name)\
+    \ = \"en\")\r\n}\r\nORDER BY ?start_time", sortKey: '~'}
+- {backend: 10, id: 37, name: Doping people, query: "PREFIX fb: <http://rdf.freebase.com/ns/>\r\
+    \nSELECT ?person ?profession ?drug (SAMPLE(?text) AS ?text_sample) (COUNT(?text)\
+    \ AS ?count) WHERE {\r\n  ?text ql:contains-word \"doping\" .\r\n  ?text ql:contains-entity\
+    \ ?person_id .\r\n  ?text ql:contains-entity ?drug_id .\r\n  ?drug_id fb:type.object.type\
+    \ ?drug_type .\r\n  ?drug_type fb:type.object.name \"Drug\"@en .\r\n  ?drug_id\
+    \ fb:type.object.name ?drug .\r\n  ?person_id fb:type.object.name ?person .\r\n\
+    \  ?person_id fb:people.person.profession ?profession_id .\r\n  ?profession_id\
+    \ fb:type.object.name ?profession\r\n}\r\nGROUP BY ?person ?profession ?drug\r\
+    \nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 10, id: 36, name: Astronauts who walked on the moon, query: "PREFIX fb:\
+    \ <http://rdf.freebase.com/ns/>\r\nSELECT ?person ?name (SAMPLE(?text) AS ?sample_text)\
+    \ (COUNT(?text) AS ?count) WHERE {\r\n ?person fb:people.person.profession ?profession\
+    \ .\r\n ?profession fb:type.object.name \"Astronaut\"@en .\r\n ?person fb:type.object.name\
+    \ ?name .\r\n ?text ql:contains-entity ?person .\r\n ?text ql:contains-word \"\
+    walk* moon\"\r\n}\r\nGROUP BY ?person ?name\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 8, id: 35, name: German Astronauts with Date of Birth, query: "PREFIX\
+    \ wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT DISTINCT  ?dateOfBirth\
+    \ ?astronautLabel  WHERE {\r\n  ?astronaut wdt:P106 wd:Q11631 .\r\n  ?astronaut\
+    \ wdt:P27 wd:Q183 .\r\n  ?astronaut wdt:P569 ?dateOfBirth .\r\n  ?astronaut rdfs:label\
+    \ ?astronautLabel .\r\n  FILTER (LANG(?astronautLabel) = \"en\") .\r\n}\r\nORDER\
+    \ BY ASC(?dateOfBirth)", sortKey: '~'}
+- {backend: 8, id: 32, name: 'Average height by occupation and gender, ordered by
+    height', query: "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX\
+    \ wd: <http://www.wikidata.org/entity/>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\
+    \nPREFIX psv: <http://www.wikidata.org/prop/statement/value/>\r\nPREFIX wikibase:\
+    \ <http://wikiba.se/ontology#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nSELECT ?occupation ?gender (AVG(?height) AS ?avg_height) (COUNT(?height) AS\
+    \ ?count) WHERE {\r\n  ?x wdt:P31 wd:Q5 .\r\n  ?x wdt:P106 ?occupation_id . ?occupation_id\
+    \ rdfs:label ?occupation .\r\n  ?x wdt:P21 ?gender_id . ?gender_id rdfs:label\
+    \ ?gender .\r\n  ?x p:P2048/psv:P2048/wikibase:quantityNormalized ?quantity .\r\
+    \n  ?quantity wikibase:quantityUnit wd:Q11573 .\r\n  ?quantity wikibase:quantityAmount\
+    \ ?height .\r\n  FILTER (LANG(?gender) = \"en\") .\r\n  FILTER (LANG(?occupation)\
+    \ = \"en\")\r\n}\r\nGROUP BY ?occupation ?gender\r\nHAVING (?count > 100)\r\n\
+    ORDER BY DESC(?avg_height)", sortKey: '~'}
+- {backend: 1, id: 31, name: Average height by profession, query: "SELECT ?profession\
+    \ (AVG(?height) AS ?average_height) (COUNT(?x) AS ?count) WHERE {\r\n  ?x <is-a>\
+    \ <Person> .\r\n  ?x <Height> ?height .\r\n  FILTER (?height < 3) .\r\n  ?x <Profession>\
+    \ ?profession .\r\n}\r\nGROUP BY ?profession\r\nHAVING (?count > 100)\r\nORDER\
+    \ BY DESC(?average_height )", sortKey: '~'}
+- {backend: 8, id: 30, name: Douglas Adams marriage-related triples, query: "PREFIX\
+    \ wd: <http://www.wikidata.org/entity/>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\
+    \nSELECT ?statement ?predicate ?object WHERE {\r\n  wd:Q42 p:P26 ?statement .\r\
+    \n  ?statement ?predicate ?object\r\n}", sortKey: '~'}
+- {backend: 8, id: 29, name: 'All movies with their description, ordered by sitelinks',
+  query: "PREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX schema: <http://schema.org/>\r\nSELECT DISTINCT ?movie ?description ?sitelinks\
+    \ WHERE {\r\n  ?movie_id wdt:P31 wd:Q11424 .\r\n  ?movie_id rdfs:label ?movie\
+    \ .\r\n  ?movie_id schema:description ?description .\r\n  ?movie_node schema:about\
+    \ ?movie_id .\r\n  ?movie_node wikibase:sitelinks ?sitelinks .\r\n  FILTER (LANG(?movie)\
+    \ = \"en\") . \r\n  FILTER (LANG(?description) = \"en\")\r\n}\r\nORDER BY DESC(?sitelinks)\
+    \ DESC(?description)", sortKey: '~'}
+- {backend: 8, id: 28, name: 'All persons with their description, ordered by sitelinks',
+  query: "PREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX schema: <http://schema.org/>\r\nSELECT DISTINCT ?person ?description\
+    \ ?sitelinks WHERE {\r\n  ?person_id wdt:P31 wd:Q5 .\r\n  ?person_id rdfs:label\
+    \ ?person .\r\n  ?person_id schema:description ?description .\r\n  ?person_node\
+    \ schema:about ?person_id .\r\n  ?person_node wikibase:sitelinks ?sitelinks .\r\
+    \n  FILTER (LANG(?person) = \"en\") . \r\n  FILTER (LANG(?description) = \"en\"\
+    )\r\n}\r\nORDER BY DESC(?sitelinks)", sortKey: '~'}
+- {backend: 8, id: 27, name: Astronauts ordered by number of sitelinks, query: "PREFIX\
+    \ wikibase: <http://wikiba.se/ontology#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX schema: <http://schema.org/>\r\nSELECT DISTINCT ?astronaut_name ?sitelinks\
+    \ WHERE {\r\n  ?astronaut wdt:P106 wd:Q11631 .\r\n  ?astronaut rdfs:label ?astronaut_name\
+    \ .\r\n  ?astronaut_node schema:about ?astronaut .\r\n  ?astronaut_node wikibase:sitelinks\
+    \ ?sitelinks .\r\n  FILTER (LANG(?astronaut_name) = \"en\")\r\n}\r\nORDER BY DESC(?sitelinks)",
+  sortKey: '~'}
+- {backend: 8, id: 26, name: Persons and their birthdate if it has precision "9",
+  query: "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX wds: <http://www.wikidata.org/entity/statement/>\r\nPREFIX psv: <http://www.wikidata.org/prop/statement/value/>\r\
+    \nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\
+    \nSELECT ?person_id ?date_of_birth_statement ?date_of_birth_value ?date_of_birth\r\
+    \nWHERE {\r\n  ?person_id p:P569 ?date_of_birth_statement .\r\n  ?date_of_birth_statement\
+    \ psv:P569 ?date_of_birth_value .\r\n  ?date_of_birth_value wikibase:timePrecision\
+    \ \"9\"^^xsd:integer .\r\n  ?date_of_birth_value wikibase:timeValue ?date_of_birth\r\
+    \n}", sortKey: '~'}
+- {backend: 1, id: 25, name: 'Female politicans in the eurozone and their parties,
+    ordered by birth date', query: "SELECT ?x ?country_of_nationality ?party ?date_of_birth\
+    \ WHERE {\r\n  ?x <is-a> <Politician> .\r\n  ?x <Party> ?party .\r\n  ?x <Gender>\
+    \ <Female> .\r\n  ?x <Country_of_nationality> ?country_of_nationality .\r\n  ?country_of_nationality\
+    \ <Currency_Used> <Euro> .\r\n  ?x <Date_of_birth> ?date_of_birth\r\n}\r\nORDER\
+    \ BY DESC(?date_of_birth)", sortKey: '~'}
+- {backend: 8, id: 24, name: Astronauts and their time spent in space, query: "PREFIX\
+    \ wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT DISTINCT ?astronautLabel\
+    \ ?time_in_space WHERE {\r\n  ?astronaut wdt:P106 wd:Q11631 .\r\n  ?astronaut\
+    \ wdt:P2873 ?time_in_space .\r\n  ?astronaut rdfs:label ?astronautLabel .\r\n\
+    \  FILTER (LANG(?astronautLabel) = \"en\") .\r\n}\r\nORDER BY DESC(?time_in_space)",
+  sortKey: '~'}
+- {backend: 8, id: 23, name: All scientific papers (ID and Name), query: "PREFIX wd:\
+    \ <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX sc: <http://schema.org/>\r\nSELECT ?x ?name WHERE {\r\n  ?x wdt:P31 wd:Q13442814\
+    \ .\r\n  ?x sc:name ?name .\r\n  FILTER (lang(?name) = \"en\")\r\n}\r\nLIMIT 1000",
+  sortKey: '~'}
+- {backend: 8, id: 22, name: All scientific articles with their author (large result),
+  query: "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nSELECT ?article (SAMPLE(?author_name_)\
+    \ AS ?author_name) (SAMPLE(?article_name_) AS ?article_name)\r\nWHERE {\r\n  ?article\
+    \ wdt:P31 wd:Q13442814 .\r\n  ?article rdfs:label ?article_name_ FILTER (LANG(?article_name_)\
+    \ = \"en\") .\r\n  OPTIONAL {\r\n    ?article wdt:P50 ?author .\r\n    ?author\
+    \ rdfs:label ?author_name_ FILTER (LANG(?author_name_) = \"en\")\r\n  }\r\n}\r\
+    \nGROUP BY ?article\r\nORDER BY DESC(?author_name)", sortKey: '~'}
+- {backend: 8, id: 21, name: Mountains higher than 8000 meters, query: "PREFIX wd:\
+    \ <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX p: <http://www.wikidata.org/prop/>\r\nPREFIX psn: <http://www.wikidata.org/prop/statement/value-normalized/>\r\
+    \nPREFIX wikibase: <http://wikiba.se/ontology#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nSELECT ?mountain ?mountain_label\r\n       (MAX(?elevation) AS ?max_elevation)\r\
+    \n       (SAMPLE(?image) AS ?sample_image)\r\n       (SAMPLE(?coordinates) AS\
+    \ ?sample_coordinates) WHERE {\r\n  ?mountain wdt:P31 wd:Q8502 .\r\n  ?mountain\
+    \ p:P2044/psn:P2044/wikibase:quantityAmount ?elevation .\r\n  ?mountain wdt:P625\
+    \ ?coordinates .\r\n  ?mountain rdfs:label ?mountain_label .\r\n  FILTER (LANG(?mountain_label)\
+    \ = \"en\")\r\n  FILTER(?elevation >= 8000.0) .\r\n  OPTIONAL { ?mountain wdt:P18\
+    \ ?image }\r\n}\r\nGROUP BY ?mountain ?mountain_label\r\nORDER BY DESC(?max_elevation)",
+  sortKey: '~'}
+- {backend: 8, id: 20, name: All "shared border with" statements for Paris (Q90),
+  query: "PREFIX wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology-beta#>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX wds: <http://www.wikidata.org/entity/statement/>\r\
+    \nSELECT ?o ?p ?oo WHERE {\r\n  wd:Q90 <http://www.wikidata.org/prop/P47> ?o .\r\
+    \n  ?o ?p ?oo\r\n}\r\nORDER BY ASC(?o)", sortKey: '~'}
+- {backend: 8, id: 19, name: 'All predicates of Paris with name and #triples', query: "PREFIX\
+    \ wd: <http://www.wikidata.org/entity/>\r\nPREFIX wikibase: <http://wikiba.se/ontology#>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT ?p (COUNT(?o)\
+    \ as ?count) (SAMPLE(?label) as ?pname) WHERE {\r\n  wd:Q90 ?p ?o .\r\n  ?x wikibase:claim\
+    \ ?p .\r\n  ?x rdfs:label ?label .\r\n  FILTER (LANG(?label) = \"en\")\r\n}\r\n\
+    GROUP BY ?p\r\nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 1, id: 18, name: 'Female germans with one their professions, and the birth
+    date and place', query: "SELECT ?x (SAMPLE(?profession) AS ?profession_) (SAMPLE(?date)\
+    \ AS ?date_) (SAMPLE(?place) AS ?place_) WHERE {\r\n  ?x <is-a> <Person> .\r\n\
+    \  ?x <Gender> <Female> .\r\n  ?x <Country_of_nationality> <Germany> .\r\n  ?x\
+    \ <Profession> ?profession .\r\n  ?x <Date_of_birth> ?date .\r\n  ?x <Place_of_birth>\
+    \ ?place\r\n}\r\nGROUP BY ?x\r\nORDER BY DESC(?date_)", sortKey: '~'}
+- {backend: 8, id: 17, name: People and their professions, query: "PREFIX wd: <http://www.wikidata.org/entity/>\r\
+    \nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\
+    \nSELECT ?person_id ?person (COUNT(?profession_id) AS ?count) (GROUP_CONCAT(?profession;\
+    \ separator=\", \") AS ?professions) WHERE {\r\n  ?person_id wdt:P31 wd:Q5 .\r\
+    \n  ?person_id wdt:P106 ?profession_id .\r\n  ?profession_id rdfs:label ?profession\
+    \ .\r\n  ?person_id rdfs:label ?person .\r\n  FILTER (LANG(?person) = \"en\")\
+    \ .\r\n  FILTER (LANG(?profession) = \"en\")\r\n}\r\nGROUP BY ?person_id ?person\r\
+    \nORDER BY DESC(?count)", sortKey: '~'}
+- {backend: 8, id: 7, name: Highest peak per country, query: "PREFIX wikibase: <http://wikiba.se/ontology#>\r\
+    \nPREFIX psn: <http://www.wikidata.org/prop/statement/value-normalized/>\r\nPREFIX\
+    \ wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX p: <http://www.wikidata.org/prop/>\r\
+    \nSELECT DISTINCT ?country ?country_name ?mountain ?mountain_name ?max_height\
+    \ WHERE {\r\n  { SELECT ?country (MAX(?height) AS ?max_height) WHERE {\r\n   \
+    \ ?mountain wdt:P31/wdt:P279* wd:Q8502 .\r\n    ?mountain p:P2044/psn:P2044/wikibase:quantityAmount\
+    \ ?height .\r\n    ?mountain wdt:P17 ?country .\r\n  } GROUP BY ?country }\r\n\
+    \  ?mountain wdt:P31/wdt:P279* wd:Q8502 .\r\n  ?mountain p:P2044/psn:P2044/wikibase:quantityAmount\
+    \ ?max_height .\r\n  ?mountain wdt:P17 ?country .\r\n  ?mountain rdfs:label ?mountain_name\
+    \ FILTER (LANG(?mountain_name) = \"en\")\r\n  ?country rdfs:label ?country_name\
+    \ FILTER (LANG(?country_name) = \"en\")\r\n}\r\nORDER BY DESC(?max_height)", sortKey: '~'}
+- {backend: 8, id: 6, name: German cities with their German names, query: "PREFIX\
+    \ wd: <http://www.wikidata.org/entity/>\r\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\r\
+    \nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT DISTINCT ?name\
+    \ ?population WHERE {\r\n  ?city wdt:P31/wdt:P279* wd:Q515 .\r\n  ?city wdt:P17\
+    \ wd:Q183 .\r\n  ?city wdt:P1082 ?population .\r\n  ?city rdfs:label ?name .\r\
+    \n  FILTER (LANG(?name) = \"de\")\r\n}\r\nORDER BY DESC(?population)", sortKey: '~'}
+- {backend: 1, id: 4, name: 'City, Country, Population', query: "SELECT ?city ?country\
+    \ ?population WHERE {\r\n  ?city <is-a> <City/Town/Village> .\r\n  ?country <is-a>\
+    \ <Country> .\r\n  ?city <Contained_by> ?country .\r\n  ?city <Population> ?population\r\
+    \n}\r\nORDER BY DESC(?population)", sortKey: '~'}
+- {backend: 1, id: 3, name: Astronauts who walked on the moon, query: "SELECT ?astronaut\
+    \ (SAMPLE(?text) AS ?text_) (COUNT(?text) AS ?count) WHERE {\r\n  ?astronaut <is-a>\
+    \ <Astronaut> .\r\n  ?text ql:contains-entity ?astronaut .\r\n  ?text ql:contains-word\
+    \ \"walk* moon\"\r\n}\r\nGROUP BY ?astronaut\r\nORDER BY DESC(?count)\r\nTEXTLIMIT\
+    \ 99", sortKey: '~'}

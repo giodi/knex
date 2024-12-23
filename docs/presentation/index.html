@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h2>Personendeskriptoren in der Burgerbibliothek Bern</h2>
+			</section>
+			<section>
+				<h2>Ausgangslage</h2>
+				<p>
+					~39&nbsp;000 Personendeskriptoren in der Burgerbibliothek Bern.
+					Aufbereitung im Records in Contexts Standard<sup>1</sup>
+				</p>
+			</section>
+			<section>
+				<h2>ETL</h2>
+				<ul>
+					<li>Export AIS / Scraper</li>
+					<li>SLING / DuckDB</li>
+					<li>RDFLib / OWL-rl</li>
+					<li>Qlever</li>
+				</ul>
+			</section>
+			<section>
+				Number of triples: 4,627,653
+				Number of subjects: 153,363
+				Number of predicates: 151
+				Number of objects: 399,470
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
