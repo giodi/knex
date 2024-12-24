@@ -36,17 +36,19 @@ class Sparql
 
         $query = '
             PREFIX bio: <http://purl.org/vocab/bio/0.1/>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
             SELECT DISTINCT ?name ?sex ?desc ?birth_date ?baptism_date ?death_date ?burial_date ?id_type ?scope_id {
               ?person a rico:Person ;
                       rico:hasOrHadIdentifier ?id_ark ;
                       rico:hasOrHadIdentifier ?id_scope ;
                       rico:hasOrHadName ?name ;
-                      rico:hasOrHadDemographicGroup ?demo .
+                      rico:hasOrHadDemographicGroup ?demographic_groups .
               ?id_ark rico:hasIdentifierType <https://burgerbib.ch/identifiertypes/ARK> ;
                       rico:normalizedValue "'.$id.'" .
               ?id_scope rico:hasIdentifierType <https://burgerbib.ch/identifiertypes/Scope-ID> ;
                         rico:normalizedValue ?scope_id .
+              ?demographic_groups rdfs:label ?sex .
               OPTIONAL {
                 ?person rico:hasBirthDate ?birth_date
               } .
@@ -66,7 +68,6 @@ class Sparql
                 ?event a bio:Burial ;
                        rico:date ?burial_date .
               } .
-              ?demo rico:name ?sex .
             }
             LIMIT 1
         ';
@@ -85,6 +86,24 @@ class Sparql
               ?spouse rico:hasOrHadName ?name ;
                       rico:hasOrHadIdentifier ?id_spouse .
               ?id_spouse rico:hasIdentifierType <https://burgerbib.ch/identifiertypes/ARK> ;
+                         rico:normalizedValue ?ark .
+            }
+        ';
+
+        return self::get($query);
+
+    }
+
+    public static function lifePartner(string $id): ?array
+    {
+
+        $query = '
+            PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+            SELECT ?ark ?name {
+              <https://burgerbib.ch/indexterms/ark:36599/'.$id.'> rico:hasOrHadLifePartner ?partner .
+              ?partner rico:hasOrHadName ?name ;
+                      rico:hasOrHadIdentifier ?id_partner .
+              ?id_partner rico:hasIdentifierType <https://burgerbib.ch/identifiertypes/ARK> ;
                          rico:normalizedValue ?ark .
             }
         ';
@@ -198,8 +217,24 @@ class Sparql
 
     public static function search(string $term, array $options, int $offset = 0): ?array
     {
-
         $hasDescendant = $options['hasDescendant'] ? 'rico:hasDescendant ?descendant ;' : '';
+        $birthYear = $options['birthYear'] ? "BIND(YEAR(?birth_date) AS ?birth_year) FILTER (?birth_year = '{$options['birthYear']}'^^xsd:int)" : '';
+        $birthMonth = $options['birthMonth'] ? "BIND(MONTH(?birth_date) AS ?birth_month) FILTER (?birth_month = '{$options['birthMonth']}'^^xsd:int)" : '';
+        $birthDay = $options['birthDay'] ? "BIND(DAY(?birth_date) AS ?birth_day) FILTER (?birth_day = '{$options['birthDay']}'^^xsd:int)" : '';
+        $deathYear = $options['deathYear'] ? "BIND(YEAR(?death_date) AS ?death_year) FILTER (?death_year = '{$options['deathYear']}'^^xsd:int)" : '';
+        $deathMonth = $options['deathMonth'] ? "BIND(MONTH(?death_date) AS ?death_month) FILTER (?death_month = '{$options['deathMonth']}'^^xsd:int)" : '';
+        $deathDay = $options['deathDay'] ? "BIND(DAY(?death_date) AS ?death_day) FILTER (?death_day = '{$options['deathDay']}'^^xsd:int)" : '';
+
+        if($term){
+            $term_split = explode(' ', $term);
+            $term_query = '';
+            foreach ($term_split as $t) {
+                $term_query .= "CONTAINS(LCASE(?name),LCASE('{$t}')) && ";
+            }
+            $term = 'FILTER ('.rtrim($term_query, '&& ').')';
+        }else{
+            $term = '';
+        }
 
         $query = "
             PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
@@ -214,11 +249,16 @@ class Sparql
               ?id rico:hasIdentifierType ?idtype ;
                   rico:normalizedValue ?ark .
               FILTER (?idtype = <https://burgerbib.ch/identifiertypes/ARK>)
-              FILTER (CONTAINS(LCASE(?name),LCASE('{$term}')))
+              {$term}
+              {$birthYear}
+              {$birthMonth}
+              {$birthDay}
+              {$deathYear}
+              {$deathMonth}
+              {$deathDay}
             }
             ORDER BY ASC(?name)
             LIMIT 100 OFFSET ".($offset * 100);
-
         return self::get($query);
     }
 

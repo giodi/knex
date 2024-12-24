@@ -131,6 +131,21 @@ df_children = DB.sql("""
 """).pl()
 
 # Get all spouses
+df_life_partners = DB.sql("""
+    SELECT DISTINCT
+        p1.ark AS sub_ark,
+        p2.ark AS obj_ark
+    FROM
+        input.personendeskriptoren_zusatz pz
+    JOIN
+        input.personendeskriptoren p1 ON p1.id_nr = pz.col_001
+    JOIN
+        input.personendeskriptoren p2 ON p2.id_nr = pz.col_004
+    WHERE
+        pz.col_002 = 'Lebenspartner / Lebenspartnerin:'
+""").pl()
+
+# Get all life partners
 df_spouses = DB.sql("""
     SELECT DISTINCT
         p1.ark AS sub_ark,
@@ -152,13 +167,18 @@ def agent(ark):
     return bbb_uri_ref("indexterms/" + str(ark))
 
 # Define Demographic Groups
-demographicgroup_sex_m = bbb_uri_ref("demographicgroups/sex-m")
+demographicgroup_sex_m = bbb_uri_ref("DemographicGroups/SexMale")
 g.add((demographicgroup_sex_m, RDFS.subClassOf, RICO.DemographicGroup))
-g.add((demographicgroup_sex_m, RICO.name, Literal("Male (biological sex)")))
+g.add((demographicgroup_sex_m, RDFS.label, Literal("Male (biological sex)")))
 
-demographicgroup_sex_f = bbb_uri_ref("demographicgroups/sex-f")
+demographicgroup_sex_f = bbb_uri_ref("DemographicGroups/SexFemale")
 g.add((demographicgroup_sex_f, RDFS.subClassOf, RICO.DemographicGroup))
-g.add((demographicgroup_sex_f, RICO.name, Literal("Female (biological sex)")))
+g.add((demographicgroup_sex_f, RDFS.label, Literal("Female (biological sex)")))
+
+# Define association
+hasOrHadLifePartner = bbb_uri_ref("relations/hasOrHadLifePartner")
+g.add((hasOrHadLifePartner, RDFS.subPropertyOf, RICO.hasFamilyAssociationWith))
+g.add((hasOrHadLifePartner, RDFS.label, Literal("Connects two Persons who are or were in a romantic relationship, as if they are spouses but without being legally married.")))
 
 # Define Identifiertypes
 idtype_ark = bbb_uri_ref("identifiertypes/ARK")
@@ -223,6 +243,9 @@ for row in df_children.rows():
 
 for row in df_spouses.rows():
     g.add((agent(row[0]), RICO.hasOrHadSpouse, agent(row[1])))
+
+for row in df_life_partners.rows():
+    g.add((agent(row[0]), RICO.hasOrHadLifePartner, agent(row[1])))
 
 # Save graph to file.
 g.serialize(destination=DATA_PATH / "output" / "agents.ttl")

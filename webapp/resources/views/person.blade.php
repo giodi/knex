@@ -21,7 +21,7 @@
         <div>
             <dl>
                 <dt>Geschlecht (biologisch)</dt>
-                <dd>{{ $basic['sex']['value'] }}</dd>
+                <dd>{{ $basic['sex']['value'] == 'Female (biological sex)' ? 'Weiblich' : 'Männlich'  }}</dd>
                 @if (isset($basic['birth_date']))
                 <dt>Geburtsdatum</dt>
                 <dd>{{ $basic['birth_date']['value'] }}</dd>
@@ -38,6 +38,11 @@
                 <dt>Begräbnisdatum</dt>
                 <dd>{{ $basic['burial_date']['value'] }}</dd>
                 @endif
+            </dl>
+
+        </div>
+        <div>
+            <dl>
                 @if ($parents)
                 <dt>Eltern</dt>
                 @foreach ($parents as $child)
@@ -51,9 +56,15 @@
                 @endforeach
                 @endif
                 @if ($spouses)
-                <dt>Ehepartner</dt>
+                <dt>Ehepartner:innen</dt>
                 @foreach ($spouses as $spouse)
                 <dd><a href="/person/{{ $spouse['ark']['value'] }}">{{ $spouse['name']['value'] }}</a></dd>
+                @endforeach
+                @endif
+                @if ($partner)
+                <dt>Lebenspartner:innen</dt>
+                @foreach ($partner as $p)
+                <dd><a href="/person/{{ $p['ark']['value'] }}">{{ $p['name']['value'] }}</a></dd>
                 @endforeach
                 @endif
                 @if ($children)
@@ -69,13 +80,12 @@
                         href="https://katalog.burgerbib.ch/resultatliste.aspx?deskriptorId={{ $basic['scope_id']['value'] }}">
                         Verzeichnungseinheiten
                     </a></li>
+                @if (isset($basic['birth_date']))
                 <li><a href="/timeline?from={{ $basic['birth_date']['value'] }}">
                         Zeitstrahl
                     </a></li>
+                @endif
             </ul>
-
-
-
         </div>
 
     </div>
@@ -91,19 +101,32 @@
 <script type="module">
 const option = {
   series: {
-    type: 'sunburst',
-    nodeClick: false,
+    type: 'tree',
+    roam: true,
+    symbol: 'emptyCircle',
+    expandAndCollapse: false,
+    layout: 'radial',
     data: [{
         name: '{{ $basic['name']['value'] }}',
         ark: '{{ $ark }}',
+        symbolSize: 15,
         children: {!! json_encode($links) !!}
     }],
     emphasis: {
         focus: 'ancestor',
     },
+    emphasis: {
+        focus: 'descendant'
+    },
     radius: [0, '90%'],
+    labelLayout: {
+        hideOverlap: true,
+    },
     label: {
-      rotate: 'tangential'
+      rotate: 'tangential',
+      fontSize: 21,
+      color: '#fff',
+      backgroundColor: '#181c25'
     }
   }
 };

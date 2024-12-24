@@ -46,27 +46,40 @@ Route::get('/person/ark:36599/{id}', function (string $id) {
     $children = Sparql::children($id);
     $parents = Sparql::parents($id);
     $spouses = Sparql::spouses($id);
+    $partner = Sparql::lifePartner($id);
     $siblings = Sparql::siblings($id);
     $links = Sparql::children_extended($id);
     $links = $links ? Helpers::buildTree($links, "ark:36599/{$id}") : null;
 
-
-
-
-    return view('person', ['ark' => $ark, 'basic' => $basic[0], 'children' => $children, 'parents' => $parents, 'spouses' => $spouses, 'siblings' => $siblings, 'links' => $links]);
+    return view('person', ['ark' => $ark, 'basic' => $basic[0], 'children' => $children, 'parents' => $parents, 'spouses' => $spouses, 'partner' => $partner, 'siblings' => $siblings, 'links' => $links]);
 });
 
 Route::get('/search', function (Request $request) {
 
     $term = $request->query('term') ?? '';
-    $hasDescendant = $request->query('hasDescendant') ?? false;
 
-    $options = ['hasDescendant' => $hasDescendant];
+    $hasDescendant = $request->query('hasDescendant') ?? false;
+    $birthYear = $request->query('birthYear') ?? false;
+    $birthMonth = $request->query('birthMonth') ?? false;
+    $birthDay = $request->query('birthDay') ?? false;
+    $deathYear = $request->query('deathYear') ?? false;
+    $deathMonth = $request->query('deathMonth') ?? false;
+    $deathDay = $request->query('deathDay') ?? false;
+
+    $options = [];
+    $options['hasDescendant'] = $hasDescendant;
+    $options['birthYear'] = $birthYear;
+    $options['birthMonth'] = $birthMonth;
+    $options['birthDay'] = $birthDay;
+    $options['deathYear'] = $deathYear;
+    $options['deathMonth'] = $deathMonth;
+    $options['deathDay'] = $deathDay;
+
     $page = ($request->query('page') !== null && is_int(intval($request->query('page')))) || $request->query('page') !== null && intval($request->query('page')) === 0 ? $request->query('page') : 0;
 
     $persons = Sparql::search($term, $options, $page);
 
-    if($persons){
+    if($persons && $term){
         foreach ($persons as $key => $person) {
             $persons[$key]['name']['value'] = preg_replace_callback(
                 "/{$term}/i",
