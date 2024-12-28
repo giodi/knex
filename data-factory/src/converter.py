@@ -2,56 +2,17 @@ import re
 from pathlib import Path
 
 import duckdb
-import polars as pl
 from rdflib import RDF, BNode, Graph, Literal, URIRef
 from rdflib.namespace import RDFS, XSD, Namespace
 
 BIO = Namespace("http://purl.org/vocab/bio/0.1/")
 RICO = Namespace("https://www.ica.org/standards/RiC/ontology#")
 WD = Namespace("http://www.wikidata.org/wiki/")
-WDT = Namespace("https://www.wikidata.org/wiki/Property:")
 
 DATA_PATH = Path("../data")
 DB = duckdb.connect(DATA_PATH / "input" / "deskriptoren.db")
 
-# Create a date literal from a string
-def date_lit(date):
-
-    # If format is YYYY => gYear
-    if re.match(r"\d{4}$", date):
-        return Literal(date, datatype=XSD.gYear)
-
-    # If format is YYYY-mm or mm.YYYY => gYearMonth
-    elif re.match(r"\d{2}\.\d{4}", date):
-        date = date.split(".")
-        date = "-".join(date[::-1])
-        return Literal(date, datatype=XSD.gYearMonth)
-
-    # If format is YYYY-mm-dd or dd.mm.YYYY => date
-    elif re.match(r"\d{4}\-\d{2}-\d{2}$|\d{2}\.\d{2}.\d{4}$", date):
-        date = date.split(".")
-        date = "-".join(date[::-1])
-        return Literal(date, datatype=XSD.date)
-
-    # If format is YYYY v. Chr. => -YYYY => gYear
-    elif re.match(r"\d+(?=\sv\.\sChr\.)", date):
-        jh = int(re.match(r"\d+(?=\sv\.\sChr\.)", date).group())
-        jh = str(f"-{jh:04d}")
-        return Literal(jh, datatype=XSD.gYear)
-
-    # Return as string if no ISO date found / possible
-    else:
-        return Literal(date, datatype=XSD.string)
-
-# init graph
-g = Graph()
-
-# bind rico prefix
-g.bind("bio", BIO)
-g.bind("rico", RICO)
-g.bind("wd", WD)
-g.bind("wdt", WDT)
-
+# database queries
 # get agents
 df = DB.sql("""
     SELECT
@@ -160,6 +121,43 @@ df_spouses = DB.sql("""
         pz.col_002 = 'Ehepartner / Ehepartnerin:'
 """).pl()
 
+# convert dates from dataset to literals
+def date_lit(date):
+
+    # If format is YYYY => gYear
+    if re.match(r"\d{4}$", date):
+        return Literal(date, datatype=XSD.gYear)
+
+    # If format is YYYY-mm or mm.YYYY => gYearMonth
+    elif re.match(r"\d{2}\.\d{4}", date):
+        date = date.split(".")
+        date = "-".join(date[::-1])
+        return Literal(date, datatype=XSD.gYearMonth)
+
+    # If format is YYYY-mm-dd or dd.mm.YYYY => date
+    elif re.match(r"\d{4}\-\d{2}-\d{2}$|\d{2}\.\d{2}.\d{4}$", date):
+        date = date.split(".")
+        date = "-".join(date[::-1])
+        return Literal(date, datatype=XSD.date)
+
+    # If format is YYYY v. Chr. => -YYYY => gYear
+    elif re.match(r"\d+(?=\sv\.\sChr\.)", date):
+        jh = int(re.match(r"\d+(?=\sv\.\sChr\.)", date).group())
+        jh = str(f"-{jh:04d}")
+        return Literal(jh, datatype=XSD.gYear)
+
+    # Return as string if no ISO date found / possible
+    else:
+        return Literal(date, datatype=XSD.string)
+
+# init graph
+g = Graph()
+
+# create prefixes for namespaces
+g.bind("bio", BIO)
+g.bind("rico", RICO)
+g.bind("wd", WD)
+
 def bbb_uri_ref(name):
     return URIRef("https://burgerbib.ch/" + str(name))
 
@@ -181,13 +179,22 @@ g.add((hasOrHadLifePartner, RDFS.subPropertyOf, RICO.hasFamilyAssociationWith))
 g.add((hasOrHadLifePartner, RDFS.label, Literal("Connects two Persons who are or were in a romantic relationship, as if they are spouses but without being legally married.")))
 
 # Define Identifiertypes
-idtype_ark = bbb_uri_ref("identifiertypes/ARK")
+idtype_ark = bbb_uri_ref("IdentifierTypes/ARK")
 g.add((idtype_ark, RDF.type, RICO.IdentifierType))
 g.add((idtype_ark, RICO.closeTo, WD.Q2860403))
 
-idtype_scope = bbb_uri_ref("identifiertypes/Scope-ID")
+idtype_scope = bbb_uri_ref("IdentifierTypes/Scope-ID")
 g.add((idtype_scope, RDF.type, RICO.IdentifierType))
 g.add((idtype_scope, RICO.name, Literal("ID from the ScopeArchiv AIS.")))
+
+# Define new EventTypes
+eventtype_baptism = bbb_uri_ref("EventTypes/Baptism")
+g.add((eventtype_baptism, RDF.type, RICO.EventType))
+g.add((eventtype_baptism, RICO.closeTo, BIO.Baptism))
+
+eventtype_burial = bbb_uri_ref("EventTypes/Burial")
+g.add((eventtype_burial, RDF.type, RICO.EventType))
+g.add((eventtype_burial, RICO.closeTo, BIO.Burial))
 
 # Iterate dataset and generate triples
 for row in df.rows(named=True):
@@ -223,9 +230,9 @@ for row in df_birth_dates.rows():
 # Add baptism dates.
 for row in df_baptism_dates.rows():
     baptism = BNode()
-    g.add((baptism, RDF.type, BIO.Baptism))
-    g.add((baptism, RICO.date, date_lit(row[1])))
-    g.add((agent(row[0]), BIO.event, baptism))
+    g.add((baptism, RICO.hasEventType, eventtype_baptism))
+    g.add((baptism, RICO.occurredAtDate, date_lit(row[1])))
+    g.add((agent(row[0]), RICO.isAssociatedWithEvent, baptism))
 
 # Add dates of death.
 for row in df_death_dates.rows():
@@ -234,9 +241,9 @@ for row in df_death_dates.rows():
 # Add dates of burial.
 for row in df_burial_dates.rows():
     burial = BNode()
-    g.add((burial, RDF.type, BIO.Burial))
-    g.add((burial, RICO.date, date_lit(row[1])))
-    g.add((agent(row[0]), BIO.event, burial))
+    g.add((burial, RICO.hasEventType, eventtype_burial))
+    g.add((burial, RICO.occurredAtDate, date_lit(row[1])))
+    g.add((agent(row[0]), RICO.isAssociatedWithEvent, burial))
 
 for row in df_children.rows():
     g.add((agent(row[0]), RICO.hasChild, agent(row[1])))
@@ -247,5 +254,8 @@ for row in df_spouses.rows():
 for row in df_life_partners.rows():
     g.add((agent(row[0]), RICO.hasOrHadLifePartner, agent(row[1])))
 
-# Save graph to file.
+# Save graph to ttl file.
 g.serialize(destination=DATA_PATH / "output" / "agents.ttl")
+
+
+RICO.EventRelation

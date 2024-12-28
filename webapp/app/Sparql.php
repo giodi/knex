@@ -8,13 +8,6 @@ use Symfony\Component\Console\Helper\Helper;
 
 class Sparql
 {
-    /**
-     * Create a new class instance.
-     */
-    public function __construct()
-    {
-
-    }
 
     public static function get(string $query): ?array
     {
@@ -35,7 +28,6 @@ class Sparql
     {
 
         $query = '
-            PREFIX bio: <http://purl.org/vocab/bio/0.1/>
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
             SELECT DISTINCT ?name ?sex ?desc ?birth_date ?baptism_date ?death_date ?burial_date ?id_type ?scope_id {
@@ -44,9 +36,9 @@ class Sparql
                       rico:hasOrHadIdentifier ?id_scope ;
                       rico:hasOrHadName ?name ;
                       rico:hasOrHadDemographicGroup ?demographic_groups .
-              ?id_ark rico:hasIdentifierType <https://burgerbib.ch/identifiertypes/ARK> ;
+              ?id_ark rico:hasIdentifierType <https://burgerbib.ch/IdentifierTypes/ARK> ;
                       rico:normalizedValue "'.$id.'" .
-              ?id_scope rico:hasIdentifierType <https://burgerbib.ch/identifiertypes/Scope-ID> ;
+              ?id_scope rico:hasIdentifierType <https://burgerbib.ch/IdentifierTypes/Scope-ID> ;
                         rico:normalizedValue ?scope_id .
               ?demographic_groups rdfs:label ?sex .
               OPTIONAL {
@@ -59,14 +51,14 @@ class Sparql
                 ?person rico:generalDescription ?desc
               } .
               OPTIONAL {
-                ?person bio:event ?event .
-                ?event a bio:Baptism ;
-                       rico:date ?baptism_date .
+                ?person rico:isAssociatedWithEvent ?event .
+                ?event rico:hasEventType <https://burgerbib.ch/EventTypes/Baptism> ;
+                       rico:occurredAtDate ?baptism_date .
               } .
               OPTIONAL {
-                ?person bio:event ?event .
-                ?event a bio:Burial ;
-                       rico:date ?burial_date .
+                ?person rico:isAssociatedWithEvent ?event .
+                ?event rico:hasEventType <https://burgerbib.ch/EventTypes/Burial> ;
+                       rico:occurredAtDate ?burial_date .
               } .
             }
             LIMIT 1
@@ -85,7 +77,7 @@ class Sparql
               <https://burgerbib.ch/indexterms/ark:36599/'.$id.'> rico:hasOrHadSpouse ?spouse .
               ?spouse rico:hasOrHadName ?name ;
                       rico:hasOrHadIdentifier ?id_spouse .
-              ?id_spouse rico:hasIdentifierType <https://burgerbib.ch/identifiertypes/ARK> ;
+              ?id_spouse rico:hasIdentifierType <https://burgerbib.ch/IdentifierTypes/ARK> ;
                          rico:normalizedValue ?ark .
             }
         ';
@@ -103,7 +95,7 @@ class Sparql
               <https://burgerbib.ch/indexterms/ark:36599/'.$id.'> rico:hasOrHadLifePartner ?partner .
               ?partner rico:hasOrHadName ?name ;
                       rico:hasOrHadIdentifier ?id_partner .
-              ?id_partner rico:hasIdentifierType <https://burgerbib.ch/identifiertypes/ARK> ;
+              ?id_partner rico:hasIdentifierType <https://burgerbib.ch/IdentifierTypes/ARK> ;
                          rico:normalizedValue ?ark .
             }
         ';
@@ -121,7 +113,7 @@ class Sparql
               <https://burgerbib.ch/indexterms/ark:36599/'.$id.'> rico:hasChild ?child .
               ?child rico:hasOrHadName ?name ;
                      rico:hasOrHadIdentifier ?id_child .
-              ?id_child rico:hasIdentifierType <https://burgerbib.ch/identifiertypes/ARK> ;
+              ?id_child rico:hasIdentifierType <https://burgerbib.ch/IdentifierTypes/ARK> ;
                         rico:normalizedValue ?ark .
             }
         ';
@@ -142,9 +134,9 @@ class Sparql
                      rico:isChildOf ?parent .
               ?parent rico:hasOrHadIdentifier ?id_parent .
 
-              ?id_child rico:hasIdentifierType <https://burgerbib.ch/identifiertypes/ARK> ;
+              ?id_child rico:hasIdentifierType <https://burgerbib.ch/IdentifierTypes/ARK> ;
                         rico:normalizedValue ?ark_child .
-              ?id_parent rico:hasIdentifierType <https://burgerbib.ch/identifiertypes/ARK> ;
+              ?id_parent rico:hasIdentifierType <https://burgerbib.ch/IdentifierTypes/ARK> ;
                         rico:normalizedValue ?ark_parent .
             }
         ';
@@ -162,7 +154,7 @@ class Sparql
               <https://burgerbib.ch/indexterms/ark:36599/'.$id.'> rico:isChildOf ?parent .
               ?parent rico:hasOrHadName ?name ;
                       rico:hasOrHadIdentifier ?id_parent .
-              ?id_parent rico:hasIdentifierType <https://burgerbib.ch/identifiertypes/ARK> ;
+              ?id_parent rico:hasIdentifierType <https://burgerbib.ch/IdentifierTypes/ARK> ;
                          rico:normalizedValue ?ark .
             }
         ';
@@ -181,7 +173,7 @@ class Sparql
               ?parent rico:hasChild ?child .
               ?child rico:hasOrHadIdentifier ?id ;
                      rico:hasOrHadName ?name .
-              ?id rico:hasIdentifierType <https://burgerbib.ch/identifiertypes/ARK> ;
+              ?id rico:hasIdentifierType <https://burgerbib.ch/IdentifierTypes/ARK> ;
                   rico:normalizedValue ?ark .
               FILTER (?ark != 'ark:36599/{$id}')
             }
@@ -205,7 +197,7 @@ class Sparql
                       rico:hasDeathDate ?death_date .
               ?id rico:hasIdentifierType ?idtype ;
                   rico:normalizedValue ?ark .
-              FILTER (?idtype = <https://burgerbib.ch/identifiertypes/ARK>)
+              FILTER (?idtype = <https://burgerbib.ch/IdentifierTypes/ARK>)
             }
             ORDER BY ASC(?name)
             LIMIT 100 OFFSET ".($offset * 100);
@@ -248,7 +240,7 @@ class Sparql
                       rico:hasDeathDate ?death_date .
               ?id rico:hasIdentifierType ?idtype ;
                   rico:normalizedValue ?ark .
-              FILTER (?idtype = <https://burgerbib.ch/identifiertypes/ARK>)
+              FILTER (?idtype = <https://burgerbib.ch/IdentifierTypes/ARK>)
               {$term}
               {$birthYear}
               {$birthMonth}
@@ -266,7 +258,6 @@ class Sparql
     {
 
         $query = "
-        PREFIX bio: <http://purl.org/vocab/bio/0.1/>
         PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
         PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -278,16 +269,16 @@ class Sparql
                   rico:hasBirthDate ?birth_date ;
                   rico:hasDeathDate ?death_date .
           OPTIONAL {
-            ?person bio:event ?event .
-            ?event a bio:Baptism ;
-                   rico:date ?baptism_date .
+            ?person rico:isAssociatedWithEvent ?event .
+            ?event rico:hasEventType <https://burgerbib.ch/EventTypes/Baptism> ;
+                   rico:occurredAtDate ?baptism_date .
           } .
           OPTIONAL {
-            ?person bio:event ?event .
-            ?event a bio:Burial ;
-                   rico:date ?burial_date .
+            ?person rico:isAssociatedWithEvent ?event .
+            ?event rico:hasEventType <https://burgerbib.ch/EventTypes/Burial> ;
+                   rico:occurredAtDate ?burial_date .
           } .
-          ?id_primary rico:hasIdentifierType <https://burgerbib.ch/identifiertypes/ARK> ;
+          ?id_primary rico:hasIdentifierType <https://burgerbib.ch/IdentifierTypes/ARK> ;
                       rico:normalizedValue ?ark .
           FILTER (?birth_date > '{$from}'^^xsd:date && ?birth_date < '{$to}'^^xsd:date && DATATYPE(?death_date) = xsd:date)
         }
