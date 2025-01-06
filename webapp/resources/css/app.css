@@ -1,0 +1,90 @@
+body>header{
+    background: var(--pico-card-sectioning-background-color);
+    position: sticky;
+    top: 0;
+    z-index: 99;
+}
+
+dt{
+    font-weight: 700;
+}
+
+dd{
+    margin: 0;
+}
+
+header>h1,
+header>h2{
+    margin-bottom: 0;
+    font-size: 1.5em;
+}
+
+dd + dt{
+    margin-top: calc(var(--pico-typography-spacing-vertical) * .5);
+}
+
+a{
+    color: var(--pico-contrast);
+}
+
+p.badge{
+    background: var(--pico-mark-background-color);
+    color: var(--pico-mark-color);
+    border-radius: var(--pico-border-radius);
+    padding: var(--pico-spacing);
+}
+
+label{
+    padding: var(--pico-form-element-spacing-vertical) var(--pico-form-element-spacing-horizontal)
+}
+
+fieldset>label:first-child{
+    padding-left: 0;
+}
+
+ul.list{
+    padding: 0;
+}
+
+ul.list li{
+    list-style-type: none;
+}
+
+ul.list li>a>span{
+    display: block;
+}
+
+ul.list li>a>span:first-child{
+    --pico-font-size: 1rem;
+    font-weight: bold;
+    font-size: var(--pico-font-size);
+
+}
+
+ul.list li>a>span:last-child{
+    --pico-font-size: .75em;
+    font-weight: bold;
+    font-size: var(--pico-font-size);
+}
+
+ul{
+    padding: 0;
+}
+
+ul li{
+    list-style: none !important;
+}
+
+.grid.start{
+    grid-template-columns: repeat(2, minmax(0,50%));
+    grid-template-row: repeat(2, 1fr);
+}
+
+article.search{
+    grid-column: 1 / 4;
+}
+
+article>div h2{
+    --pico-font-size: 1rem;
+    margin-bottom: 0.3em;
+}

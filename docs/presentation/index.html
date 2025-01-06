@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Präsentation Deskriptorenportal</title>
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/dracula.css">
+	<style>
+		.reveal h2 {
+			font-size: 1.3em
+		}
+
+		.reveal video{
+			max-width: 85%;
+		}
+
+		a.cite {
+			display: block;
+			font-size: .7em
+		}
+
+		ul.lit li {
+			font-size: .5em;
+		}
+
+		p.image-note{
+			font-size: .4em;
+			margin-top: 0;
+			text-align: left;
+		}
+
+		.flex{
+			display: flex;
+			justify-content: space-between;
+		}
+		
+		.flex>*{
+			max-width: 45%;
+		}
+		
+		.flex>*>img{
+			max-width: 100%;
+			margin: 0;
+		}
+
+		.reveal .slide-number{
+			bottom: 1.5em;
+			right: 2.05em;
+			font-size: .5em;
+			width: 1.5em;
+			padding: 0;
+			text-align: center;
+			background: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h2>Deskriptorenportal</h2>
+				<p>Abbildung von Personendeskriptoren mit der <br />Records in Contexts Ontology (RiC-O)</p>
+			</section>
+			<section>
+				<h2>Ausgangslage & Ziel</h2>
+				<div class="flex">
+				<ul style="font-size: .75em; max-width: 40%;">
+					<li>Die Burgerbibliothek Bern verwendet zur Verzeichnung ihrer Archivalien Deskriptoren.</li>
+					<li>Die Deskriptoren sollen in einen RDF-Datensatz unter Verwendung der Records in Contexts Ontology
+						gewandelt werden.</li>
+				</ul>
+				<div style="max-width: 55%;">
+				<img src="media/screenshot-desk-search.png"
+					alt="Screenshot der Deskriptorensuche im Archivkatalog der Burgerbibliothek Bern.">
+					<p class="image-note">Screenshot der Deskriptorensuche im Archivkatalog der Burgerbibliothek Bern.</p>
+				<div>
+				</div>
+			</section>
+			<section>
+				<h2>Records in Contexts (RiC)</h2>
+				<ul>
+					<li>RiC ist ein vom International Council of Archives (ICA) verabschiedeter Standard, welcher der
+						Beschreibung von Archivalien dient. <a class="cite" href="#/literaturverzeichnis">(EGAD, 2024)</a></li>
+					<li>Die Records in Contexts Ontology (RiC-O) ist als generische Blaupause zur Erstellung von<br>
+						RDF-Datensätzen für den Gebrauch im archivalischen Kontext entworfen. <a class="cite" href="#/literaturverzeichnis">(ICA EGAD,
+							2024, Abs. «RiC-O design principles»)</a></li>
+				</ul>
+			</section>
+			<section>
+				<h2>Datenaggregation (1/2)</h2>
+				<ul>
+					<li>CSV-Export via AIS (49&nbsp;242 Einträge)</li>
+					<li>Relationen zwischen Deskriptoren via Web Scraping (82&nbsp;027 Einträge)</li>
+					<li>Serialisierung in Turtle mit RDFLib (xx Tripel) <a class="cite" href="#/literaturverzeichnis">(RDFLib Team, 2024)</a>
+					</li>
+					<li>Inferenzbildung mit OWL-RL (xx Tripel) <a class="cite" href="#/literaturverzeichnis">(Herman, 2014)</a></li>
+					<li>RDF-Triple-Store / SPARQL-Engine Qlever <a class="cite" href="#/literaturverzeichnis">(Bast et al., 2022)</a></li>
+				</ul>
+			</section>
+			<section>
+				<h2>Datenaggregation (2/2)</h2>
+				<img src="media/c4-data.svg" alt="C4 Diagramm des Systemkontexts für die Datenaggregation">
+			</section>
+			<section>
+				<h2>Datenmodell</h2>
+				<img src="media/data-model.svg" alt="Diagramm des RDF-Datenmodells">
+			</section>
+			<section>
+				<h2>Webapplikation</h2>
+				<img src="media/C4-webapp.svg" alt="C4 Diagramm des Systemkontexts für die Webapplikation.">
+			</section>
+			<section>
+				<h2>Suche</h2>
+				<video data-autoplay loop controls src="media/search.webm"></video>
+			</section>
+			<section>
+				<h2>Zeitstrahl</h2>
+				<video data-autoplay loop controls src="media/timeline.webm"></video>
+			</section>
+			<section>
+				<h2>Deskriptorendetailansicht</h2>
+				<video data-autoplay loop controls src="media/detail.webm"></video>
+			</section>
+			<section>
+				<h2>Diskussion</h2>
+				<ul>
+					<li>Datenmodellierung: Konsistenz der Lebensdaten; Geburts- und Todesdatum ebenfalls als Eventtypse
+						modellieren? Oder z. B. BIO Vocabulary verwenden?<a class="cite" href="#/literaturverzeichnis">(Davis et al., 2011)</a></li>
+					<li>OWL-RL: Infernzbildung führt zu Tripel mit Literalen in der Subjektposition. Patch ist eine
+						Kombination der Lösungsvorschläge von <a href="#/literaturverzeichnis">al-Dosari (2023)</a> und <a href="#/literaturverzeichnis">Car (2023)</a></li>
+				</ul>
+			</section>
+			<section id="literaturverzeichnis">
+				<h2>Literaturverzeichnis</h2>
+				<ul class="lit">
+					<li>
+						al-Dosari, M. (2023, März). OWL RL creates triples with a Literal as Subject when evaluating
+						PROV-O ontology #50. Zugriff am 28. Dezember 2024 unter <a
+							href="https://github.com/RDFLib/OWL-RL/issues/50#issuecomment-1476897684">https://github.com/RDFLib/OWL-RL/issues/50#issuecomment-1476897684</a>
+					</li>
+
+					<li>Bast, H., Kalmbach, J., Klumpp, T., Kramer, F., & Schnelle, N. (2022). Efficient and Effective
+						SPARQL Autocompletion on Very Large Knowledge Graphs. Proceedings of the 31st ACM International
+						Conference on Information & Knowledge Management, 2893–2902. <a
+							href="https://doi.org/10.1145/3511808.3557093">https://doi.org/10.1145/3511808.3557093</a>
+					</li>
+					<li>
+						Car, N. (2023, August). Unexpected behaviour of OWL-RL reasoner (Literals in the position of
+						Subjects) #63. Zugriff am 28. Dezember 2024 unter <a
+							href="https://github.com/RDFLib/OWL-RL/issues/63#issuecomment-2283074918">https://github.com/RDFLib/OWL-RL/issues/63#issuecomment-2283074918</a>
+					</li>
+					<li>
+						Davis, I., & Galbraith, D. (2011, Juni). BIO: A vocabulary for biographical information. Zugriff am 17. Dezember 2024 unter <a href="http://purl.org/vocab/bio/0.1/">http://purl.org/vocab/bio/0.1/</a>
+					</li>
+					<li>EGAD. (2024, Juni). Records in Contexts (RiC). Zugriff am 17. Dezember 2024 unter <a
+							href="https://www.ica.org/ica-network/expert-groups/egad/records-in-contexts-ric/">https://www.ica.org/ica-network/expert-groups/egad/records-in-contexts-ric/</a>
+					</li>
+					<li>Herman, I. (2014, Oktober). OWL-RL: OWL-RL: A simple OWL2 RL reasoner on top of RDFLib. <a
+							href="https://doi.org/10.5281/zenodo.14543">https://doi.org/10.5281/zenodo.14543</a></li>
+					<li>ICA EGAD. (2024, September). International Council on Archives Records in Contexts Ontology (ICA
+						RiC-O). Zugriff am 2. November 2024 unter <a
+							href="https://www.ica.org/standards/RiC/RiC-O_1-0-2.html">https://www.ica.org/standards/RiC/RiC-O_1-0-2.html</a>
+					</li>
+					<li>RDFLib Team. (2024). RDFLib. Zugriff am 17. November 2024 unter <a
+							href="https://github.com/RDFLib/rdflib">https://github.com/RDFLib/rdflib</a>/li>
+				</ul>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script>
+		Reveal.initialize({
+			width: 1080,
+			height: 720,
+			history: true,
+			controls: false,
+			hash: true,
+			slideNumber: true,
+			mouseWheel: true,
+		});
+	</script>
+</body>
+
+</html>

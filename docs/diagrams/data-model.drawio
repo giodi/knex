@@ -1,0 +1,317 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0" version="26.0.2">
+  <diagram name="Seite-1" id="PRhg9wa9ExF9cAME3UJU">
+    <mxGraphModel dx="3978" dy="215" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="a77S1M_pYEWMkv2cS37W-37" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-860" y="2320" width="1650" height="1210" as="geometry" />
+        </mxCell>
+        <mxCell id="36" value="&lt;div align=&quot;left&quot;&gt;&lt;b&gt;Namespaces:&lt;/b&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;rdfs: &amp;lt;http://www.w3.org/2000/01/rdf-schema#&amp;gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;rico: &amp;lt;https://www.ica.org/standards/RiC/ontology#&amp;gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;xsd: &amp;lt;http://www.w3.org/2001/XMLSchema#&amp;gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;labelBackgroundColor=#FFFFFF;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="-840" y="3428" width="520" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-150" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Arial;fontSize=18;entryX=0;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-120" target="uDEteLiTxk0n7zJ6qiSI-149" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-151" value="rico:generalDescription" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-150" vertex="1" connectable="0">
+          <mxGeometry x="-0.1582" y="2" relative="1" as="geometry">
+            <mxPoint x="73" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-163" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-120" target="uDEteLiTxk0n7zJ6qiSI-158" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-182" value="rico:hasBirthDate" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=18;fontFamily=Arial;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-163" vertex="1" connectable="0">
+          <mxGeometry x="0.0223" y="2" relative="1" as="geometry">
+            <mxPoint x="2" y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-164" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-120" target="uDEteLiTxk0n7zJ6qiSI-155" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-190" value="rdfs:label" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-164" vertex="1" connectable="0">
+          <mxGeometry x="0.0112" y="-1" relative="1" as="geometry">
+            <mxPoint x="-26" y="8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-171" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-120" target="uDEteLiTxk0n7zJ6qiSI-172" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-60" y="3060" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-180" value="rico:isAssociatedWithEvent" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-171" vertex="1" connectable="0">
+          <mxGeometry x="0.2073" y="-1" relative="1" as="geometry">
+            <mxPoint x="30" y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-176" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-120" target="uDEteLiTxk0n7zJ6qiSI-175" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-179" value="rico:isAssociatedWithEvent" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-176" vertex="1" connectable="0">
+          <mxGeometry x="-0.1002" relative="1" as="geometry">
+            <mxPoint x="109" y="38" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-186" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fontSize=18;fontFamily=Arial;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-120" target="uDEteLiTxk0n7zJ6qiSI-185" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-2" y="2825" as="sourcePoint" />
+            <mxPoint x="738.0000000000005" y="2893.000000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-189" value="rico:hasDeathDate" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-186" vertex="1" connectable="0">
+          <mxGeometry x="0.0116" y="2" relative="1" as="geometry">
+            <mxPoint x="10" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-192" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-120" target="uDEteLiTxk0n7zJ6qiSI-191" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-193" value="rico:hasOrHadDemographicGroup" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-192" vertex="1" connectable="0">
+          <mxGeometry x="0.1105" y="1" relative="1" as="geometry">
+            <mxPoint x="69" y="130" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-226" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-120" target="uDEteLiTxk0n7zJ6qiSI-195" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-227" value="&lt;font&gt;rico:hasOrHadName&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-226" vertex="1" connectable="0">
+          <mxGeometry x="0.0267" y="3" relative="1" as="geometry">
+            <mxPoint x="15" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-120" value="rico:Person" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="-520" y="2590" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-205" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-172" target="uDEteLiTxk0n7zJ6qiSI-202" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-237" value="&lt;font&gt;rico:occurredAtDate&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-205" vertex="1" connectable="0">
+          <mxGeometry x="-0.0889" y="1" relative="1" as="geometry">
+            <mxPoint x="23" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-125" value="&amp;lt;https://burgerbib.ch/EventTypes/Baptism&amp;gt;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="390" y="3080" width="370" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-200" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-175" target="uDEteLiTxk0n7zJ6qiSI-199" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-236" value="&lt;font&gt;rico:occurredAtDate&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-200" vertex="1" connectable="0">
+          <mxGeometry x="-0.2812" y="-1" relative="1" as="geometry">
+            <mxPoint x="47" y="20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-126" value="&amp;lt;https://burgerbib.ch/EventTypes/Burial&amp;gt;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="390" y="2820" width="350" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-143" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontFamily=Arial;fontSize=18;entryX=0.5;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-132" target="uDEteLiTxk0n7zJ6qiSI-120" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-480" y="2300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-145" value="rico:isOrWasIdentifierOf" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-143" vertex="1" connectable="0">
+          <mxGeometry x="-0.4249" y="-2" relative="1" as="geometry">
+            <mxPoint x="26" y="-76" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-216" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=Arial;fontSize=18;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-132" target="uDEteLiTxk0n7zJ6qiSI-214" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-235" value="&lt;font&gt;rico:normalizedValue&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-216" vertex="1" connectable="0">
+          <mxGeometry x="-0.0445" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-132" value="https://burgerbib.ch/identifiers/&quot;ARK&quot;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="-800" y="3190" width="370" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-144" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-135" target="uDEteLiTxk0n7zJ6qiSI-120" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-146" value="rico:isOrWasIdentifierOf" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-144" vertex="1" connectable="0">
+          <mxGeometry x="-0.6529" y="1" relative="1" as="geometry">
+            <mxPoint x="-53" y="-138" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-217" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-135" target="uDEteLiTxk0n7zJ6qiSI-211" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-234" value="&lt;font&gt;rico:normalizedValue&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-217" vertex="1" connectable="0">
+          <mxGeometry x="0.4488" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-135" value="https://burgerbib.ch/identifiers/scope:&quot;ID-Nr.&quot;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="-410" y="3190" width="390" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-147" value="" style="group;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="120" y="2460" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-148" value="&quot;Beschreibung&quot;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-147" vertex="1">
+          <mxGeometry width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-149" value="Datatype: xsd:String" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-147" vertex="1">
+          <mxGeometry y="30" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-153" value="" style="group;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="120" y="2370" width="350" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-154" value="&quot;ID-Name (Geburtsdatum-Todesdatum)&quot;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-153" vertex="1">
+          <mxGeometry width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-155" value="Datatype: xsd:String" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-153" vertex="1">
+          <mxGeometry y="30" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-156" value="" style="group;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="120" y="2640" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-157" value="&quot;Geburtsdatum&quot;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-156" vertex="1">
+          <mxGeometry width="250.00000000000003" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-158" value="Datatype: xsd:date" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-156" vertex="1">
+          <mxGeometry y="30" width="250.00000000000003" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-173" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Arial;fontSize=18;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-172" target="uDEteLiTxk0n7zJ6qiSI-125" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-174" value="rico:hasEventType" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-173" vertex="1" connectable="0">
+          <mxGeometry x="-0.0812" y="-1" relative="1" as="geometry">
+            <mxPoint x="17" y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-172" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="120" y="3090" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-177" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Arial;fontSize=18;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-175" target="uDEteLiTxk0n7zJ6qiSI-126" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="270" y="2940" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-178" value="rico:hasEventType" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-177" vertex="1" connectable="0">
+          <mxGeometry x="0.4247" y="2" relative="1" as="geometry">
+            <mxPoint x="-42" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-175" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="120" y="2830" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-183" value="" style="group;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="120" y="2730" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-184" value="&quot;Todesdatum&quot;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-183" vertex="1">
+          <mxGeometry width="250.00000000000003" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-185" value="Datatype: xsd:date" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-183" vertex="1">
+          <mxGeometry y="30" width="250.00000000000003" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-209" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-191" target="uDEteLiTxk0n7zJ6qiSI-207" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-233" value="rdfs:label" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=18;fontFamily=Arial;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-209" vertex="1" connectable="0">
+          <mxGeometry x="-0.1462" relative="1" as="geometry">
+            <mxPoint x="2" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-191" value="&amp;lt;https://burgerbib.ch/demographicgroups/&quot;SexFemale OR SexMale&quot;&amp;gt;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="120" y="3300" width="600" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-194" value="" style="group;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="120" y="2550" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-195" value="&quot;ID-Name&quot;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-194" vertex="1">
+          <mxGeometry width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-196" value="Datatype: xsd:String" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-194" vertex="1">
+          <mxGeometry y="30" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-197" value="" style="group;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="390" y="2970" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-198" value="&quot;Begräbnisdatum&quot;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-197" vertex="1">
+          <mxGeometry width="250.00000000000003" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-199" value="Datatype: xsd:date" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-197" vertex="1">
+          <mxGeometry y="30" width="250.00000000000003" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-201" value="" style="group;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="390" y="3210" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-202" value="&quot;Taufdatum&quot;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-201" vertex="1">
+          <mxGeometry width="250.00000000000003" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-203" value="Datatype: xsd:date" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-201" vertex="1">
+          <mxGeometry y="30" width="250.00000000000003" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-206" value="" style="group;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="295" y="3447" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-207" value="&quot;Geschlecht&quot;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-206" vertex="1">
+          <mxGeometry width="250.00000000000003" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-208" value="Datatype: xsd:String" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-206" vertex="1">
+          <mxGeometry y="30" width="250.00000000000003" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-210" value="" style="group;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="-385" y="3320" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-211" value="&quot;ID-Nr.&quot;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-210" vertex="1">
+          <mxGeometry width="340.00000000000006" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-212" value="Datatype: xsd:nonNegativeInteger" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-210" vertex="1">
+          <mxGeometry y="30" width="340.00000000000006" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-213" value="" style="group;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="-740" y="3320" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-214" value="&quot;ARK&quot;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-213" vertex="1">
+          <mxGeometry width="250.00000000000003" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-215" value="Datatype: xsd:String" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=Arial;fontSize=18;" parent="uDEteLiTxk0n7zJ6qiSI-213" vertex="1">
+          <mxGeometry y="30" width="250.00000000000003" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-219" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=1;fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-120" target="uDEteLiTxk0n7zJ6qiSI-120" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-650" y="2620" />
+              <mxPoint x="-650" y="2500" />
+              <mxPoint x="-460" y="2500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-220" value="&lt;div&gt;rico:hasChild&lt;br&gt;[Kind]&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-219" vertex="1" connectable="0">
+          <mxGeometry x="0.2326" y="-4" relative="1" as="geometry">
+            <mxPoint x="-5" y="6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-221" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=1;fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-120" target="uDEteLiTxk0n7zJ6qiSI-120" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-720" y="2620" />
+              <mxPoint x="-720" y="2420" />
+              <mxPoint x="-460" y="2420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-222" value="&lt;div&gt;rico:hasOrHadSpouse&lt;br&gt;[Ehepartner / Ehepartnerin]&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-221" vertex="1" connectable="0">
+          <mxGeometry x="-0.0169" y="-2" relative="1" as="geometry">
+            <mxPoint x="82" y="14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-223" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=1;fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="1" source="uDEteLiTxk0n7zJ6qiSI-120" target="uDEteLiTxk0n7zJ6qiSI-120" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-780" y="2620" />
+              <mxPoint x="-780" y="2350" />
+              <mxPoint x="-460" y="2350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uDEteLiTxk0n7zJ6qiSI-224" value="&amp;lt;https://burgerbib.ch/relations/hasOrHadLifePartner&amp;gt;&lt;br&gt;[Lebenspartner / Lebenspartnerin]" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=18;labelBackgroundColor=#FFFFFF;" parent="uDEteLiTxk0n7zJ6qiSI-223" vertex="1" connectable="0">
+          <mxGeometry x="0.347" y="1" relative="1" as="geometry">
+            <mxPoint x="-39" y="21" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

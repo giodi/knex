@@ -1,0 +1,13 @@
+
+# pixi environments
+.pixi
+*.egg-info
+
+# qlever files
+*.ttl
+*.stxxl
+*.index*
+*.vocabulary*
+*.meta-data.json
+*.server-log.txt
+*.settings.json

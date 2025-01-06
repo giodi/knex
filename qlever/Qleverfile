@@ -1,0 +1,23 @@
+[data]
+NAME              = Deskriptoren
+DESCRIPTION       = Deskriptoren der Burgerbibliothek Bern
+TEXT_DESCRIPTION  = Enthält Personendeskriptoren der Burgerbibliothek Bern, welche anhand der RiC-O modelliert sind.
+
+[index]
+INPUT_FILES     = agents_expanded.ttl
+CAT_INPUT_FILES = cat ${INPUT_FILES}
+SETTINGS_JSON   = { "ascii-prefixes-only": false, "num-triples-per-batch": 100000 }
+
+[server]
+PORT               = 7019
+ACCESS_TOKEN       = ${data:NAME}_7643543846_yBT78gwAdHMR
+MEMORY_FOR_QUERIES = 5G
+CACHE_MAX_SIZE     = 2G
+TIMEOUT            = 30s
+
+[runtime]
+SYSTEM = docker
+IMAGE  = docker.io/adfreiburg/qlever:latest
+
+[ui]
+UI_CONFIG = BBB
