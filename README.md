@@ -3,7 +3,7 @@ Dieses Projekt wurde im Rahmen des Moduls «Knowledge Engineering and Extraction
 
 ## Projektstruktur
 - data-factory: Enthält den Programmcode, welcher für das Aggregieren und Aufbereiten des RDF-Datensatzes.
-- qlever: Konfigurationsdateien für den RDF-Triple-Store und SPARQL-Engine Qlever.
+- qlever: Konfigurationsdateien für den RDF-Triple-Store / das SPARQL-Engine «[Qlever](https://github.com/ad-freiburg/qlever)».
 - webapp: Enthält Programmcode der Webapplikation für das explorieren des RDF-Datensatzes.
 - docs: Dokumentationen zum Projekt (Präsentation, Bericht, Diagramme)
 
