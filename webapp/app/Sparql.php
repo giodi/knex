@@ -12,7 +12,7 @@ class Sparql
     public static function get(string $query): ?array
     {
 
-        $endpoint = 'http://localhost:7019/?query=';
+        $endpoint = env('QLEVER_URL', 'http://localhost:7019/?query=');
         $request = $endpoint.urlencode($query);
         $get = Http::get($request);
 
