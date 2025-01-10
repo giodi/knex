@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0" version="26.0.4">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0" version="26.0.4" pages="2">
   <diagram name="Seite-1" id="Fh3o327mbMo_3nkY4QW4">
     <mxGraphModel dx="796" dy="1107" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="light-dark(#13171f, #121212)" math="0" shadow="0">
       <root>
@@ -129,6 +129,143 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="rk8Oe00xCAcymTSaSZzT-5" value="&lt;div&gt;Abfrage Metagrid API&lt;/div&gt;&lt;div&gt;[TCP]&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;fontColor=light-dark(#ffffff, #ededed);labelBackgroundColor=#13171F;" parent="rk8Oe00xCAcymTSaSZzT-4" vertex="1" connectable="0">
+          <mxGeometry x="-0.037" relative="1" as="geometry">
+            <mxPoint x="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="kzD1AV3YNQLLHYj1P6X-" name="Seite-2">
+    <mxGraphModel dx="1549" dy="948" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BeuyoDY-F5J9U9UKxqlo-1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;dashPattern=12 12;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;strokeColor=#000000;" edge="1" parent="1" source="BeuyoDY-F5J9U9UKxqlo-3" target="BeuyoDY-F5J9U9UKxqlo-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BeuyoDY-F5J9U9UKxqlo-2" value="besucht Webseite&lt;br&gt;[HTTPS]" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;fontColor=#000000;labelBackgroundColor=default;" vertex="1" connectable="0" parent="BeuyoDY-F5J9U9UKxqlo-1">
+          <mxGeometry x="-0.1101" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <object placeholders="1" c4Name="Benutzer:in" c4Type="Person" c4Description="Person welche recherchiert." label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#fff&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="BeuyoDY-F5J9U9UKxqlo-3">
+          <mxCell style="html=1;fontSize=11;dashed=0;whiteSpace=wrap;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;shape=mxgraph.c4.person2;align=center;metaEdit=1;points=[[0.5,0,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0]];resizable=0;fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;" vertex="1" parent="1">
+            <mxGeometry x="80" y="290" width="200" height="180" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="SPARQL Engine" c4Type="Container" c4Technology="Qlever" c4Description="RDF Triple Store und Endpoint&lt;br&gt; für SPARQL-Anfragen." label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%:&amp;nbsp;%c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#FFF&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="BeuyoDY-F5J9U9UKxqlo-4">
+          <mxCell style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;metaEdit=1;points=[[0.5,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.5,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];resizable=0;fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;" vertex="1" parent="1">
+            <mxGeometry x="840" y="310" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Deskriptorenportal" c4Type="Container" c4Technology="Apache Echarts, Pico CSS" c4Description="Bietet Möglichkeit zur Exploration und Visualisierung des RDF-Datensatzes." label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%:&amp;nbsp;%c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#fff&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="BeuyoDY-F5J9U9UKxqlo-5">
+          <mxCell style="shape=mxgraph.c4.webBrowserContainer2;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;strokeColor=#118ACD;fillColor=#23A2D9;strokeColor=#118ACD;strokeColor2=#0E7DAD;fontSize=12;fontColor=#ffffff;align=center;metaEdit=1;points=[[0.5,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.5,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];resizable=0;fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;" vertex="1" parent="1">
+            <mxGeometry x="460" y="490" width="240" height="160" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="BeuyoDY-F5J9U9UKxqlo-6" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;dashPattern=12 12;fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;strokeColor=#000000;" edge="1" parent="1" source="BeuyoDY-F5J9U9UKxqlo-10" target="BeuyoDY-F5J9U9UKxqlo-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BeuyoDY-F5J9U9UKxqlo-7" value="Liefert an den Browser &lt;br&gt;der Benutzer:innen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;fontColor=#000000;labelBackgroundColor=default;" vertex="1" connectable="0" parent="BeuyoDY-F5J9U9UKxqlo-6">
+          <mxGeometry x="-0.0118" y="-2" relative="1" as="geometry">
+            <mxPoint x="3" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BeuyoDY-F5J9U9UKxqlo-8" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;dashPattern=12 12;fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;strokeColor=#000000;" edge="1" parent="1" source="BeuyoDY-F5J9U9UKxqlo-10" target="BeuyoDY-F5J9U9UKxqlo-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BeuyoDY-F5J9U9UKxqlo-9" value="SPARQL-Abfragen &lt;br&gt;&lt;div&gt;[TCP]&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;fontColor=#000000;labelBackgroundColor=default;" vertex="1" connectable="0" parent="BeuyoDY-F5J9U9UKxqlo-8">
+          <mxGeometry x="-0.2714" y="-2" relative="1" as="geometry">
+            <mxPoint x="21" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <object placeholders="1" c4Name="Webapplikation" c4Type="Container" c4Technology="PHP (Laravel)" c4Description="Verarbeitung der Benutzer:innenanfragen." label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#fff&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="BeuyoDY-F5J9U9UKxqlo-10">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;" vertex="1" parent="1">
+            <mxGeometry x="460" y="310" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Webapplikation" c4Type="SystemScopeBoundary" c4Application="Software System" label="&lt;font color=&quot;#000&quot; style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Name%&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;font color=&quot;#000&quot;&gt;[%c4Application%]&lt;/font&gt;&lt;/div&gt;" id="BeuyoDY-F5J9U9UKxqlo-11">
+          <mxCell style="rounded=1;fontSize=11;whiteSpace=wrap;html=1;dashed=1;arcSize=20;fillColor=none;strokeColor=#000000;fontColor=#333333;labelBackgroundColor=none;align=left;verticalAlign=bottom;labelBorderColor=none;spacingTop=0;spacing=10;dashPattern=8 4;metaEdit=1;rotatable=0;perimeter=rectanglePerimeter;noLabel=0;labelPadding=0;allowArrows=0;connectable=0;expand=0;recursiveResize=0;editable=1;pointerEvents=0;absoluteArcSize=1;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;" vertex="1" parent="1">
+            <mxGeometry x="440" y="290" width="660" height="420" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="BeuyoDY-F5J9U9UKxqlo-12" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;exitX=1;exitY=0.75;exitDx=0;exitDy=0;exitPerimeter=0;fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;strokeColor=#000000;" edge="1" parent="1" source="BeuyoDY-F5J9U9UKxqlo-3" target="BeuyoDY-F5J9U9UKxqlo-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BeuyoDY-F5J9U9UKxqlo-13" value="Führt Recherchen durch" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;labelBackgroundColor=default;fontColor=light-dark(#000000,#121212);" vertex="1" connectable="0" parent="BeuyoDY-F5J9U9UKxqlo-12">
+          <mxGeometry x="-0.1256" y="-3" relative="1" as="geometry">
+            <mxPoint x="3" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <object placeholders="1" c4Name="Data-Factory" c4Type="SystemScopeBoundary" c4Application="Software System" label="&lt;font style=&quot;font-size: 16px&quot; color=&quot;#000&quot;&gt;&lt;b&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Name%&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;font color=&quot;#000&quot;&gt;[%c4Application%]&lt;/font&gt;&lt;/div&gt;" id="BeuyoDY-F5J9U9UKxqlo-14">
+          <mxCell style="rounded=1;fontSize=11;whiteSpace=wrap;html=1;dashed=1;arcSize=20;fillColor=none;strokeColor=#000000;fontColor=#333333;labelBackgroundColor=none;align=left;verticalAlign=bottom;labelBorderColor=none;spacingTop=0;spacing=10;dashPattern=8 4;metaEdit=1;rotatable=0;perimeter=rectanglePerimeter;noLabel=0;labelPadding=0;allowArrows=0;connectable=0;expand=0;recursiveResize=0;editable=1;pointerEvents=0;absoluteArcSize=1;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;" vertex="1" parent="1">
+            <mxGeometry x="28" y="828" width="942" height="300" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="RDBMS" c4Type="Container" c4Technology="DuckDB" c4Description="Speicher für aggregierte Daten." label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%:&amp;nbsp;%c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#FFF&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="BeuyoDY-F5J9U9UKxqlo-15">
+          <mxCell style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;metaEdit=1;points=[[0.5,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.5,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];resizable=0;fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;" vertex="1" parent="1">
+            <mxGeometry x="48" y="918" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="BeuyoDY-F5J9U9UKxqlo-16" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;dashPattern=12 12;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;strokeColor=#000000;strokeWidth=1;endSize=12;" edge="1" parent="1" source="BeuyoDY-F5J9U9UKxqlo-18" target="BeuyoDY-F5J9U9UKxqlo-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BeuyoDY-F5J9U9UKxqlo-17" value="Schreibt in Datenbank" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=default;fontColor=#000000;fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;" vertex="1" connectable="0" parent="BeuyoDY-F5J9U9UKxqlo-16">
+          <mxGeometry x="-0.0412" relative="1" as="geometry">
+            <mxPoint x="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <object placeholders="1" c4Name="sling.py" c4Type="Container" c4Technology="Sling" c4Description="Datenformatmigration (CSV zu DuckDB)." label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#fff&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="BeuyoDY-F5J9U9UKxqlo-18">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;" vertex="1" parent="1">
+            <mxGeometry x="453" y="848" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="BeuyoDY-F5J9U9UKxqlo-19" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;dashPattern=12 12;fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;strokeColor=light-dark(#000000,#EDEDED);" edge="1" parent="1" source="BeuyoDY-F5J9U9UKxqlo-21" target="BeuyoDY-F5J9U9UKxqlo-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BeuyoDY-F5J9U9UKxqlo-20" value="&lt;div&gt;Versendet Suchanfragen&lt;/div&gt;&lt;div&gt;[TCP]&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000;labelBackgroundColor=default;" vertex="1" connectable="0" parent="BeuyoDY-F5J9U9UKxqlo-19">
+          <mxGeometry x="-0.175" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <object placeholders="1" c4Name="scraper.py" c4Type="Container" c4Technology="Python (Polars, BeautifoulSoup)" c4Description="Web Scraping Deskriptorrelationen." label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#fff&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="BeuyoDY-F5J9U9UKxqlo-21">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;" vertex="1" parent="1">
+            <mxGeometry x="710" y="988" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="converter.py" c4Type="Container" c4Technology="Python (Polars, RDFLib)" c4Description="Konvertiert aggregierte Daten&lt;br&gt; in RDF-Datensatz." label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#fff&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="BeuyoDY-F5J9U9UKxqlo-22">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;" vertex="1" parent="1">
+            <mxGeometry x="452" y="988" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="reasoner.py" c4Type="Container" c4Technology="Python (OWL-RL)" c4Description="Inferenzbildung" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#fff&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="BeuyoDY-F5J9U9UKxqlo-23">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;" vertex="1" parent="1">
+            <mxGeometry x="710" y="848" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Archivkatalog BBB" c4Type="Webseite" c4Description="Deskriptorensuche im Online-Archivkatalog&lt;br&gt; der Burgerbibliothek Bern." label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#fff&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="BeuyoDY-F5J9U9UKxqlo-24">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;" vertex="1" parent="1">
+            <mxGeometry x="710" y="1189" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Metagrid API" c4Type="REST-API" c4Description="Metagrid Widget." label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#fff&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="BeuyoDY-F5J9U9UKxqlo-25">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;" vertex="1" parent="1">
+            <mxGeometry x="40" y="510" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="BeuyoDY-F5J9U9UKxqlo-26" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;strokeColor=#000000;endSize=12;" edge="1" parent="1" source="BeuyoDY-F5J9U9UKxqlo-15" target="BeuyoDY-F5J9U9UKxqlo-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BeuyoDY-F5J9U9UKxqlo-27" value="Liest Datenbank" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000;labelBackgroundColor=default;fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;" vertex="1" connectable="0" parent="BeuyoDY-F5J9U9UKxqlo-26">
+          <mxGeometry x="-0.0345" y="1" relative="1" as="geometry">
+            <mxPoint x="2" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BeuyoDY-F5J9U9UKxqlo-28" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;strokeColor=#000000;" edge="1" parent="1" source="BeuyoDY-F5J9U9UKxqlo-5" target="BeuyoDY-F5J9U9UKxqlo-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BeuyoDY-F5J9U9UKxqlo-29" value="&lt;div&gt;Abfrage Metagrid API&lt;/div&gt;&lt;div&gt;[TCP]&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Archivo;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchivo;fontColor=light-dark(#000000,#EDEDED);labelBackgroundColor=default;" vertex="1" connectable="0" parent="BeuyoDY-F5J9U9UKxqlo-28">
           <mxGeometry x="-0.037" relative="1" as="geometry">
             <mxPoint x="-8" as="offset" />
           </mxGeometry>
